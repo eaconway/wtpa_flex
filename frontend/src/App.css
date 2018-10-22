@@ -30,3 +30,14 @@
     transform: rotate(360deg);
   }
 }
+
+.header {
+  height: 80px;
+  border-bottom: 1px solid	#D8D8D8;
+
+}
+
+.home-logo-comp{
+  display: flex;
+  flex-direction: row;
+}

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { logoutUser } from '../../util/session_api_util';
-import HomePage from './home_page';
+import HomeLogo from './home_logo';
 
 const mapStateToProps = ({ session }) => {
     return {
@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(HomePage);
+)(HomeLogo);

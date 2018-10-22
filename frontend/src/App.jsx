@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import HomePageContainer from './components/home_page/home_page_container';
+import HomeLogoContainer from './components/home_logo/home_logo_container';
 import { Switch, Route } from "react-router-dom";
 
 // class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component{
     return (
       <div>
         <header className={'header'}>
-          <Route path="/" component={HomePageContainer} />
+          <Route path="/" component={HomeLogoContainer} />
         </header>
       </div>
     )
