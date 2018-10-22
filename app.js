@@ -1,5 +1,5 @@
 const express = require('express');
-const path = require("path");
+// const path = require("path");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
@@ -33,10 +33,10 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(passport.initialize());
 
-app.get('/', (req, res) => res.send("Running concurrently") );
-app.get('/test', (req, res) => res.send("test page") );
+app.get('/', (req, res) => res.send("backend server"));
+// app.get('/test', (req, res) => res.send("test page") );
 
 app.use('/api/users', users);
 app.use("/api/parties", parties);
 
-app.listen(3000, () => console.log('ready'));
+app.listen(5000, () => console.log('ready'));
