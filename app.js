@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require("path");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
@@ -14,10 +15,17 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// mongoose 
-//   .connect(db)
-//   .then(() => console.log("Connected to MongoDB successfully"))
-//   .catch(err => console.log(err));
+mongoose 
+.connect(db)
+.then(() => console.log("Connected to MongoDB successfully"))
+.catch(err => console.log(err));
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+    app.get('/', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    })
+}
 
 // app.use((req,res) => {
 //     debugger
@@ -25,7 +33,7 @@ app.use(bodyParser.json());
 
 app.use(passport.initialize());
 
-app.get('/', (req, res) => res.send("Hello World") );
+app.get('/', (req, res) => res.send("Running concurrently") );
 app.get('/test', (req, res) => res.send("test page") );
 
 app.use('/api/users', users);
