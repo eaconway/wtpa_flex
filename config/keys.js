@@ -4,5 +4,4 @@
 
 module.exports = {
     mongoURI: 'mongodb://gostudentgo:gostudentgo1@ds055709.mlab.com:55709/partytime',
-
 }
