@@ -12,7 +12,7 @@ const sessionReducer = (state = _nullUser, action) => {
         case RECEIVE_CURRENT_USER:
             return {
                 id: action.payload.id,
-                handle: action.payload.handle,
+                name: action.payload.name,
                 email: action.payload.email
             };
         default:

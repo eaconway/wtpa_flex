@@ -36,12 +36,13 @@ router.post("/register", (req, res) => {
                     newUser
                         .save()
                         .then(user => {
-                            const payload = { id: user.id, name: user.name };
+                            const payload = { id: user.id, name: user.name, email: user.email };
 
                             jsonwebtoken.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                                 res.json({
                                     success: true,
-                                    token: "Bearer " + token
+                                    token: "Bearer " + token,
+                                    payload
                                 });
                             });
                         })
@@ -71,12 +72,14 @@ router.post("/login", (req, res) => {
 
         bcrypt.compare(password, user.password).then(isMatch => {
             if (isMatch) {
-                const payload = { id: user.id, email: user.email };
+                const payload = { id: user.id, email: user.email, name: user.name };
 
-                jsonwebtoken.sign(payload, keys.secretOrKeys, { expiresIn: 3600 }, (err, token) => {
+                jsonwebtoken.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                    console.log(token);
                     res.json({
                         success: true,
-                        token: "Bearer " + token
+                        token: "Bearer " + token,
+                        payload
                     });
                 });
             } else {

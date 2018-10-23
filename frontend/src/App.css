@@ -55,15 +55,24 @@ textarea, button {
   }
 }
 
+/* Font Family for entire site */
+div h1 h2 h3 h3 p span {
+  font-family: 'Source Sans Pro';
+}
+
+.hidden {
+  display: none;
+}
+
 .header {
   height: 80px;
-  border-bottom: 1px solid	#D8D8D8;
+  /* border-bottom: 1px solid	#D8D8D8; */
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.5);
   color: #FFFFFF;
   /* padding: 10px 50px; */
@@ -74,7 +83,7 @@ textarea, button {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-left: 50px;
+  margin-left: 15px;
   /* padding: 10px 50px; */
 }
 
@@ -84,20 +93,49 @@ textarea, button {
   margin: 10px 30px;
 }
 
+.nav-search{
+  width: 300px;
+  height: 35px;
+  background-color: none;
+  border: 2px solid rgba(163, 3, 163, 0.486);
+  margin-left: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 5px;
+}
+
+.search-input{
+  width: 250px;
+  height: 100%;
+  padding: 0px 10px;
+  margin-left: 10px;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  background: none;
+  color: white;
+}
+
+.search-input:focus{
+  outline: none;
+  /* background-color: rgba(255, 255, 255, 0.561) */
+}
+
+.search-icon {
+  color: white;
+  font-size: 26px;
+}
+
 .nav-bar-list{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin-right: 50px;
+  margin-right: 15px;
   /* border: 1px solid red; */
   height: 80px;
-  width: 200px;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: white;
+  width: 7%;
 }
 
 .root {
@@ -447,4 +485,175 @@ textarea, button {
 .clicked-button {
   color: #f6f7f6 !important;
   background-color: #00bc66 !important;
+
+.nav-link{
+  text-decoration: none;
+  color: black;
+  width: 95%;
+  height: 50%;
+  padding: 0% 5%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link:hover{
+  color: white;
+  background-color: purple;
+}
+
+.user-icon-div{
+  height: 100%;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-icon{
+  font-size: 40px;
+}
+
+.user-icon:hover{
+  color:purple
+}
+
+.user-options {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 120px;
+  height: 80px;
+  background-color: white;
+  border: 1px solid black;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/* MODAL STYLING */
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.modal-close{
+  font-size: 18px;
+  font-weight: normal;
+  // margin-bottom: 0px;
+  border: none;
+  color: grey;
+  text-align: left;
+  position: fixed;
+  top: 45px;
+}
+
+/* User login */
+
+.session-form {
+  background-color: white;
+  height: 500px;
+  width: 500px;
+  border-radius: 5px;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-header{
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: purple;
+}
+
+.form-input {
+  width: 94%;
+  height: 45px;
+  border-radius: 5px;
+  border: 1px solid #D8D8D8;
+  margin: 15px 0px;
+  font-size: 18px;
+  padding: 0% 3%;
+}
+
+.submit-button{
+  border: 2px solid purple;
+  color: purple;
+  width: 100%;
+  font-weight: 500;
+}
+
+.submit-button:hover{
+  border: 2px solid black;
+  color: white;
+  background-color: purple;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.demo-button {
+  width: 50%;
+  height: 45px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: 2px solid rgb(30, 144, 197);
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 0% 3%;
+}
+
+.demo-button:hover{
+  border: 2px solid purple;
+  color: white;
+  background-color: rgb(30, 144, 197);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.switch-form {
+  font-size: 18px;
+}
+
+.switch-form:hover{
+  cursor:pointer;
+  color: purple;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.switch-form-span{
+  font-size: 18px;
+  margin: 0 auto;
+  margin-top: 15px;
+
+.map-div {
+  position: fixed;
+  top: 100px;
+}
+
+#map {
+  width: 1000px;
+  height: 250px;
+}
+
+#events {
+    height: 250px;
+    overflow-y: scroll;
+
 }
