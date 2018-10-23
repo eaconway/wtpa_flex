@@ -47,4 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, root);
     // registerServiceWorker();
+
+    window.registerUser = APIUtil.registerUser;
+    window.loginUser = APIUtil.loginUser;
+    window.logoutUser = APIUtil.logoutUser;
+    window.getState = store.getState;
+    window.dispatch = store.dispatch;
+
 });

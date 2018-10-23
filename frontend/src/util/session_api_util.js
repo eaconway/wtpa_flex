@@ -23,7 +23,8 @@ export const registerUser = (userData, history) => dispatch => {
         .post('/api/users/register', userData)
         .then(res => {
             // Save to localStorage
-            const { token } = res.data;
+            debugger
+            const { token, payload } = res.data;
             // Set token to ls
             localStorage.setItem('jwtToken', token);
             // Set token to Auth header
@@ -31,7 +32,7 @@ export const registerUser = (userData, history) => dispatch => {
             // Decode token to get user data
             const decoded = jwt_decode(token);
             // Set current user
-            dispatch(setCurrentUser(decoded));
+            dispatch(setCurrentUser(Object.assigns({}, decoded, payload)));
         })
         .catch(err =>
             dispatch({
@@ -47,7 +48,7 @@ export const loginUser = userData => dispatch => {
         .post('/api/users/login', userData)
         .then(res => {
             // Save to localStorage
-            const { token } = res.data;
+            const { token, payload } = res.data;
             // Set token to ls
             localStorage.setItem('jwtToken', token);
             // Set token to Auth header
@@ -55,7 +56,8 @@ export const loginUser = userData => dispatch => {
             // Decode token to get user data
             const decoded = jwt_decode(token);
             // Set current user
-            dispatch(setCurrentUser(decoded));
+            debugger
+            dispatch(setCurrentUser(Object.assigns({}, decoded, payload )));
         })
         .catch(err =>
             dispatch({
@@ -66,7 +68,7 @@ export const loginUser = userData => dispatch => {
 };
 
 // Set logged in user
-export const setCurrentUser = decoded => {
+export const setCurrentUser = (decoded) => {
     return {
         type: RECEIVE_CURRENT_USER,
         payload: decoded
