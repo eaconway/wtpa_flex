@@ -60,7 +60,7 @@ router.post("/login", (req, res) => {
     if (!isValid) {
         return res.status(400).json(errors);
     }
-    
+
     const email = req.body.email;
     const password = req.body.password;
 
@@ -74,7 +74,8 @@ router.post("/login", (req, res) => {
             if (isMatch) {
                 const payload = { id: user.id, email: user.email, name: user.name };
 
-                jsonwebtoken.sign(payload, keys.secretOrKeys, { expiresIn: 3600 }, (err, token) => {
+                jsonwebtoken.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                    console.log(token);
                     res.json({
                         success: true,
                         token: "Bearer " + token,
