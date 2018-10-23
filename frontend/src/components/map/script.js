@@ -1,4 +1,6 @@
-
+/*global x*/
+/*global google*/
+/*global $*/
 export const getLocation = () => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -8,13 +10,12 @@ export const getLocation = () => {
     }
 }
 export const showPosition = (position) => {
-    debugger
     let x = document.getElementById("location");
     x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
 
     let latlon = position.coords.latitude + "," + position.coords.longitude;
 
-    window.$.ajax({
+    $.ajax({
       type: "GET",
       url:
         "https://app.ticketmaster.com/discovery/v2/events.json?apikey=BHFjDGKYYBYl65HYDBYWgVEt2IV7Thnc&latlong=" +
@@ -55,9 +56,7 @@ export const showError = (error) => {
 
 export const showEvents = (json) => {
     for (let i = 0; i < json.page.size; i++) {
-        window
-          .$("#events")
-          .append("<p>" + json._embedded.events[i].name + "</p>");
+        $("#events").append("<p>" + json._embedded.events[i].name + "</p>");
     }
 }
 
@@ -75,8 +74,11 @@ export const initMap = (position, json) => {
 
 export const addMarker = (map, event) => {
     let marker = new google.maps.Marker({
-        position: new google.maps.LatLng(event._embedded.venues[0].location.latitude, event._embedded.venues[0].location.longitude),
-        map: map
+        position: new google.maps.LatLng(
+        event._embedded.venues[0].location.latitude,
+        event._embedded.venues[0].location.longitude
+      ),
+      map: map
     });
     marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
     console.log(marker);
