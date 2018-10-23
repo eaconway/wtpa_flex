@@ -76,3 +76,13 @@
     text-decoration: none;
     color: white;
   }
+
+.map-div {
+  position: fixed;
+  top: 100px;
+}
+
+#map {
+  width: 1500px;
+  height: 500px;
+}
