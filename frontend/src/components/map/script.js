@@ -55,7 +55,9 @@ export const showError = (error) => {
 
 export const showEvents = (json) => {
     for (let i = 0; i < json.page.size; i++) {
-        $("#events").append("<p>" + json._embedded.events[i].name + "</p>");
+        window
+          .$("#events")
+          .append("<p>" + json._embedded.events[i].name + "</p>");
     }
 }
 
