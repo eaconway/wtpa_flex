@@ -34,10 +34,45 @@
 .header {
   height: 80px;
   border-bottom: 1px solid	#D8D8D8;
-
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  position: absolute;
+  /* padding: 10px 50px; */
 }
 
 .home-logo-comp{
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 50px;
+  /* padding: 10px 50px; */
 }
+
+.home-logo{
+  width: 50px;
+  height: 50px;
+  margin: 10px 30px;
+}
+
+.nav-bar-list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 50px;
+  /* border: 1px solid red; */
+  height: 80px;
+  width: 200px;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: white;
+  }
