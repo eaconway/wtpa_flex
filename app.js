@@ -6,6 +6,8 @@ const db = require('./config/keys').mongoURI;
 
 const users = require('./routes/api/users');
 const parties = require("./routes/api/parties");
+const ratings = require("./routes/api/ratings");
+const messages = require("./routes/api/messages");
 
 const passport = require("passport");
 require("./config/passport")(passport);
@@ -38,5 +40,7 @@ app.get('/', (req, res) => res.send("backend server"));
 
 app.use('/api/users', users);
 app.use("/api/parties", parties);
+app.use("/api/ratings", ratings);
+// app.use("/api/messages", messages);
 
 app.listen(5000, () => console.log('ready'));
