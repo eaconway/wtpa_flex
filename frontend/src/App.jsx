@@ -13,6 +13,7 @@ import ChangePassword from './components/profile/change_password';
 
 import MapContainer from "./components/map/map_container";
 import Modal from "./components/session/modal";
+import partyNavContainer from "./components/party/party_nav/party_nav_container";
 
 class App extends Component{
   render() {
@@ -28,9 +29,9 @@ class App extends Component{
         <Route exact path="/account/change-email" component={ChangeEmailContainer} />
         <Route exact path='/account/change-password' component={ChangePasswordContainer} />
         <Route path="/" component={MapContainer} />
-        {/* <Route
+        <Route
           component={partyNavContainer}
-          path="/parties/:partyId/details" /> */}
+          path="/parties/:partyId/details" />
 
       </div>;
   }
