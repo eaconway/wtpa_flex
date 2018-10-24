@@ -51,32 +51,28 @@ document.addEventListener("DOMContentLoaded", () => {
       // Redirect to login
       window.location.href = "/login";
     }
-<<<<<<< HEAD
+  }
+  
     
     window.socket = window.io();
     
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, root);
     // registerServiceWorker();
-=======
-  }
-
-  // Testing
-  window.store = store;
-  window.dispatch = store.dispatch;
-  window.getState = store.getState;
-  window.geocoder = geocoder;
-  window.searchArtist = searchArtist;
-  window.searchCities = searchCities;
-  window.searchCitieState = searchCitieState;
-  window.TestTour = TestTour;
->>>>>>> c2be1ff19799619979553c543b9de92ea5a2003b
 
   window.registerUser = APIUtil.registerUser;
   window.loginUser = APIUtil.loginUser;
   window.logoutUser = APIUtil.logoutUser;
 
-<<<<<<< HEAD
+    window.store = store;
+    window.dispatch = store.dispatch;
+    window.getState = store.getState;
+    window.geocoder = geocoder;
+    window.searchArtist = searchArtist;
+    window.searchCities = searchCities;
+    window.searchCitieState = searchCitieState;
+    window.TestTour = TestTour;
+
     // console.log(`this is the socket: ${window.socket}`);
 
     // window.socket.on('chat message', function (msg) {
@@ -90,9 +86,3 @@ document.addEventListener("DOMContentLoaded", () => {
 // });
 
 // console.log(`this is the socket: ${window.socket}`);
-=======
-  const root = document.getElementById("root");
-  ReactDOM.render(<Root store={store} />, root);
-  // registerServiceWorker();
-});
->>>>>>> c2be1ff19799619979553c543b9de92ea5a2003b

@@ -71,7 +71,7 @@ io.on('connection', function (socket) {
             });
     
             newMessage.save();
-            io.emit("chat message", payload.message);
+            io.emit("chat message", payload.body);
         }
     
     });

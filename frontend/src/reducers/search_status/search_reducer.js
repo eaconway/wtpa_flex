@@ -1,8 +1,7 @@
-import { SEARCH_TEXT } from "../../actions/venue_actions";
+import { SEARCH_TEXT } from "../../actions/events_actions";
 
 const searchReducer = (state = "", action) => {
   Object.freeze(state);
-  action;
   let newState;
 
   switch (action.type) {

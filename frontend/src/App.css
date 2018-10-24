@@ -490,6 +490,7 @@ div h1 h2 h3 h3 p span {
 .clicked-button {
   color: #f6f7f6 !important;
   background-color: #00bc66 !important;
+}
 
 .nav-link{
   text-decoration: none;
@@ -556,7 +557,7 @@ div h1 h2 h3 h3 p span {
 .modal-close{
   font-size: 18px;
   font-weight: normal;
-  // margin-bottom: 0px;
+  margin-bottom: 0px;
   border: none;
   color: grey;
   text-align: left;
@@ -646,11 +647,16 @@ div h1 h2 h3 h3 p span {
   font-size: 18px;
   margin: 0 auto;
   margin-top: 15px;
-<<<<<<< HEAD
 }
 
 /* * { margin: 0; padding: 0; box-sizing: border-box; } */
 /* body { font: 13px Helvetica, Arial; } */
+
+.chat-room-section{
+  /* width: 100%;
+  height: 400px; */
+}
+
 .chat-room { 
   background: #000; 
   padding: 3px; 
@@ -660,16 +666,21 @@ div h1 h2 h3 h3 p span {
   display: flex;
   flex-direction: row;
 }
-.chat-room input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+.chat-room input { 
+  border: 0; 
+  padding: 10px; 
+  width: 90%; 
+  margin-right: .5%; 
+  background-color: white;
+}
 .chat-room button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
 #messages { list-style-type: none; margin: 0; padding: 0; }
 #messages li { padding: 5px 10px; }
 #messages li:nth-child(odd) { background: #eee; }
-=======
 
 .map-div {
-  position: fixed;
-  top: 100px;
+  /* position: fixed; */
+  /* top: 100px; */
 }
 
 #map {
@@ -682,4 +693,3 @@ div h1 h2 h3 h3 p span {
     overflow-y: scroll;
 
 }
->>>>>>> c2be1ff19799619979553c543b9de92ea5a2003b

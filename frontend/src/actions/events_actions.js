@@ -4,9 +4,10 @@ export const CHANGE_DATE = "CHANGE_DATE";
 export const SEARCH_TEXT = "SEARCH_TEXT";
 export const RECEIVE_SEARCH_ERRORS = "RECEIVE_SEARCH_ERRORS";
 
-export const edSheeranTour = () => dispatch => {
-  TMUtil.edSheeranTour().then(res => dispatch(receiveVenues(res)));
-};
+// export const edSheeranTour = () => dispatch => {
+//   TMUtil.edSheeranTour().then(res => dispatch(receiveVenues(res)));
+// };
+
 export const searchArtist = artistName => dispatch => {
   TMUtil.searchArtist(artistName).then(
     res => dispatch(receiveVenues(res)),

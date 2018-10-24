@@ -14,6 +14,7 @@ class ChatRoom extends React.Component {
 
     componentDidMount() {
         window.socket.on('chat message', msg => {
+            console.log(msg)
             let messages = this.state.messages;
             messages.push(<li>{msg}</li>);
             this.setState({messages});
@@ -36,7 +37,7 @@ class ChatRoom extends React.Component {
     }
     render(){
         return (
-            <div>
+            <div className='chat-room-section'>
                 <ul id="messages">
                     {this.state.messages}
                 </ul>

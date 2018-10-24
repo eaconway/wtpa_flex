@@ -1,4 +1,4 @@
-import { HIGHLIGHT_MARKER, REMOVE_HIGHLIGHT_MARKER } from "../actions/map_actions";
+import { HIGHLIGHT_MARKER, REMOVE_HIGHLIGHT_MARKER } from "../../actions/map_actions";
 
 const highlightedReducer = (state = {}, action) => {
     Object.freeze(state);
