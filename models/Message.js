@@ -6,6 +6,10 @@ const MessageSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "users"
     },
+    party: {
+        type: Schema.Types.ObjectId,
+        ref: "parties"
+    },
     body: {
         type: String,
         required: true 

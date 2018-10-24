@@ -43,7 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = '/login';
         }
     }
-
+    
+    window.socket = window.io();
+    
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, root);
     // registerServiceWorker();
@@ -54,4 +56,16 @@ document.addEventListener('DOMContentLoaded', () => {
     window.getState = store.getState;
     window.dispatch = store.dispatch;
 
+    // console.log(`this is the socket: ${window.socket}`);
+
+    // window.socket.on('chat message', function (msg) {
+    //     console.log(msg)
+    // });
+
 });
+
+// window.socket.on('chat message', function (msg) {
+//     console.log(msg)
+// });
+
+// console.log(`this is the socket: ${window.socket}`);
