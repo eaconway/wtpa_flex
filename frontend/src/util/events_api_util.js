@@ -3,7 +3,7 @@ const key = "AS61CrvUrl6XtTCpJhJb43RZWNt50k2G";
 
 export const TestTour = () =>
   fetch(
-    `https://app.ticketmaster.com/discovery/v2/events?apikey=AS61CrvUrl6XtTCpJhJb43RZWNt50k2G&keyword=ed%20sheeran&countryCode=US`
+    `https://app.tTicketmaster.com/discovery/v2/events?apikey=AS61CrvUrl6XtTCpJhJb43RZWNt50k2G&keyword=ed%20sheeran&countryCode=US`
   ).then(res => {
     return res.json();
   });
