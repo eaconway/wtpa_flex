@@ -30,3 +30,12 @@ export const searchCitieState = (city, state, date, tomorrow) =>
     ).then(res => {
         return res.json();
     });
+
+export const fetchNearbyEvents = ({latlon, radius, fromDate, thruDate}) => dispatch => {
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=${key}&latlong=${latlon}&radius=${radius}&fromDate=${fromDate}&thruDate=${thruDate}`).then(
+           res => {
+             dispatch(setCurrentUser(Object.assign({}, decoded, payload)));
+             return res.json();
+           }
+         );
+        }

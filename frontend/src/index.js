@@ -17,6 +17,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import jwt_decode from 'jwt-decode';
 import * as APIUtil from './util/session_api_util';
+import * as APITicketfly from './util/events_api_util';
 //Components
 import configureStore from './store/store';
 // import App from './App.jsx';
@@ -54,5 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.logoutUser = APIUtil.logoutUser;
     window.getState = store.getState;
     window.dispatch = store.dispatch;
+    
+    window.fetchNearbyEvents = APITicketfly.fetchNearbyEvents;
 
 });

@@ -31,7 +31,7 @@ class App extends Component{
         <Route path="/" component={MapContainer} />
         <Route
           component={partyNavContainer}
-          path="/parties/:partyId/details" />
+          path="/:partyId" />
 
       </div>;
   }

@@ -4,7 +4,7 @@ import PartyNav from "./party_nav";
 import { closeDetails, receiveDropdown } from '../../../actions/ui_actions';
 
 const mapStateToProps = (state, ownProps) => {
-    const party = state.entities.partys[ownProps.match.params.partyId] || {};
+    const party = state.entities.parties[ownProps.match.params.partyId] || {};
     return {
         party: party,
         currentUser: state.session.currentUser,
