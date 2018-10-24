@@ -1,3 +1,27 @@
+html, body, header, nav, h1, a, ul, li, strong, main, button, i, section, img, div, h2, p, form, fieldset, label, input, textarea, span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+  font-family: 'Source Sans Pro';
+}
+
+input[type='password'],
+input[type='email'],
+input[type='text'],
+input[type='submit'],
+textarea, button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
 .App {
   text-align: center;
 }
@@ -56,7 +80,6 @@ div h1 h2 h3 h3 p span {
   background-color: rgba(0, 0, 0, 0.9);
   box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.5);
   color: #FFFFFF;
-  position: absolute;
   /* padding: 10px 50px; */
 }
 
@@ -119,6 +142,354 @@ div h1 h2 h3 h3 p span {
   height: 80px;
   width: 7%;
 }
+
+.root {
+  height: 1000px;
+}
+
+.header-avatar {
+  height: 1000px;
+}
+
+.avatar-position {
+  height: 170px;
+  width: 170px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.avatar-section {
+  width: 100%;
+  height: 170px;
+  float: left;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.users-name {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  float: left;
+  font-size: 40px;
+}
+
+.users-location {
+  height: 40px;
+  float: left;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.users-name-field {
+  align-items: center;
+  height: 40px;
+  float: left;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.users-name-field input {
+  width: 470px;
+  height: 75%;
+  font-size: 14px;
+}
+
+.input-field-divider {
+  height: 10px;
+  width: 100%;
+  display: block;
+  float: left;
+}
+
+.thingsilove-field {
+  align-items: center;
+  height: 130px;
+  float: left;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.thingsilove-field textarea {
+  resize: none;
+  width: 470px;
+  height: 95%;
+  font-size: 14px;
+}
+
+.update-profile {
+  height: 1200px;
+}
+
+.update-profile-inner {
+  height: 1100px;
+  padding: 60px 20px 60px 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.update-profile-inner-inner {
+  height: 1100px;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.update-profile-left-sidebar {
+  height: 289px;
+  width: 223px;
+  padding: 0 20px 0 20px;
+  float: left;
+}
+
+.update-profile-left-sidebar button {
+  height: 19px;
+  padding: 15px;
+  border-bottom: 1px solid white;
+  width: 193px;
+  display: flex;
+  align-items: center;
+  background-color: #f6f7f6;
+  color: #00bc66;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 17px;
+}
+
+.update-profile-right {
+  width: 848px;
+  height: 1000px;
+  padding: 0 20px 0 20px;
+  float: left;
+}
+
+.update-profile-right h1 {
+  height: 38px;
+  font-size: 40px;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+.update-profile-right p {
+  font-size: 17px;
+  height: 19px;
+  margin-top: 40px;
+}
+
+.update-profile-right form {
+  height: 654px;
+  margin-top: 40px;
+}
+
+.name-location-input-field {
+  width: 816px;
+  height: 654px;
+  margin: 0 -20px 0 -20px;
+}
+
+.name-location-input-inner {
+  height: 654px;
+  padding: 0 20px 0 20px;
+}
+
+.name-field {
+  height: 56px;
+}
+
+.name-field-title {
+  height: 21px;
+}
+
+.name-field-title label {
+  width: 457px;
+  font-weight: bold;
+  float: left;
+  margin-bottom: 3px;
+}
+
+.bio-field label {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.name-field-title span {
+  font-size: 13px;
+  margin-bottom: 2px;
+  color: #D9534E;
+  font-style: italic;
+  float: left;
+  font-family: Verdana;
+}
+
+.name-field-input {
+  height: 34px;
+  width: 518px;
+}
+
+.name-field-input input {
+  width: 489px;
+  height: 20px;
+  padding: 6px 12px 6px 12px;
+  border: 1px solid #ccc;
+  color: #333;
+  border-radius: 3px;
+}
+
+.thingsilove-field-input input {
+  width: 490px;
+  height: 20px;
+  padding: 6px 12px 6px 12px;
+  border: 1px solid #ccc;
+  color: #333;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.location-field {
+  height: 73px;
+  margin-top: 20px;
+}
+
+.confirm-new-password {
+  height: 73px;
+  margin-top: 4px;
+}
+
+.dark-grey {
+  color: #333;
+  font-family: Verdana;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.phonenumber-field {
+  margin-top: 20px;
+}
+
+.bio-field {
+  margin-top: 20px;
+}
+
+.bio-field label {
+  display: block;
+}
+
+.bio-field textarea {
+  height: 100px;
+  resize: none;
+  width: 490px;
+  padding: 6px 12px 6px 12px;
+  border: 1px solid #ccc;
+  color: #333;
+  border-radius: 3px;
+}
+
+.update-profile-save {
+  width: 776px;
+  height: 37px;
+  margin-top: 20px;
+}
+
+.update-profile-save button {
+  height: 14px;
+  width: 32px;
+  padding: 10px 14px 17px 14px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  color: white;
+  background-color: #00bc66;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.change-email-address {
+  width: 776px;
+  height: 37px;
+  margin-top: 20px;
+}
+
+.change-email-address button {
+  height: 14px;
+  width: 172px;
+  padding: 10px 14px 17px 14px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  color: white;
+  background-color: #00bc66;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.update-delete-divider {
+  margin: 40px 0 20px 0;
+  border-top: 1px solid #eee;
+}
+
+.delete-my-account {
+  width: 776px;
+  height: 164px;
+  margin-top: 40px;
+}
+
+.delete-my-account h2 {
+  height: 28px;
+  font-size: 28px;
+  font-weight: 400;
+  margin-top: 39px;
+}
+
+.delete-my-account p {
+  font-size: 17px;
+  height: 19px;
+  margin-top: 40px;
+}
+
+.delete-my-account-button {
+  height: 37px;
+  margin-top: 40px;
+}
+
+.delete-my-account-button button {
+  width: 152px;
+  height: 14px;
+  padding: 10px 14px 17px 14px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  color: white;
+  background-color: #d9534f;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.change-my-password {
+  height: 37px;
+  margin-top: 40px;
+}
+
+.change-my-password button {
+  width: 162px;
+  height: 14px;
+  padding: 10px 14px 17px 14px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  color: white;
+  background-color: #00bc66;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clicked-button {
+  color: #f6f7f6 !important;
+  background-color: #00bc66 !important;
 
 .nav-link{
   text-decoration: none;
@@ -275,6 +646,7 @@ div h1 h2 h3 h3 p span {
   font-size: 18px;
   margin: 0 auto;
   margin-top: 15px;
+<<<<<<< HEAD
 }
 
 /* * { margin: 0; padding: 0; box-sizing: border-box; } */
@@ -293,3 +665,21 @@ div h1 h2 h3 h3 p span {
 #messages { list-style-type: none; margin: 0; padding: 0; }
 #messages li { padding: 5px 10px; }
 #messages li:nth-child(odd) { background: #eee; }
+=======
+
+.map-div {
+  position: fixed;
+  top: 100px;
+}
+
+#map {
+  width: 1000px;
+  height: 250px;
+}
+
+#events {
+    height: 250px;
+    overflow-y: scroll;
+
+}
+>>>>>>> c2be1ff19799619979553c543b9de92ea5a2003b
