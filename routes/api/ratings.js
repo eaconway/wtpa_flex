@@ -46,8 +46,10 @@ router.get("/:id", (req, res) => {
 
 // NOT CURRENTLY UPDATING
 router.patch("/:id", (req, res) => {
-    Rating.findOneAndUpdate({ id: req.params.id }, req.body)
+    console.log(req.body);
+    Rating.updateOne({ _id: req.params.id }, req.body)
         .then(rating => {
+            
             console.log(rating);
             res.json(rating);
         })

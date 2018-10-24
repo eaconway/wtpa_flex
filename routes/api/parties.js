@@ -53,7 +53,7 @@ router.get("/:id", (req, res) => {
 
 router.patch("/:id", (req, res) => {
   console.log(req.body);
-  Party.findOneAndUpdate({ id: req.params.id }, req.body)
+  Party.findOneAndUpdate({ _id: req.params.id }, req.body)
     .then(party => res.json(party))
     .catch(err =>
       res.status(404).json({ nopartyfound: "No party found with that ID" })
