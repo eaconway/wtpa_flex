@@ -56,11 +56,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // Testing
   window.store = store;
   window.dispatch = store.dispatch;
+  window.getState = store.getState;
   window.geocoder = geocoder;
   window.searchArtist = searchArtist;
   window.searchCities = searchCities;
   window.searchCitieState = searchCitieState;
   window.TestTour = TestTour;
+
+  window.registerUser = APIUtil.registerUser;
+  window.loginUser = APIUtil.loginUser;
+  window.logoutUser = APIUtil.logoutUser;
 
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);

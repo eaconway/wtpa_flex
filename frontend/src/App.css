@@ -1,3 +1,27 @@
+html, body, header, nav, h1, a, ul, li, strong, main, button, i, section, img, div, h2, p, form, fieldset, label, input, textarea, span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+  font-family: 'Source Sans Pro';
+}
+
+input[type='password'],
+input[type='email'],
+input[type='text'],
+input[type='submit'],
+textarea, button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
 .App {
   text-align: center;
 }
@@ -31,18 +55,26 @@
   }
 }
 
+/* Font Family for entire site */
+div h1 h2 h3 h3 p span {
+  font-family: 'Source Sans Pro';
+}
+
+.hidden {
+  display: none;
+}
+
 .header {
   height: 80px;
-  border-bottom: 1px solid	#D8D8D8;
+  /* border-bottom: 1px solid	#D8D8D8; */
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.5);
   color: #FFFFFF;
-  position: absolute;
   /* padding: 10px 50px; */
 }
 
@@ -51,7 +83,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-left: 50px;
+  margin-left: 15px;
   /* padding: 10px 50px; */
 }
 
@@ -61,21 +93,554 @@
   margin: 10px 30px;
 }
 
+.nav-search{
+  width: 300px;
+  height: 35px;
+  background-color: none;
+  border: 2px solid rgba(163, 3, 163, 0.486);
+  margin-left: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 5px;
+}
+
+.search-input{
+  width: 250px;
+  height: 100%;
+  padding: 0px 10px;
+  margin-left: 10px;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  background: none;
+  color: white;
+}
+
+.search-input:focus{
+  outline: none;
+  /* background-color: rgba(255, 255, 255, 0.561) */
+}
+
+.search-icon {
+  color: white;
+  font-size: 26px;
+}
+
 .nav-bar-list{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin-right: 50px;
+  margin-right: 15px;
   /* border: 1px solid red; */
   height: 80px;
-  width: 200px;
+  width: 7%;
 }
 
+.root {
+  height: 1000px;
+}
+
+.header-avatar {
+  height: 1000px;
+}
+
+.avatar-position {
+  height: 170px;
+  width: 170px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.avatar-section {
+  width: 100%;
+  height: 170px;
+  float: left;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.users-name {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  float: left;
+  font-size: 40px;
+}
+
+.users-location {
+  height: 40px;
+  float: left;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.users-name-field {
+  align-items: center;
+  height: 40px;
+  float: left;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.users-name-field input {
+  width: 470px;
+  height: 75%;
+  font-size: 14px;
+}
+
+.input-field-divider {
+  height: 10px;
+  width: 100%;
+  display: block;
+  float: left;
+}
+
+.thingsilove-field {
+  align-items: center;
+  height: 130px;
+  float: left;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.thingsilove-field textarea {
+  resize: none;
+  width: 470px;
+  height: 95%;
+  font-size: 14px;
+}
+
+.update-profile {
+  height: 1200px;
+}
+
+.update-profile-inner {
+  height: 1100px;
+  padding: 60px 20px 60px 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.update-profile-inner-inner {
+  height: 1100px;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.update-profile-left-sidebar {
+  height: 289px;
+  width: 223px;
+  padding: 0 20px 0 20px;
+  float: left;
+}
+
+.update-profile-left-sidebar button {
+  height: 19px;
+  padding: 15px;
+  border-bottom: 1px solid white;
+  width: 193px;
+  display: flex;
+  align-items: center;
+  background-color: #f6f7f6;
+  color: #00bc66;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 17px;
+}
+
+.update-profile-right {
+  width: 848px;
+  height: 1000px;
+  padding: 0 20px 0 20px;
+  float: left;
+}
+
+.update-profile-right h1 {
+  height: 38px;
+  font-size: 40px;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+.update-profile-right p {
+  font-size: 17px;
+  height: 19px;
+  margin-top: 40px;
+}
+
+.update-profile-right form {
+  height: 654px;
+  margin-top: 40px;
+}
+
+.name-location-input-field {
+  width: 816px;
+  height: 654px;
+  margin: 0 -20px 0 -20px;
+}
+
+.name-location-input-inner {
+  height: 654px;
+  padding: 0 20px 0 20px;
+}
+
+.name-field {
+  height: 56px;
+}
+
+.name-field-title {
+  height: 21px;
+}
+
+.name-field-title label {
+  width: 457px;
+  font-weight: bold;
+  float: left;
+  margin-bottom: 3px;
+}
+
+.bio-field label {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.name-field-title span {
+  font-size: 13px;
+  margin-bottom: 2px;
+  color: #D9534E;
+  font-style: italic;
+  float: left;
+  font-family: Verdana;
+}
+
+.name-field-input {
+  height: 34px;
+  width: 518px;
+}
+
+.name-field-input input {
+  width: 489px;
+  height: 20px;
+  padding: 6px 12px 6px 12px;
+  border: 1px solid #ccc;
+  color: #333;
+  border-radius: 3px;
+}
+
+.thingsilove-field-input input {
+  width: 490px;
+  height: 20px;
+  padding: 6px 12px 6px 12px;
+  border: 1px solid #ccc;
+  color: #333;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.location-field {
+  height: 73px;
+  margin-top: 20px;
+}
+
+.confirm-new-password {
+  height: 73px;
+  margin-top: 4px;
+}
+
+.dark-grey {
+  color: #333;
+  font-family: Verdana;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.phonenumber-field {
+  margin-top: 20px;
+}
+
+.bio-field {
+  margin-top: 20px;
+}
+
+.bio-field label {
+  display: block;
+}
+
+.bio-field textarea {
+  height: 100px;
+  resize: none;
+  width: 490px;
+  padding: 6px 12px 6px 12px;
+  border: 1px solid #ccc;
+  color: #333;
+  border-radius: 3px;
+}
+
+.update-profile-save {
+  width: 776px;
+  height: 37px;
+  margin-top: 20px;
+}
+
+.update-profile-save button {
+  height: 14px;
+  width: 32px;
+  padding: 10px 14px 17px 14px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  color: white;
+  background-color: #00bc66;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.change-email-address {
+  width: 776px;
+  height: 37px;
+  margin-top: 20px;
+}
+
+.change-email-address button {
+  height: 14px;
+  width: 172px;
+  padding: 10px 14px 17px 14px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  color: white;
+  background-color: #00bc66;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.update-delete-divider {
+  margin: 40px 0 20px 0;
+  border-top: 1px solid #eee;
+}
+
+.delete-my-account {
+  width: 776px;
+  height: 164px;
+  margin-top: 40px;
+}
+
+.delete-my-account h2 {
+  height: 28px;
+  font-size: 28px;
+  font-weight: 400;
+  margin-top: 39px;
+}
+
+.delete-my-account p {
+  font-size: 17px;
+  height: 19px;
+  margin-top: 40px;
+}
+
+.delete-my-account-button {
+  height: 37px;
+  margin-top: 40px;
+}
+
+.delete-my-account-button button {
+  width: 152px;
+  height: 14px;
+  padding: 10px 14px 17px 14px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  color: white;
+  background-color: #d9534f;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.change-my-password {
+  height: 37px;
+  margin-top: 40px;
+}
+
+.change-my-password button {
+  width: 162px;
+  height: 14px;
+  padding: 10px 14px 17px 14px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  color: white;
+  background-color: #00bc66;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clicked-button {
+  color: #f6f7f6 !important;
+  background-color: #00bc66 !important;
+
 .nav-link{
-    text-decoration: none;
-    color: white;
-  }
+  text-decoration: none;
+  color: black;
+  width: 95%;
+  height: 50%;
+  padding: 0% 5%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link:hover{
+  color: white;
+  background-color: purple;
+}
+
+.user-icon-div{
+  height: 100%;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-icon{
+  font-size: 40px;
+}
+
+.user-icon:hover{
+  color:purple
+}
+
+.user-options {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 120px;
+  height: 80px;
+  background-color: white;
+  border: 1px solid black;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/* MODAL STYLING */
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.modal-close{
+  font-size: 18px;
+  font-weight: normal;
+  // margin-bottom: 0px;
+  border: none;
+  color: grey;
+  text-align: left;
+  position: fixed;
+  top: 45px;
+}
+
+/* User login */
+
+.session-form {
+  background-color: white;
+  height: 500px;
+  width: 500px;
+  border-radius: 5px;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-header{
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: purple;
+}
+
+.form-input {
+  width: 94%;
+  height: 45px;
+  border-radius: 5px;
+  border: 1px solid #D8D8D8;
+  margin: 15px 0px;
+  font-size: 18px;
+  padding: 0% 3%;
+}
+
+.submit-button{
+  border: 2px solid purple;
+  color: purple;
+  width: 100%;
+  font-weight: 500;
+}
+
+.submit-button:hover{
+  border: 2px solid black;
+  color: white;
+  background-color: purple;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.demo-button {
+  width: 50%;
+  height: 45px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: 2px solid rgb(30, 144, 197);
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 0% 3%;
+}
+
+.demo-button:hover{
+  border: 2px solid purple;
+  color: white;
+  background-color: rgb(30, 144, 197);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.switch-form {
+  font-size: 18px;
+}
+
+.switch-form:hover{
+  cursor:pointer;
+  color: purple;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.switch-form-span{
+  font-size: 18px;
+  margin: 0 auto;
+  margin-top: 15px;
 
 .map-div {
   position: fixed;
@@ -83,6 +648,12 @@
 }
 
 #map {
-  width: 1500px;
-  height: 500px;
+  width: 1000px;
+  height: 250px;
+}
+
+#events {
+    height: 250px;
+    overflow-y: scroll;
+
 }

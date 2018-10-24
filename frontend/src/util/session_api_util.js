@@ -19,11 +19,12 @@ export const setAuthToken = token => {
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
-    axios
+    return axios
         .post('/api/users/register', userData)
         .then(res => {
             // Save to localStorage
-            const { token } = res.data;
+            debugger
+            const { token, payload } = res.data;
             // Set token to ls
             localStorage.setItem('jwtToken', token);
             // Set token to Auth header
@@ -31,7 +32,7 @@ export const registerUser = (userData, history) => dispatch => {
             // Decode token to get user data
             const decoded = jwt_decode(token);
             // Set current user
-            dispatch(setCurrentUser(decoded));
+            dispatch(setCurrentUser(Object.assign({}, decoded, payload)));
         })
         .catch(err =>
             dispatch({
@@ -43,11 +44,11 @@ export const registerUser = (userData, history) => dispatch => {
 
 // Login - Get User Token
 export const loginUser = userData => dispatch => {
-    axios
+    return axios
         .post('/api/users/login', userData)
         .then(res => {
             // Save to localStorage
-            const { token } = res.data;
+            const { token, payload } = res.data;
             // Set token to ls
             localStorage.setItem('jwtToken', token);
             // Set token to Auth header
@@ -55,18 +56,20 @@ export const loginUser = userData => dispatch => {
             // Decode token to get user data
             const decoded = jwt_decode(token);
             // Set current user
-            dispatch(setCurrentUser(decoded));
+            dispatch(setCurrentUser(Object.assign({}, decoded, payload )));
         })
-        .catch(err =>
-            dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-            })
-        );
+        .catch(err =>{
+            return (
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                })
+            )
+        });
 };
 
 // Set logged in user
-export const setCurrentUser = decoded => {
+export const setCurrentUser = (decoded) => {
     return {
         type: RECEIVE_CURRENT_USER,
         payload: decoded

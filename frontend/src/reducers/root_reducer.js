@@ -4,11 +4,13 @@ import ui from "./ui/ui_root_reducer";
 import selectedMarker from "./selected_marker/selected_marker_reducer";
 import searchStatus from "./search_status/search_root_reducer";
 import events from "./events/events_root_reducer";
+import errorsReducer from './errors/errors_reducer';
 
 export default combineReducers({
   session,
   ui,
   selectedMarker,
   searchStatus,
-  events
+  events,
+  errors: errorsReducer
 });
