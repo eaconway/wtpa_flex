@@ -53,23 +53,37 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "/login";
     }
   }
-
-  // Testing
-  window.store = store;
-  window.dispatch = store.dispatch;
-  window.getState = store.getState;
-  window.geocoder = geocoder;
-  window.searchArtist = searchArtist;
-  window.searchCities = searchCities;
-  window.searchCitieState = searchCitieState;
-  window.TestTour = TestTour;
-  window.fetchNearbyEvents = fetchNearbyEvents;
+  
+    
+    window.socket = window.io();
+    
+    const root = document.getElementById('root');
+    ReactDOM.render(<Root store={store} />, root);
+    // registerServiceWorker();
 
   window.registerUser = APIUtil.registerUser;
   window.loginUser = APIUtil.loginUser;
   window.logoutUser = APIUtil.logoutUser;
 
-  const root = document.getElementById("root");
-  ReactDOM.render(<Root store={store} />, root);
-  // registerServiceWorker();
+    window.store = store;
+    window.dispatch = store.dispatch;
+    window.getState = store.getState;
+    window.geocoder = geocoder;
+    window.searchArtist = searchArtist;
+    window.searchCities = searchCities;
+    window.searchCitieState = searchCitieState;
+    window.TestTour = TestTour;
+
+    // console.log(`this is the socket: ${window.socket}`);
+
+    // window.socket.on('chat message', function (msg) {
+    //     console.log(msg)
+    // });
+
 });
+
+// window.socket.on('chat message', function (msg) {
+//     console.log(msg)
+// });
+
+// console.log(`this is the socket: ${window.socket}`);

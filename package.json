@@ -31,10 +31,13 @@
     "express": "^4.16.4",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.4",
+    "mongoose-double": "0.0.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "react-router-dom": "^4.3.1",
-    "validator": "^10.8.0"
+    "socket.io": "^2.1.1",
+    "validator": "^10.8.0",
+    "websocket": "^1.0.28"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"

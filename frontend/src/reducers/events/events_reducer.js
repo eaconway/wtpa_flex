@@ -1,7 +1,7 @@
 // Please make sure to differentiate between EVENTS and PARTIES
 import { RECEIVE_GEOCODER, CLEAR_RESULTS } from "../../actions/map_actions";
 
-const resultsReducer = (state = [], action) => {
+const eventsReducer = (state = [], action) => {
   Object.freeze(state);
   let newState;
 

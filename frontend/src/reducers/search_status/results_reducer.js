@@ -1,4 +1,4 @@
-import { RECEIVE_GEOCODER, CLEAR_RESULTS } from "../actions/map_actions";
+import { RECEIVE_GEOCODER, CLEAR_RESULTS } from "../../actions/map_actions";
 
 const resultsReducer = (state = [], action) => {
   Object.freeze(state);

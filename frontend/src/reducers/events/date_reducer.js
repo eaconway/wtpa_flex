@@ -1,4 +1,4 @@
-import { CHANGE_DATE } from "../../actions/venue_actions";
+import { CHANGE_DATE } from "../../actions/events_actions";
 
 const dateReducer = (state = {}, action) => {
   Object.freeze(state);
