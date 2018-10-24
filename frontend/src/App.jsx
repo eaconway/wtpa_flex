@@ -28,6 +28,9 @@ class App extends Component{
         <Route exact path="/account/change-email" component={ChangeEmailContainer} />
         <Route exact path='/account/change-password' component={ChangePasswordContainer} />
         <Route path="/" component={MapContainer} />
+        {/* <Route
+          component={partyNavContainer}
+          path="/parties/:partyId/details" /> */}
 
       </div>;
   }

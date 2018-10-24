@@ -485,6 +485,7 @@ div h1 h2 h3 h3 p span {
 .clicked-button {
   color: #f6f7f6 !important;
   background-color: #00bc66 !important;
+}
 
 .nav-link{
   text-decoration: none;
@@ -641,6 +642,7 @@ div h1 h2 h3 h3 p span {
   font-size: 18px;
   margin: 0 auto;
   margin-top: 15px;
+}
 
 .map-div {
   position: fixed;
