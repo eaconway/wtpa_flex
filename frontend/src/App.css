@@ -737,7 +737,6 @@ div h1 h2 h3 h3 p span {
 }
 
 .mapboxgl-canvas {
-  z-index: -1;
   left: 0;
   height: 100%;
   width: 100%;
@@ -777,10 +776,12 @@ div h1 h2 h3 h3 p span {
 }
 
 .left-homepage-sidebar {
+  position: absolute;
   float: left;
   width: 479px;
   height: 1000px;
   background-color: white;
+  z-index: 1;
 }
 
 .left-homepage-sidebar-inner {
