@@ -60,11 +60,6 @@ div h1 h2 h3 h3 p span {
   font-family: 'Source Sans Pro';
 }
 
-.main-section {
-  position: relative;
-  top: 200px;
-}
-
 .hidden {
   display: none;
 }
@@ -143,7 +138,7 @@ div h1 h2 h3 h3 p span {
   margin-right: 15px;
   /* border: 1px solid red; */
   height: 80px;
-  width: 3%;
+  width: 7%;
 }
 
 .root {
@@ -510,9 +505,9 @@ div h1 h2 h3 h3 p span {
   background-color: purple;
 }
 
-.user-icon-div{
+.user-icon-div {
   height: 100%;
-  width: 100px;
+  width: 210px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -686,8 +681,8 @@ div h1 h2 h3 h3 p span {
 #messages li:nth-child(odd) { background: #eee; }
 
 #map {
-  width: 1000px;
-  height: 250px;
+  width: 1078px;
+  height: 740px;
 }
 
 #events {
@@ -830,4 +825,16 @@ div h1 h2 h3 h3 p span {
   height: 1000px;
   background-color: white;
   float: left;
+}
+
+.signin-login {
+  width: 130px;
+}
+
+.signup-header-link {
+  margin-right: 10px;
+}
+
+.login-header-link {
+
 }

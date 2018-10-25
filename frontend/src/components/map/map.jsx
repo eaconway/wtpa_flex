@@ -38,7 +38,6 @@ class Map extends React.Component {
 
     render() {
         return <div className="map-div">
-            <p id="location">location there</p>
             <div id="map" />
             <div id="events" />
           </div>;

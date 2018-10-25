@@ -20,17 +20,18 @@ class NavBar extends React.Component{
     }
 
     render () {
+        let rightProfile = '';
+        if (this.props.currentUser.id != null) {
+            rightProfile = <img className='header-icon' src={require('../../images/header/profile.jpg')} onClick={this.toggleUserOptions} />;
+        } else {
+            rightProfile = <img />
+        }
         return <ul className="nav-bar-list">
             <div className="user-icon-div">
-            <img className='header-icon' src={require('../../images/header/profile.jpg')} onClick={this.toggleUserOptions} />
-            </div>
-            <div className={`${this.state.userOptions} user-options`}>
-              <div onClick={() => this.props.openModal("login")} className={"nav-link"}>
-                Login
-              </div>
-              <div onClick={() => this.props.openModal("signup")} className={"nav-link"}>
-                Signup
-              </div>
+                <div className='signin-login'>
+                    <span className='signup-header-link'>Sign up</span>
+                    <span className='login-header-link'>Log in</span>
+                </div>
             </div>
           </ul>;
     }

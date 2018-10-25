@@ -31,8 +31,6 @@ class App extends Component{
           <Route path="/" component={NavBarContainer} />
         </header>
         <main className='main-section'>
-          <Link to='/party/5bcf6482ffb3ee129aef1e23'>Switch to party page</Link>
-          <Link to='/'>Back to home</Link>
           <Route path="/" component={LeftSidebarContainer} />
           <Route path="/" component={LeftSidebarModalContainer} />
           <Route exact path="/profile" component={ProfileContainer} />

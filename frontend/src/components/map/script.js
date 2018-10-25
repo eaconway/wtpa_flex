@@ -15,7 +15,7 @@ export const getLocation = () => {
 }
 export const showPosition = (position) => {
     let x = document.getElementById("location");
-    x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+    // x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
 
     let latlon = position.coords.latitude + "," + position.coords.longitude;
     // Note:
