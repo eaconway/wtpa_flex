@@ -1,5 +1,6 @@
 import React from 'react';
 import * as ReactDOM from "react-dom";
+import './chat.css';
 // import SocketIOFileUpload from "socketio-file-upload";
 
 class ChatRoom extends React.Component {

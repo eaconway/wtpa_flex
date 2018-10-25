@@ -1,0 +1,20 @@
+.map-div {
+  /* position: fixed; */
+  /* top: 100px; */
+}
+
+#map {
+  width: 1078px;
+  height: 740px;
+}
+
+#events {
+    height: 250px;
+    overflow-y: scroll;
+}
+
+.mapboxgl-canvas {
+  left: 0;
+  height: 100%;
+  width: 100%;
+}

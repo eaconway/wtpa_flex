@@ -1,4 +1,30 @@
-html, body, header, nav, h1, a, ul, li, strong, main, button, i, section, img, div, h2, p, form, fieldset, label, input, textarea, span, article, footer, time, small {
+html,
+body,
+header,
+nav,
+h1,
+a,
+ul,
+li,
+strong,
+main,
+button,
+i,
+section,
+img,
+div,
+h2,
+p,
+form,
+fieldset,
+label,
+input,
+textarea,
+span,
+article,
+footer,
+time,
+small {
   margin: 0;
   padding: 0;
   border: 0;
@@ -10,14 +36,15 @@ html, body, header, nav, h1, a, ul, li, strong, main, button, i, section, img, d
   vertical-align: inherit;
   box-sizing: inherit;
   background: transparent;
-  font-family: 'Source Sans Pro';
+  font-family: "Source Sans Pro";
 }
 
-input[type='password'],
-input[type='email'],
-input[type='text'],
-input[type='submit'],
-textarea, button {
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -55,14 +82,14 @@ textarea, button {
   }
 }
 
+
 /* Font Family for entire site */
 div h1 h2 h3 h3 p span {
-  font-family: 'Source Sans Pro';
+  font-family: "Source Sans Pro";
 }
 
 .main-section {
   position: relative;
-  top: 200px;
 }
 
 .hidden {
@@ -70,8 +97,11 @@ div h1 h2 h3 h3 p span {
 }
 
 .header {
-  height: 80px;
-  /* border-bottom: 1px solid	#D8D8D8; */
+  height: 0;
+}
+
+.main-header-inner {
+  height: 50px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -79,26 +109,56 @@ div h1 h2 h3 h3 p span {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.9);
   box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.5);
-  color: #FFFFFF;
+  color: #ffffff;
   /* padding: 10px 50px; */
 }
 
-.home-logo-comp{
+
+
+/* -------------------------------   */
+/* -------------------------------   */
+
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+
+
+/* -------------------------------   */
+/* -------------------------------   */
+
+
+.home-logo-comp {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   margin-left: 15px;
   /* padding: 10px 50px; */
+  background-color: #222;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  color: #ffffff;
 }
 
-.home-logo{
+.header-icon {
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.margin-left {
+  margin-left: 25px;
+}
+
+.home-logo {
   width: 50px;
   height: 50px;
   margin: 10px 30px;
 }
 
-.nav-search{
+.nav-search {
   width: 300px;
   height: 35px;
   background-color: none;
@@ -108,31 +168,31 @@ div h1 h2 h3 h3 p span {
   flex-direction: row;
   align-items: center;
   padding: 0px 5px;
+  border-radius: 3px;
 }
 
-.search-input{
+.search-input {
   width: 250px;
   height: 100%;
-  padding: 0px 10px;
   margin-left: 10px;
-  font-size: 18px;
+  font-size: 14px;
   outline: none;
   border: none;
   background: none;
-  color: white;
+  color: #222;
 }
 
-.search-input:focus{
+.search-input:focus {
   outline: none;
   /* background-color: rgba(255, 255, 255, 0.561) */
 }
 
 .search-icon {
-  color: white;
-  font-size: 26px;
+  color: #222;
+  font-size: 16px;
 }
 
-.nav-bar-list{
+.nav-bar-list {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -140,7 +200,7 @@ div h1 h2 h3 h3 p span {
   margin-right: 15px;
   /* border: 1px solid red; */
   height: 80px;
-  width: 7%;
+  width: 10%;
 }
 
 .root {
@@ -150,6 +210,21 @@ div h1 h2 h3 h3 p span {
 .header-avatar {
   height: 1000px;
 }
+
+
+
+/* -------------------------------   */
+/* -------------------------------   */
+
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+
+
+/* -------------------------------   */
+/* -------------------------------   */
 
 .avatar-position {
   height: 170px;
@@ -257,7 +332,7 @@ div h1 h2 h3 h3 p span {
   align-items: center;
   background-color: #f6f7f6;
   color: #00bc66;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 17px;
 }
 
@@ -320,7 +395,7 @@ div h1 h2 h3 h3 p span {
 .name-field-title span {
   font-size: 13px;
   margin-bottom: 2px;
-  color: #D9534E;
+  color: #d9534e;
   font-style: italic;
   float: left;
   font-family: Verdana;
@@ -399,7 +474,7 @@ div h1 h2 h3 h3 p span {
   height: 14px;
   width: 32px;
   padding: 10px 14px 17px 14px;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
   color: white;
   background-color: #00bc66;
   border-radius: 3px;
@@ -418,7 +493,7 @@ div h1 h2 h3 h3 p span {
   height: 14px;
   width: 172px;
   padding: 10px 14px 17px 14px;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
   color: white;
   background-color: #00bc66;
   border-radius: 3px;
@@ -460,7 +535,7 @@ div h1 h2 h3 h3 p span {
   width: 152px;
   height: 14px;
   padding: 10px 14px 17px 14px;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
   color: white;
   background-color: #d9534f;
   border-radius: 3px;
@@ -478,7 +553,7 @@ div h1 h2 h3 h3 p span {
   width: 162px;
   height: 14px;
   padding: 10px 14px 17px 14px;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
   color: white;
   background-color: #00bc66;
   border-radius: 3px;
@@ -492,7 +567,21 @@ div h1 h2 h3 h3 p span {
   background-color: #00bc66 !important;
 }
 
-.nav-link{
+
+/* -------------------------------   */
+/* -------------------------------   */
+
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+
+
+/* -------------------------------   */
+/* -------------------------------   */
+
+.nav-link {
   text-decoration: none;
   color: black;
   width: 95%;
@@ -502,25 +591,25 @@ div h1 h2 h3 h3 p span {
   align-items: center;
 }
 
-.nav-link:hover{
+.nav-link:hover {
   color: white;
   background-color: purple;
 }
 
-.user-icon-div{
+.user-icon-div {
   height: 100%;
-  width: 100px;
+  width: 210px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.user-icon{
+.user-icon {
   font-size: 40px;
 }
 
-.user-icon:hover{
-  color:purple
+.user-icon:hover {
+  color: purple;
 }
 
 .user-options {
@@ -553,8 +642,7 @@ div h1 h2 h3 h3 p span {
   transform: translate(-50%, -50%);
 }
 
-
-.modal-close{
+.modal-close {
   font-size: 18px;
   font-weight: normal;
   margin-bottom: 0px;
@@ -578,7 +666,7 @@ div h1 h2 h3 h3 p span {
   justify-content: center;
 }
 
-.form-header{
+.form-header {
   margin: 0 auto;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -590,7 +678,7 @@ div h1 h2 h3 h3 p span {
   width: 94%;
   height: 45px;
   border-radius: 5px;
-  border: 1px solid #D8D8D8;
+  border: 1px solid #d8d8d8;
   margin: 15px 0px;
   font-size: 18px;
   padding: 0% 3%;
@@ -599,14 +687,14 @@ div h1 h2 h3 h3 p span {
   align-items: center;
 }
 
-.submit-button{
+.submit-button {
   border: 2px solid purple;
   color: purple;
   /* width: 100%; */
   font-weight: 500;
 }
 
-.submit-button:hover{
+.submit-button:hover {
   border: 2px solid black;
   color: white;
   background-color: purple;
@@ -629,7 +717,7 @@ div h1 h2 h3 h3 p span {
   align-items: center;
 }
 
-.demo-button:hover{
+.demo-button:hover {
   border: 2px solid purple;
   color: white;
   background-color: rgb(30, 144, 197);
@@ -642,160 +730,471 @@ div h1 h2 h3 h3 p span {
   font-size: 18px;
 }
 
-.switch-form:hover{
-  cursor:pointer;
+.switch-form:hover {
+  cursor: pointer;
   color: purple;
   font-size: 20px;
   font-weight: 600;
 }
 
-.switch-form-span{
+.switch-form-span {
   font-size: 18px;
   margin: 0 auto;
   margin-top: 15px;
 }
 
-
+.map-div {
+  float: left;
+  top: 100px;
+}
 /* * { margin: 0; padding: 0; box-sizing: border-box; } */
 /* body { font: 13px Helvetica, Arial; } */
 
-.chat-room-section{
-  width: 40.5%;
-  height: 400px;
-  /* border: 3px solid blue; */
-  background-color: grey;
-  border-radius: 5px;
+.chat-room-section {
+  /* width: 100%;
+  height: 400px; */
 }
 
-.chat-room-section h1{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0px;
-  font-size: 20px;
-  font-weight: 500;
-  overflow:   none;
-  position:   relative;
-  background-color: black;
-  border-bottom: 1px solid white;
-  height: 65px;
-  color: white;
-  font-size: 30px;
-}
-
-.chat-room { 
-  background: #000; 
-  padding: 3px; 
-  position: absolute; 
-  bottom: 0; 
-  width: 40%; 
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  border-top: 1px solid grey;
-}
-
-.chat-message-input { 
-  border: 0; 
-  padding: 10px; 
-  width: 90%; 
-  margin-right: .5%; 
-  background-color: none;
-  color: white;
-  border-bottom: 1px solid grey;
-}
-
-.chat-room button { 
-  width: 6%; 
-  border: none; 
-  padding: 10px; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.chat-file-wrapper {
-  position: relative;
-  overflow: hidden;
-  width: 6%;
-  /* border: 1px solid red; */
-}
-
-.chat-file-input {
-  /* border: none;
-  background: none;
+.chat-room {
+  background: #000;
+  padding: 3px;
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  height: auto;
-  border: 1px solid red;
-  opacity: 0; */
-  font-size: 100px;
-  position: absolute;
+  display: flex;
+}
+.chat-room input {
+  border: 0;
+  padding: 10px;
+  width: 90%;
+  margin-right: 0.5%;
+  background-color: white;
+}
+.chat-room button {
+  width: 9%;
+  background: rgb(130, 224, 255);
+  border: none;
+  padding: 10px;
+}
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#messages li {
+  padding: 5px 10px;
+}
+#messages li:nth-child(odd) {
+  background: #eee;
+}
+
+.mapboxgl-canvas {
   left: 0;
-  top: 0;
-  opacity: 0;
+  height: 100%;
+  width: 100%;
 }
 
-.chat-send-icon {
-  color: white;
-  font-size: 25px;
+.chat-room button {
+  width: 9%;
+  background: rgb(130, 224, 255);
+  border: none;
+  padding: 10px;
 }
-
-.chat-file-icon {
-  color: white;
-  font-size: 25px;
-  width: 8%;
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
-
-#messages { 
-  list-style-type: none; 
-  margin: 0; 
-  padding: 0; 
-  overflow: auto;
-  position: absolute;
-  bottom: 47px;
-  width: 40%;
-  max-height: 285px;
-  /* display: table-cell;
-  vertical-align: bottom; */
+#messages li {
+  padding: 5px 10px;
 }
-
-#messages li { 
-  padding: 5px 10px; 
+#messages li:nth-child(odd) {
+  background: #eee;
 }
-
-#messages li:nth-child(odd) { 
-  /* background: #eee; */
- }
-
-.chat-message{
-  margin: 5px;
-  /* border: 1px solid red; */
-  color:white;
-}
-
-.chat-name{
-  color: greenyellow;
-  font-weight: 600;
-}
-
-.image-upload-preview {
-  width: 100px;
-  height: 100px;
-}
-
-.map-div {
-  /* position: fixed; */
-  /* top: 100px; */
 }
 
 #map {
-  width: 1000px;
-  height: 250px;
+  width: 1078px;
+  height: 740px;
 }
 
-#events {
-    height: 250px;
-    overflow-y: scroll;
+/* mapboxgl-canvas-container {
+  width: 3000px;
+  height: 3000px;
+} */
 
+.main-section {
+  width: 100%;
+  height: 100%;
+}
+
+/* .left-homepage-sidebar {
+  position: absolute;
+  float: left;
+  width: 479px;
+  height: 1000px;
+  background-color: white;
+  z-index: 1;
+}
+
+.left-homepage-sidebar-inner {
+  width: 399px;
+  height: 374px;
+  padding: 40px;
+  border-bottom: 1px solid #eee;
+}
+
+.middle-homepage-sidebar-inner {
+  width: 399px;
+  height: 274px;
+  padding: 19px 40px 40px 40px;
+  border-bottom: 1px solid #eee;
+}
+
+.left-homepage-sidebar-inner h1 {
+  font-size: 40px;
+  font-weight: 400;
+  height: 76px;
+  display: flex;
+  justify-content: center;
+}
+
+.party-icon-bar {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.left-sidebar-picture-section {
+  height: 188px;
+  margin-top: 10px;
+}
+
+.emoji-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 30px;
+}
+
+.left-sidebar-picture-section img {
+  background-color: black;
+  float: left;
+  width: 184px;
+  height: 184px;
+  margin-right: 15px;
+}
+
+.left-homepage-sidebar-inner a {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 18px;
+}
+
+.five-star {
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.five-star-icons {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+
+.middle-homepage-sidebar-inner img {
+  background-color: black;
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+
+.user-name-rating {
+  font-weight: bold;
+  font-size: 17px;
+  display: block;
+}
+
+.member-since {
+  margin-top: 4px;
+  font-size: 15px;
+  color: #999;
+  display: block;
+}
+
+.rating-name-section {
+  margin-left: 10px;
+  height: 80px;
+  float: left;
+}
+
+.five-star-rating-eachuser {
+  float: left;
+  height: 80px;
+  width: 189px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.five-star-rating-eachuser img {
+  width: 13px !important;
+  height: 13px !important;
+  background-color: transparent !important;
+}
+
+.user-rating-reviews {
+  margin-top: 10px;
+  width: 100%;
+  height: 55px;
+  float: left;
+}
+
+.middle-homepage-sidebar-inner-inner {
+  height: 145px;
+}
+
+.see-more-reviews {
+  display: flex;
+  justify-content: center;
+}
+
+.left-sidebar-modal {
+  width: 43px;
+  height: 1000px;
+  background-color: white;
+  float: left;
+} */
+
+.signin-login {
+  width: 130px;
+}
+
+.signup-header-link {
+  margin-right: 30px;
+}
+
+.background-signup-login {
+  position: absolute;
+  width: 1600px;
+  height: 2000px;
+  z-index: 2;
+  background-color: black;
+  opacity: 0.7;
+  left: 0;
+}
+
+.signup-modal {
+  left: 490px;
+  width: 590px;
+  height: 510px;
+  background-color: white;
+  z-index: 3;
+  position: absolute;
+  top: 120px;
+  border-radius: 6px;
+}
+
+.register-modal a {
+  width: 20px;
+  height: 20px;
+  right: 11px;
+  top: 14px;
+  position: absolute;
+}
+
+.signup-modal a {
+  width: 20px;
+  position: absolute;
+  height: 20px;
+  right: 11px;
+  top: 14px;
+}
+
+.fa-times {
+  color: #333;
+  font-size: 21px;
+}
+
+.login-modal-inner {
+  top: 0;
+  width: 510px;
+  height: 420px;
+  padding: 40px;
+  position: absolute;
+  color: black;
+}
+
+.login-modal-inner h1 {
+  font-size: 40px;
+  font-weight: 400;
+  color: black;
+}
+
+.login-modal-form-field {
+  height: 326px;
+  margin-top: 40px;
+}
+
+.register-modal-form-field {
+  height: 536px;
+  margin-top: 40px;
+}
+
+.login-modal-form-field p {
+  font-size: 18px;
+}
+
+.register-modal-form-field p {
+  font-size: 18px;
+}
+
+.login-form-field-inner {
+  height: 248px;
+  margin-top: 40px;
+}
+
+.register-form-field-inner {
+  height: 448px;
+  margin-top: 40px;
+}
+
+.login-form-field-inner form {
+  height: 209px;
+}
+
+.login-email-input-field {
+  height: 56px;
+}
+
+.login-email-input-field span {
+  font-weight: bold;
+}
+
+.login-email-input-field input {
+  width: 484px;
+  height: 20px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-top: 2px;
+}
+
+.login-password-input-field {
+  margin-top: 20px;
+  height: 56px;
+}
+
+.login-password-input-field span {
+  font-weight: bold;
+}
+
+.login-password-input-field input {
+  width: 484px;
+  height: 20px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-top: 2px;
+}
+
+.login-button {
+  height: 37px;
+  margin-top: 40px;
+}
+
+.login-button button {
+  width: 46px;
+  height: 14px;
+  padding: 10px 14px 16px 14px;
+  border: 1px solid #00bc66;
+  background-color: #00bc66;
+  color: white;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+}
+
+.register-button {
+  height: 37px;
+  margin-top: 40px;
+}
+
+.register-button button {
+  width: 66px;
+  height: 14px;
+  padding: 10px 14px 16px 14px;
+  border: 1px solid #00bc66;
+  background-color: #00bc66;
+  color: white;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+}
+
+.login-form-field-inner p {
+  color: #00bc66;
+  margin-top: 20px;
+}
+
+.login-form-field-inner p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.register-form-field-inner p {
+  color: #00bc66;
+  margin-top: 20px;
+}
+
+.register-form-field-inner p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.modal-forms {
+  width: 90px;
+}
+
+.register-modal {
+  left: 490px;
+  width: 590px;
+  height: 732px;
+  background-color: white;
+  z-index: 3;
+  position: absolute;
+  top: 70px;
+  border-radius: 6px;
+}
+
+.register-modal-inner {
+  top: 0;
+  width: 510px;
+  height: 622px;
+  padding: 40px;
+  position: absolute;
+  color: black;
+}
+
+.register-modal-inner h1 {
+  font-size: 40px;
+  font-weight: 400;
+  color: black;
+}
+
+.newsletter-checkbox {
+  height: 40px;
+  padding-bottom: 5px;
+  margin-top: 20px;
+}
+
+.newsletter-checkbox-inner {
+  padding: 10px 0;
+  height: 19px;
+}
+
+.newsletter-checkbox-inner input {
+  margin-right: 10px;
 }

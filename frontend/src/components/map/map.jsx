@@ -1,48 +1,40 @@
-import React from 'react';
-import * as scriptAPI from './script';
+import mapboxgl from "mapbox-gl";
+import React from "react";
 
-class Map extends React.Component {
+mapboxgl.accessToken =
+  "pk.eyJ1IjoibW96ZWlueSIsImEiOiJjam5semx5YWowMnhwM3dycnB6ZDl5NWM3In0.x0ACysJlzGPOkiyvuBCi2w";
 
-    componentDidMount() {
-        scriptAPI.getLocation();
-        // showPosition();
-    }
+export default class Map extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      markers: []
+    };
+  }
 
-    constructor(props) {
-        super(props);
-        // this.addMarker = this.addMarker.bind(this);
-        // this.initMap = this.initMap.bind(this);
-    }
+  componentDidMount() {
+    this.map = new mapboxgl.Map({
+      container: this.mapContainer,
+      style: "mapbox://styles/mozeiny/cjno0fjbi0tsq2rrq9g7vvs5c",
+      center: [-122.400523, 37.778266],
+      pitch: 60,
+      zoom: 13
+    });
+    this.map.addControl(new mapboxgl.FullscreenControl());
+  }
 
-    // addMarker(map, event) {
-    //     debugger;
-    //     let marker = new google.maps.Marker({
-    //         position: new google.maps.LatLng(event._embedded.venues[0].location.latitude, event._embedded.venues[0].location.longitude),
-    //         map: map
-    //     });
-    //     marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
-    //     console.log(marker);
-    // }
+  render() {
+    var windowHeight = window.innerHeight - 50;
+    const style = {
+      center: [-122.400523, 37.778266],
+      position: "absolute",
+      top: 0,
+      bottom: 0,
+      width: "100%",
+      height: windowHeight,
+      pitch: 60
+    };
 
-    // initMap(position, json) {
-    //     let mapDiv = document.getElementById('map');
-    //     let map = new google.maps.Map(mapDiv, {
-    //         center: { lat: position.coords.latitude, lng: position.coords.longitude },
-    //         zoom: 10
-    //     });
-    //     for (let i = 0; i < json.page.size; i++) {
-    //         addMarker(map, json._embedded.events[i]);
-    //     }
-    // }
-
-
-    render() {
-        return <div className="map-div">
-            <p id="location">location there</p>
-            <div id="map" />
-            <div id="events" />
-          </div>;
-    }
+    return <div id="map" style={style} ref={el => (this.mapContainer = el)} />;
+  }
 }
-
-export default Map;
