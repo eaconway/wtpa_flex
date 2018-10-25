@@ -8,6 +8,7 @@ class NavBar extends React.Component {
       userOptions: "hidden"
     };
     this.toggleUserOptions = this.toggleUserOptions.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   toggleUserOptions(e) {
@@ -19,7 +20,42 @@ class NavBar extends React.Component {
     }
   }
 
+  handleClick(field) {
+    this.setState({ userOptions: "hidden" });
+
+    console.log(`userOptions state is ${this.state.userOptions}`);
+    if (field === "logout") {
+      this.props.logout();
+    } else {
+      this.props.openModal(field);
+    }
+  }
+
   render() {
+    let userOptions =
+      this.props.currentUser.id === undefined ? (
+        <div className={`${this.state.userOptions} user-options`}>
+          <div onClick={() => this.handleClick("login")} className={"nav-link"}>
+            Login
+          </div>
+          <div
+            onClick={() => this.handleClick("signup")}
+            className={"nav-link"}
+          >
+            Signup
+          </div>
+        </div>
+      ) : (
+        <div className={`${this.state.userOptions} user-options`}>
+          <div
+            onClick={() => this.handleClick("logout")}
+            className={"nav-link"}
+          >
+            Logout
+          </div>
+        </div>
+      );
+
     return (
       <ul className="nav-bar-list">
         <div className="user-icon-div">
@@ -28,20 +64,7 @@ class NavBar extends React.Component {
             onClick={this.toggleUserOptions}
           />
         </div>
-        <div className={`${this.state.userOptions} user-options`}>
-          <div
-            onClick={() => this.props.openModal("login")}
-            className={"nav-link"}
-          >
-            Login
-          </div>
-          <div
-            onClick={() => this.props.openModal("signup")}
-            className={"nav-link"}
-          >
-            Signup
-          </div>
-        </div>
+        {userOptions}
       </ul>
     );
   }
