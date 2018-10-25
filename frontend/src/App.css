@@ -730,11 +730,8 @@ div h1 h2 h3 h3 p span {
   font-size: 18px;
 }
 
-.switch-form:hover {
-  cursor: pointer;
-  color: purple;
-  font-size: 20px;
-  font-weight: 600;
+.switch-form:hover{
+  cursor:pointer;
 }
 
 .switch-form-span {
@@ -811,7 +808,6 @@ div h1 h2 h3 h3 p span {
 #messages li:nth-child(odd) {
   background: #eee;
 }
-}
 
 #map {
   width: 1078px;
@@ -840,8 +836,9 @@ div h1 h2 h3 h3 p span {
 .left-homepage-sidebar-inner {
   width: 399px;
   height: 374px;
-  padding: 40px;
+  padding: 10px 40px 40px 40px;
   border-bottom: 1px solid #eee;
+  position: relative;
 }
 
 .middle-homepage-sidebar-inner {
@@ -857,12 +854,16 @@ div h1 h2 h3 h3 p span {
   height: 76px;
   display: flex;
   justify-content: center;
+  width: 345px;
+  margin-right: 0;
+  float: left;
 }
 
 .party-icon-bar {
   height: 50px;
   display: flex;
   justify-content: center;
+  widtH: 100%;
 }
 
 .left-sidebar-picture-section {
@@ -975,13 +976,11 @@ div h1 h2 h3 h3 p span {
 }
 
 .background-signup-login {
-  position: absolute;
   width: 1600px;
-  height: 2000px;
+  height: 860px;
   z-index: 2;
   background-color: black;
   opacity: 0.7;
-  left: 0;
 }
 
 .signup-modal {
@@ -995,7 +994,37 @@ div h1 h2 h3 h3 p span {
   border-radius: 6px;
 }
 
+.background-login-signup {
+  width: 1610px;
+  height: 860px;
+  z-index: 2;
+  background-color: black;
+  opacity: 0.7;
+  position: absolute;
+  top: -420px;
+  left: -760px;
+}
+
+.login-modal {
+  left: -250px;
+  width: 590px;
+  height: 510px;
+  background-color: white;
+  z-index: 3;
+  position: absolute;
+  top: -250px;
+  border-radius: 6px;
+}
+
 .register-modal a {
+  width: 20px;
+  height: 20px;
+  right: 11px;
+  top: 14px;
+  position: absolute;
+}
+
+.login-modal a {
   width: 20px;
   height: 20px;
   right: 11px;
