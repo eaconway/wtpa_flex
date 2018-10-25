@@ -1,67 +1,74 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
+import './nav.css';
 
-class NavBar extends React.Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            loginOptions: 'hidden',
-            registerOptions: 'hidden',
-            name: '',
-            email: '',
-            phone: '',
-            password: ''
-        };
-        this.clickHandler = this.clickHandler.bind(this);
-    }
+class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userOptions: "hidden"
+    };
+    this.toggleUserOptions = this.toggleUserOptions.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-    clickHandler(option) {
-        if (option === 'register' && this.state.registerOptions === 'hidden') {
-            this.setState({registerOptions: ''});
-        } else if (option === 'login' && this.state.loginOptions === 'hidden') {
-            this.setState({loginOptions: ''});
-        } else if (option === 'register' && this.state.registerOptions === '') {
-            this.setState({registerOptions: 'hidden'});
-        } else {
-            this.setState({loginOptions: 'hidden'});
-        }
+  toggleUserOptions(e) {
+    e.preventDefault();
+    if (this.state.userOptions === "hidden") {
+      this.setState({ userOptions: "" });
+    } else {
+      this.setState({ userOptions: "hidden" });
     }
+  }
 
-    update(field) {
-        return (e) => this.setState({[field]: e.target.value});
-    }
- 
-    login() {
-        this.props.loginUser({email: this.state.email, password: this.state.password}).then();
-    }
+  handleClick(field) {
+    this.setState({ userOptions: "hidden" });
 
-    register() {
-        this.props.registerUser({name: this.state.name, email: this.state.email, password: this.state.password}).then();
+    console.log(`userOptions state is ${this.state.userOptions}`);
+    if (field === "logout") {
+      this.props.logout();
+    } else {
+      this.props.openModal(field);
     }
+  }
 
-    render () {
-        let rightProfile = '';
-        if (this.props.currentUser.id != null) {
-            rightProfile = <img className='header-icon' src={require('../../images/header/profile.jpg')} />;
-        } else {
-            rightProfile = <img />
-        }
-        return (
-            <div className='modal-forms'>
-                
-            
-                <ul className="nav-bar-list">
-                    <div className="user-icon-div">
-                        <div className='signin-login'>
-                            <span className='signup-header-link'><button onClick={() => this.props.openModal('signup')}>Register</button></span>
-                            <span className='login-header-link'><button onClick={() => this.props.openModal('login')}>Log in</button></span>
-                        </div>
-                    </div>
-                </ul>
-            </div>
-            
-        );
-    }
+  render() {
+    let userOptions =
+      this.props.currentUser.id === undefined ? (
+        <div className={`${this.state.userOptions} user-options`}>
+          <div onClick={() => this.handleClick("login")} className={"nav-link"}>
+            Login
+          </div>
+          <div
+            onClick={() => this.handleClick("signup")}
+            className={"nav-link"}
+          >
+            Signup
+          </div>
+        </div>
+      ) : (
+        <div className={`${this.state.userOptions} user-options`}>
+          <div
+            onClick={() => this.handleClick("logout")}
+            className={"nav-link"}
+          >
+            Logout
+          </div>
+        </div>
+      );
+
+    return (
+      <ul className="nav-bar-list">
+        <div className="user-icon-div">
+          <i
+            className="far fa-user-circle user-icon"
+            onClick={this.toggleUserOptions}
+          />
+        </div>
+        {userOptions}
+      </ul>
+    );
+  }
 }
 
 export default NavBar;

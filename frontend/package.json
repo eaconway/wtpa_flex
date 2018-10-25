@@ -12,7 +12,8 @@
     "react-scripts": "2.0.5",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "socketio-file-upload": "^0.6.4"
   },
   "scripts": {
     "start": "react-scripts start",

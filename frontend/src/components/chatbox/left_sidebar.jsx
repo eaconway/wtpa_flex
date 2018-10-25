@@ -1,4 +1,5 @@
 import React from 'react';
+import './chatbox.css';
 
 class LeftSidebar extends React.Component {
   render() {
@@ -41,6 +42,13 @@ class LeftSidebar extends React.Component {
           <div className='create-rect'></div>
         </div>
         <div className='left-homepage-sidebar-inner'>
+          <div className='five-star'>
+            <img className='five-star-icons' src={require('../../images/header/149765.png')} />
+            <img className='five-star-icons' src={require('../../images/header/149765.png')} />
+            <img className='five-star-icons' src={require('../../images/header/149765.png')} />
+            <img className='five-star-icons' src={require('../../images/header/149765.png')} />
+            <img className='five-star-icons' src={require('../../images/header/149765.png')} />
+          </div>
           <div className='select-dropdown'>
             <span>Select the mood:</span>
             <i className="fas fa-caret-down"></i>

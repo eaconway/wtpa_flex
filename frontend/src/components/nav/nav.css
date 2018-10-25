@@ -1,0 +1,140 @@
+.home-logo-comp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 15px;
+  /* padding: 10px 50px; */
+  background-color: #222;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+}
+
+.header-icon {
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.margin-left {
+  margin-left: 25px;
+}
+
+.home-logo {
+  width: 50px;
+  height: 50px;
+  margin: 10px 30px;
+}
+
+.nav-search {
+  width: 300px;
+  height: 35px;
+  background-color: none;
+  border: 2px solid rgba(163, 3, 163, 0.486);
+  margin-left: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 5px;
+  border-radius: 3px;
+}
+
+.search-input {
+  width: 250px;
+  height: 100%;
+  margin-left: 10px;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  background: none;
+  color: #222;
+}
+
+.search-input:focus {
+  outline: none;
+  /* background-color: rgba(255, 255, 255, 0.561) */
+}
+
+.search-icon {
+  color: #222;
+  font-size: 16px;
+}
+
+.nav-bar-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 15px;
+  /* border: 1px solid red; */
+  height: 80px;
+  width: 10%;
+}
+
+.header-avatar {
+  height: 1000px;
+}
+
+
+
+/* HOME LOGO */
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  width: 95%;
+  height: 50%;
+  padding: 0% 5%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link:hover {
+  color: white;
+  background-color: purple;
+}
+
+.user-icon-div {
+  height: 100%;
+  width: 210px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-icon {
+  font-size: 40px;
+}
+
+.user-icon:hover {
+  color: purple;
+}
+
+.user-options {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 120px;
+  height: 80px;
+  background-color: white;
+  border: 1px solid black;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: 10;
+}
+
+.newsletter-checkbox {
+  height: 40px;
+  padding-bottom: 5px;
+  margin-top: 20px;
+}
+
+.newsletter-checkbox-inner {
+  padding: 10px 0;
+  height: 19px;
+}
+
+.newsletter-checkbox-inner input {
+  margin-right: 10px;
+}

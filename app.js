@@ -13,11 +13,15 @@ const passport = require("passport");
 require("./config/passport")(passport);
 
 const Message = require("./models/Message");
+const User = require("./models/User");
+
 
 //SOCKET.IO SETUP
 const app = express();
 var http = require("http").Server(app);
 var io = require("socket.io")(http);
+//SOCKET File Upload
+const siofu = require("socketio-file-upload");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -42,19 +46,72 @@ app.get('/', (req, res) => res.send("backend server"));
 app.use('/api/users', users);
 app.use("/api/parties", parties);
 app.use("/api/ratings", ratings);
-// app.use("/api/messages", messages);
+app.use("/api/messages", messages);
+app.use(siofu.router);
 
 // SOCKET.IO SETUP
-io.on('connection', function (socket) {
+io.on('connection', (socket) => {
+
+    var uploader = new siofu();
+    uploader.dir = "./images";
+    uploader.listen(socket);
+
+    uploader.on("saved", function (event) {
+        console.log('file was saved on the backend');
+        console.log(event.file);
+    });
+
+    uploader.on("upload", file => {
+        console.log("file was saved on the backend");
+        // console.log(event.file);
+    });
+
     console.log('a user connected');
     socket.on('disconnect', () => {
         console.log('user disconnected');
-        //Send back first 20 messages
+    });
+
+    socket.on("upload", file => {
+        console.log(file);
     });
 
     // socket.on('chat message', function (msg) {
     //     io.emit('chat message', msg);
     // });
+
+    socket.on("seed chat", (partyId) => {
+        Message.find({ party: partyId })
+            .populate('user')
+            .limit(20)
+            .then(messages => {
+                let results = [];
+                // console.log('these are the results');
+
+                messages.forEach(message => {
+                    // console.log(`uploading message ${message.user}`);
+                    // console.log(results);
+                    if (message.user === undefined || message.user === null) {
+                        results.push({
+                          msg: message.body,
+                          name: "Anonymous"
+                        });
+                    } else {
+                        results.push({
+                            msg: message.body,
+                            name: message.user.name
+                        });
+                    }
+                });
+                
+                io.emit("seed chat", results);
+            })
+            .catch(err => {
+                // res.status(404).json({ nomessagefound: "No rating found with that ID" })
+                io.emit("seed chat", []);
+            });
+
+        // io.emit("seed chat", messages);
+    });
 
     socket.on("chat message", payload => {
         // const { errors, isValid } = validateMessageInput(payload);
@@ -69,9 +126,16 @@ io.on('connection', function (socket) {
                 party: payload.partyId,
                 user: payload.userId
             });
-    
+            
             newMessage.save();
-            io.emit("chat message", payload.body);
+            let name = '';
+            if (newMessage.user === null) {
+                name = 'Anonymous'
+            } else {
+                name = User.find({ _id: newMessage.user }).name;
+            }
+
+            io.emit("chat message", { msg: newMessage.body, name: name, partyId: newMessage.party});
         }
     
     });

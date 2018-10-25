@@ -1,52 +1,128 @@
 import React from 'react';
-// import io from 
+import * as ReactDOM from "react-dom";
+import './chat.css';
+// import SocketIOFileUpload from "socketio-file-upload";
 
 class ChatRoom extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            message: '',
+            body: '',
             messages: []
         }
         this.handleSubmit = this.handleSubmit.bind(this);
-        console.log(this.props.partyId);
+        this.registerListeners = this.registerListeners.bind(this);
+        this.update = this.update.bind(this);
+        this.registerListeners();
+        this.scrollToBottom = this.scrollToBottom.bind(this);
+        this.handleFile = this.handleFile.bind(this);
+        
     }
 
     componentDidMount() {
-        window.socket.on('chat message', msg => {
-            console.log(msg)
+        window.socket.emit("seed chat", this.props.partyId);
+    }
+
+    componentDidUpdate() {
+        this.scrollToBottom();
+    }
+
+    scrollToBottom = () => {
+        const { messages } = this.refs;
+        const scrollHeight = messages.scrollHeight;
+        const height = messages.clientHeight;
+        const maxScrollTop = scrollHeight - height;
+        ReactDOM.findDOMNode(messages).scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
+    }
+
+    registerListeners(){
+        
+        window.socket.on('seed chat', prevMessages => {
+            this.setState({ messages: prevMessages });
+        });
+
+        window.socket.on('chat message', curr => {
             let messages = this.state.messages;
-            messages.push(<li>{msg}</li>);
-            this.setState({messages});
+
+            messages.push(curr);
+            this.setState({ messages });
+        });
+
+        // window.uploader.listenOnInput(document.getElementById("siofu_input"));
+
+        window.uploader.addEventListener("complete", function (event) {
+            console.log(event.success);
+            console.log(event.file);
         });
     }
 
     update(field){
-        return e => this.setState({ message: e.target.value})
+        return e => this.setState({ [field]: e.target.value})
     }
 
     handleSubmit(e){
         e.preventDefault();
-        let backendPayload = {
-            body: this.state.message,
-            partyId: this.props.partyId,
-            user: this.props.currentUser.id
+
+        if (this.state.imageFile) {
+            window.uploader.submitFiles([this.state.imageFile])
         }
-        window.socket.emit('chat message', backendPayload);
-        this.setState({message: ''})
+
+        let backendPayload = {
+            body: this.state.body,
+            partyId: this.props.partyId,
+            userId: this.props.currentUser.id
+        }
+
+        window.socket.emit("chat message", backendPayload);
+        this.setState({message: ''});
     }
+
+    handleFile(e) {
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            this.setState({ imageFile: file, imageUrl: fileReader.result })
+        }
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
+    }
+
     render(){
-        return (
-            <div className='chat-room-section'>
-                <ul id="messages">
-                    {this.state.messages}
-                </ul>
-                <form className='chat-room' onSubmit={this.handleSubmit}>
-                    <input autoComplete="off" value={this.state.message}
-                        onChange={this.update('message')}/><button>Send</button>
-                </form>
+        let messages = this.state.messages.map(message => (
+          <li className="chat-message">
+            <span className='chat-name'>{message.name}</span>: {message.msg}
+          </li>
+        ));
+
+        const preview = this.state.imageUrl ? (
+            <div>
+                <img className={'image-upload-preview'} src={this.state.imageUrl} />
             </div>
-        )
+        ) : (
+            <input autoComplete="off" value={this.state.body}
+            onChange={this.update("body")} placeholder="Enter Text"
+            className="chat-message-input" />
+        );
+
+        console.log(this.state.messages);
+        return <div className="chat-room-section">
+            <h1>Chat The Party</h1>
+            <ul id="messages" ref="messages">
+              {messages}
+            </ul>
+            <form className="chat-room" onSubmit={this.handleSubmit}>
+                { preview }
+              <button>
+                <i className="far fa-envelope chat-send-icon" />
+              </button>
+              <div className="chat-file-wrapper">
+                <i className="fas fa-paperclip chat-file-icon" />
+                <input type="file" id="siofu_input" onChange={this.handleFile} 
+                    className="chat-file-input" placeholder="" />
+              </div>
+            </form>
+          </div>;
     }
 }
 
