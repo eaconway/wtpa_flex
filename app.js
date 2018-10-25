@@ -6,7 +6,8 @@ const db = require('./config/keys').mongoURI;
 
 const users = require('./routes/api/users');
 const parties = require("./routes/api/parties");
-const ratings = require("./routes/api/ratings");
+// const ratings = require("./routes/api/ratings");
+const opinions = require("./routes/api/opinions");
 const messages = require("./routes/api/messages");
 
 const passport = require("passport");
@@ -45,7 +46,7 @@ app.get('/', (req, res) => res.send("backend server"));
 
 app.use('/api/users', users);
 app.use("/api/parties", parties);
-app.use("/api/ratings", ratings);
+app.use("/api/opinions", opinions);
 app.use("/api/messages", messages);
 app.use(siofu.router);
 
@@ -61,11 +62,6 @@ io.on('connection', (socket) => {
         console.log(event.file);
     });
 
-    uploader.on("upload", file => {
-        console.log("file was saved on the backend");
-        // console.log(event.file);
-    });
-
     console.log('a user connected');
     socket.on('disconnect', () => {
         console.log('user disconnected');
@@ -74,10 +70,6 @@ io.on('connection', (socket) => {
     socket.on("upload", file => {
         console.log(file);
     });
-
-    // socket.on('chat message', function (msg) {
-    //     io.emit('chat message', msg);
-    // });
 
     socket.on("seed chat", (partyId) => {
         Message.find({ party: partyId })
@@ -127,6 +119,7 @@ io.on('connection', (socket) => {
                 user: payload.userId
             });
             
+            console.log('user id is ')
             newMessage.save();
             let name = '';
             if (newMessage.user === null) {

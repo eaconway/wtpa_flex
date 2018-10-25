@@ -3,38 +3,40 @@ const router = express.Router();
 const mongoose = require("mongoose");
 // const passport = require("passport");
 
-// const Rating = require("../../models/Opinion");
-// const validateRatingInput = require("../../validations/ratings");
+const Opinion = require("../../models/Opinion");
+const validateOpinionInput = require("../../validations/opinions");
 
-// router.get("/", (req, res) => {
-//     Rating.find()
-//         .then(ratings => {
-//             let results = {};
-//             ratings.forEach(rating => {
-//                 results[rating.id] = rating
-//             });
-//             res.json(results);
-//         })
-//         .catch(err => res.status(404).json({ noratingsfound: "No ratings found" }));
-// });
+router.get("/", (req, res) => {
+    Opinion.find()
+        .then(opinions => {
+            let results = {};
+            opinions.forEach(opinion => {
+                results[opinion.id] = opinion
+            });
+            res.json(results);
+        })
+        .catch(err => res.status(404).json({ noopinionsfound: "No opinions found" }));
+});
 
-// router.post("/", (req, res) => {
-//     console.log(req.params)
-//     const { errors, isValid } = validateRatingInput(req.body);
+router.post("/", (req, res) => {
+    // console.log(req.params)
+    // const { errors, isValid } = validateRatingInput(req.body);
 
-//     if (!isValid) {
-//         return res.status(400).json(errors);
-//     }
+    // if (!isValid) {
+    //     return res.status(400).json(errors);
+    // }
 
-//     const newRating = new Rating({
-//         rating: req.body.rating,
-//         author: req.body.authorId,
-//         party: req.body.partyId
-//     });
+    const newOpinion = new Opinion({
+      rating: req.body.rating,
+      feeling: req.body.feeling,
+      music: req.body.music,
+      author: req.body.authorId,
+      party: req.body.partyId
+    });
 
-//     newRating.save().then(rating => res.json(rating));
-// }
-// );
+    newOpinion.save().then(opinion => res.json(opinion));
+}
+);
 
 // router.get("/:id", (req, res) => {
 //     Rating.findById(req.params.id)
@@ -44,12 +46,12 @@ const mongoose = require("mongoose");
 //         );
 // });
 
-// // NOT CURRENTLY UPDATING
+// NOT CURRENTLY UPDATING
 // router.patch("/:id", (req, res) => {
 //     console.log(req.body);
 //     Rating.updateOne({ _id: req.params.id }, req.body)
 //         .then(rating => {
-            
+
 //             console.log(rating);
 //             res.json(rating);
 //         })
@@ -78,19 +80,19 @@ const mongoose = require("mongoose");
 //         );
 // });
 
-// // Get average ratings for 
+// Get average ratings for 
 // router.get("/party/:partyId", (req, res) => {
-//     Rating.find({party: req.params.partyId})
+//     Rating.find({ party: req.params.partyId })
 //         .then(ratings => {
 //             let avg = 0;
 //             ratings.forEach(rating => {
 //                 avg += rating.rating
 //             })
-//             avg = Math.ceil((avg)/ratings.length);
+//             avg = Math.ceil((avg) / ratings.length);
 //             console.log(avg)
 //             res.json(avg);
 //         })
-//         .catch (err =>
+//         .catch(err =>
 //             res.status(404).json({ noratingfound: "No rating found with that ID" })
 //         );
 // });

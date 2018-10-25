@@ -98,4 +98,16 @@ router.get('/current', passport.authenticate('jsonwebtoken', { session: false })
     });
 })
 
+router.get("/", (req, res) => {
+    User.find()
+        .then(users => {
+            let results = {};
+            users.forEach(user => {
+                results[user.id] = user
+            });
+            res.json(results);
+        })
+        .catch(err => res.status(404).json({ nousersfound: "No users found" }));
+});
+
 module.exports = router;
