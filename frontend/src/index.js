@@ -16,6 +16,8 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import jwt_decode from "jwt-decode";
 import * as APIUtil from "./util/session_api_util";
+import * as APIUser from "./util/user_api_util";
+import {updateUser} from "./actions/user_actions";
 //Components
 import configureStore from "./store/store";
 // import App from './App.jsx';
@@ -72,6 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
     window.searchCities = searchCities;
     window.searchCitieState = searchCitieState;
     window.TestTour = TestTour;
+
+    window.updateUser = APIUser.updateUser;
+    window.updateUserAction = updateUser;
 
     // console.log(`this is the socket: ${window.socket}`);
 

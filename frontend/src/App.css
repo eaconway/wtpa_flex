@@ -156,6 +156,7 @@ div h1 h2 h3 h3 p span {
   width: 170px;
   border-radius: 50%;
   background-color: black;
+  overflow: hidden;
 }
 
 .avatar-section {
@@ -165,6 +166,17 @@ div h1 h2 h3 h3 p span {
   display: flex;
   justify-content: center;
   padding-bottom: 30px;
+}
+
+.avatar-fileInput {
+  width: 60%;
+  height: 100%;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0 20%;
+  overflow: hidden;
+  font-size: 100px;
+  opacity: 0;
 }
 
 .users-name {

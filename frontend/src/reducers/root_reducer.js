@@ -5,8 +5,10 @@ import selectedMarker from "./selected_marker/selected_marker_reducer";
 import searchStatus from "./search_status/search_root_reducer";
 import events from "./events/events_root_reducer";
 import errorsReducer from './errors/errors_reducer';
+import entities from './entities_reducer';
 
 export default combineReducers({
+  entities,
   session,
   ui,
   selectedMarker,
