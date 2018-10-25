@@ -7,7 +7,7 @@ class SessionForm extends React.Component {
             email: '',
             name: '',
             password:'',
-            password2:'',
+            password2:''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
@@ -20,15 +20,15 @@ class SessionForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-
-
         this.props.processForm(this.state)
             .then(() => this.props.closeModal())
     }
 
+    changeFormField(field) {
+    }
+
     demoSignIn(e){
         e.preventDefault();
-
         this.props.processForm({ email: 'demo@wtpa.com', password: 'password'})
           .then(() => this.props.closeModal());
     }
@@ -71,7 +71,7 @@ class SessionForm extends React.Component {
                                         <button>REGISTER</button>
                                     </div>
                                 </form>
-                                <p>Already registered? Click here to log in.</p>
+                                <p>Already registered? {this.props.otherForm}</p>
                             </div>
                         </div>
                     </div>
@@ -79,8 +79,8 @@ class SessionForm extends React.Component {
             </div>
         ) : (
             <div className='modal-forms'>
-                    <div className='background-signup-login'></div>
-                    <div className='signup-modal'>
+                    <div className='background-login-signup'></div>
+                    <div className='login-modal'>
                         <a onClick={() => this.props.closeModal()}><i className="fas fa-times"></i></a>
                         <div className='login-modal-inner'>
                             <h1>Login</h1>
@@ -100,7 +100,7 @@ class SessionForm extends React.Component {
                                         <button>LOG IN</button>
                                     </div>
                                 </form>
-                                <p>Don't have an account? Click here to register.</p>
+                                <p>Don't have an account? {this.props.otherForm}</p>
                             </div>
                         </div>
                     </div>
