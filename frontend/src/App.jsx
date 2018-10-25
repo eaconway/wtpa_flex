@@ -27,19 +27,21 @@ class App extends Component{
     return <div>
         <Modal />
         <header className={"header"}>
-          <Route path="/" component={HomeLogoContainer} />
-          <Route path="/" component={NavBarContainer} />
         </header>
+        <div className='main-header-inner'>
+            <Route path="/" component={HomeLogoContainer} />
+            <Route path="/" component={NavBarContainer} />
+        </div>
         <main className='main-section'>
-          <Route path="/" component={LeftSidebarContainer} />
-          <Route path="/" component={LeftSidebarModalContainer} />
+          <Route exact path="/" component={LeftSidebarContainer} />
+          <Route exact path="/" component={LeftSidebarModalContainer} />
           <Route exact path="/profile" component={ProfileContainer} />
           <Route exact path="/account/update-profile" component={UpdateProfileContainer} />
           <Route exact path="/account/change-email" component={ChangeEmailContainer} />
           <Route exact path='/account/change-password' component={ChangePasswordContainer} />
           <Switch>
             <Route path="/party/:partyId" component={ChatRoomContainer} />
-            <Route path="/" component={MapContainer} />
+            <Route exact path="/" component={MapContainer} />
           </Switch>
         </main>
       </div>;

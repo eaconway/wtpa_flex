@@ -5,35 +5,62 @@ class NavBar extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            userOptions: 'hidden'
+            loginOptions: 'hidden',
+            registerOptions: 'hidden',
+            name: '',
+            email: '',
+            phone: '',
+            password: ''
         };
-        this.toggleUserOptions = this.toggleUserOptions.bind(this);
+        this.clickHandler = this.clickHandler.bind(this);
     }
 
-    toggleUserOptions(e){
-        e.preventDefault();
-        if (this.state.userOptions === 'hidden'){
-            this.setState({userOptions: ''})
+    clickHandler(option) {
+        if (option === 'register' && this.state.registerOptions === 'hidden') {
+            this.setState({registerOptions: ''});
+        } else if (option === 'login' && this.state.loginOptions === 'hidden') {
+            this.setState({loginOptions: ''});
+        } else if (option === 'register' && this.state.registerOptions === '') {
+            this.setState({registerOptions: 'hidden'});
         } else {
-            this.setState({userOptions: 'hidden'})
+            this.setState({loginOptions: 'hidden'});
         }
+    }
+
+    update(field) {
+        return (e) => this.setState({[field]: e.target.value});
+    }
+ 
+    login() {
+        this.props.loginUser({email: this.state.email, password: this.state.password}).then();
+    }
+
+    register() {
+        this.props.registerUser({name: this.state.name, email: this.state.email, password: this.state.password}).then();
     }
 
     render () {
         let rightProfile = '';
         if (this.props.currentUser.id != null) {
-            rightProfile = <img className='header-icon' src={require('../../images/header/profile.jpg')} onClick={this.toggleUserOptions} />;
+            rightProfile = <img className='header-icon' src={require('../../images/header/profile.jpg')} />;
         } else {
             rightProfile = <img />
         }
-        return <ul className="nav-bar-list">
-            <div className="user-icon-div">
-                <div className='signin-login'>
-                    <span className='signup-header-link'>Sign up</span>
-                    <span className='login-header-link'>Log in</span>
-                </div>
+        return (
+            <div className='modal-forms'>
+                
+            
+                <ul className="nav-bar-list">
+                    <div className="user-icon-div">
+                        <div className='signin-login'>
+                            <span className='signup-header-link'><button onClick={() => this.props.openModal('signup')}>Register</button></span>
+                            <span className='login-header-link'><button onClick={() => this.props.openModal('login')}>Log in</button></span>
+                        </div>
+                    </div>
+                </ul>
             </div>
-          </ul>;
+            
+        );
     }
 }
 
