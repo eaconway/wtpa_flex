@@ -96,8 +96,11 @@ div h1 h2 h3 h3 p span {
 }
 
 .header {
-  height: 80px;
-  /* border-bottom: 1px solid	#D8D8D8; */
+  height: 0;
+}
+
+.main-header-inner {
+  height: 50px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -116,6 +119,20 @@ div h1 h2 h3 h3 p span {
   justify-content: space-between;
   margin-left: 15px;
   /* padding: 10px 50px; */
+  background-color: #222;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+}
+
+.header-icon {
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.margin-left {
+  margin-left: 25px;
 }
 
 .home-logo {
@@ -134,18 +151,18 @@ div h1 h2 h3 h3 p span {
   flex-direction: row;
   align-items: center;
   padding: 0px 5px;
+  border-radius: 3px;
 }
 
 .search-input {
   width: 250px;
   height: 100%;
-  padding: 0px 10px;
   margin-left: 10px;
-  font-size: 18px;
+  font-size: 14px;
   outline: none;
   border: none;
   background: none;
-  color: white;
+  color: #222;
 }
 
 .search-input:focus {
@@ -154,8 +171,8 @@ div h1 h2 h3 h3 p span {
 }
 
 .search-icon {
-  color: white;
-  font-size: 26px;
+  color: #222;
+  font-size: 16px;
 }
 
 .nav-bar-list {
@@ -166,7 +183,7 @@ div h1 h2 h3 h3 p span {
   margin-right: 15px;
   /* border: 1px solid red; */
   height: 80px;
-  width: 7%;
+  width: 10%;
 }
 
 .root {
@@ -535,7 +552,7 @@ div h1 h2 h3 h3 p span {
 
 .user-icon-div {
   height: 100%;
-  width: 100px;
+  width: 210px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -674,6 +691,10 @@ div h1 h2 h3 h3 p span {
   margin-top: 15px;
 }
 
+.map-div {
+  float: left;
+  top: 100px;
+}
 /* * { margin: 0; padding: 0; box-sizing: border-box; } */
 /* body { font: 13px Helvetica, Arial; } */
 
@@ -689,7 +710,6 @@ div h1 h2 h3 h3 p span {
   bottom: 0;
   width: 100%;
   display: flex;
-  flex-direction: row;
 }
 .chat-room input {
   border: 0;
@@ -717,9 +737,33 @@ div h1 h2 h3 h3 p span {
 }
 
 .mapboxgl-canvas {
+  z-index: 1;
   left: 0;
   height: 100%;
   width: 100%;
+}
+
+.chat-room button {
+  width: 9%;
+  background: rgb(130, 224, 255);
+  border: none;
+  padding: 10px;
+}
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#messages li {
+  padding: 5px 10px;
+}
+#messages li:nth-child(odd) {
+  background: #eee;
+}
+
+#map {
+  width: 1078px;
+  height: 740px;
 }
 
 /* mapboxgl-canvas-container {
@@ -730,4 +774,373 @@ div h1 h2 h3 h3 p span {
 .main-section {
   width: 100%;
   height: 100%;
+}
+
+.left-homepage-sidebar {
+  float: left;
+  width: 479px;
+  height: 1000px;
+  background-color: white;
+}
+
+.left-homepage-sidebar-inner {
+  width: 399px;
+  height: 374px;
+  padding: 40px;
+  border-bottom: 1px solid #eee;
+}
+
+.middle-homepage-sidebar-inner {
+  width: 399px;
+  height: 274px;
+  padding: 19px 40px 40px 40px;
+  border-bottom: 1px solid #eee;
+}
+
+.left-homepage-sidebar-inner h1 {
+  font-size: 40px;
+  font-weight: 400;
+  height: 76px;
+  display: flex;
+  justify-content: center;
+}
+
+.party-icon-bar {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.left-sidebar-picture-section {
+  height: 188px;
+  margin-top: 10px;
+}
+
+.emoji-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 30px;
+}
+
+.left-sidebar-picture-section img {
+  background-color: black;
+  float: left;
+  width: 184px;
+  height: 184px;
+  margin-right: 15px;
+}
+
+.left-homepage-sidebar-inner a {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 18px;
+}
+
+.five-star {
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.five-star-icons {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+
+.middle-homepage-sidebar-inner img {
+  background-color: black;
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+
+.user-name-rating {
+  font-weight: bold;
+  font-size: 17px;
+  display: block;
+}
+
+.member-since {
+  margin-top: 4px;
+  font-size: 15px;
+  color: #999;
+  display: block;
+}
+
+.rating-name-section {
+  margin-left: 10px;
+  height: 80px;
+  float: left;
+}
+
+.five-star-rating-eachuser {
+  float: left;
+  height: 80px;
+  width: 189px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.five-star-rating-eachuser img {
+  width: 13px !important;
+  height: 13px !important;
+  background-color: transparent !important;
+}
+
+.user-rating-reviews {
+  margin-top: 10px;
+  width: 100%;
+  height: 55px;
+  float: left;
+}
+
+.middle-homepage-sidebar-inner-inner {
+  height: 145px;
+}
+
+.see-more-reviews {
+  display: flex;
+  justify-content: center;
+}
+
+.left-sidebar-modal {
+  width: 43px;
+  height: 1000px;
+  background-color: white;
+  float: left;
+}
+
+.signin-login {
+  width: 130px;
+}
+
+.signup-header-link {
+  margin-right: 30px;
+}
+
+.background-signup-login {
+  position: absolute;
+  width: 1600px;
+  height: 2000px;
+  z-index: 2;
+  background-color: black;
+  opacity: 0.7;
+  left: 0;
+}
+
+.signup-modal {
+  left: 490px;
+  width: 590px;
+  height: 510px;
+  background-color: white;
+  z-index: 3;
+  position: absolute;
+  top: 120px;
+  border-radius: 6px;
+}
+
+.register-modal a {
+  width: 20px;
+  height: 20px;
+  right: 11px;
+  top: 14px;
+  position: absolute;
+}
+
+.signup-modal a {
+  width: 20px;
+  position: absolute;
+  height: 20px;
+  right: 11px;
+  top: 14px;
+}
+
+.fa-times {
+  color: #333;
+  font-size: 21px;
+}
+
+.login-modal-inner {
+  top: 0;
+  width: 510px;
+  height: 420px;
+  padding: 40px;
+  position: absolute;
+  color: black;
+}
+
+.login-modal-inner h1 {
+  font-size: 40px;
+  font-weight: 400;
+  color: black;
+}
+
+.login-modal-form-field {
+  height: 326px;
+  margin-top: 40px;
+}
+
+.register-modal-form-field {
+  height: 536px;
+  margin-top: 40px;
+}
+
+.login-modal-form-field p {
+  font-size: 18px;
+}
+
+.register-modal-form-field p {
+  font-size: 18px;
+}
+
+.login-form-field-inner {
+  height: 248px;
+  margin-top: 40px;
+}
+
+.register-form-field-inner {
+  height: 448px;
+  margin-top: 40px;
+}
+
+.login-form-field-inner form {
+  height: 209px;
+}
+
+.login-email-input-field {
+  height: 56px;
+}
+
+.login-email-input-field span {
+  font-weight: bold;
+}
+
+.login-email-input-field input {
+  width: 484px;
+  height: 20px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-top: 2px;
+}
+
+.login-password-input-field {
+  margin-top: 20px;
+  height: 56px;
+}
+
+.login-password-input-field span {
+  font-weight: bold;
+}
+
+.login-password-input-field input {
+  width: 484px;
+  height: 20px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-top: 2px;
+}
+
+.login-button {
+  height: 37px;
+  margin-top: 40px;
+}
+
+.login-button button {
+  width: 46px;
+  height: 14px;
+  padding: 10px 14px 16px 14px;
+  border: 1px solid #00bc66;
+  background-color: #00bc66;
+  color: white;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+}
+
+.register-button {
+  height: 37px;
+  margin-top: 40px;
+}
+
+.register-button button {
+  width: 66px;
+  height: 14px;
+  padding: 10px 14px 16px 14px;
+  border: 1px solid #00bc66;
+  background-color: #00bc66;
+  color: white;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+}
+
+.login-form-field-inner p {
+  color: #00bc66;
+  margin-top: 20px;
+}
+
+.login-form-field-inner p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.register-form-field-inner p {
+  color: #00bc66;
+  margin-top: 20px;
+}
+
+.register-form-field-inner p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.modal-forms {
+  width: 90px;
+}
+
+.register-modal {
+  left: 490px;
+  width: 590px;
+  height: 732px;
+  background-color: white;
+  z-index: 3;
+  position: absolute;
+  top: 70px;
+  border-radius: 6px;
+}
+
+.register-modal-inner {
+  top: 0;
+  width: 510px;
+  height: 622px;
+  padding: 40px;
+  position: absolute;
+  color: black;
+}
+
+.register-modal-inner h1 {
+  font-size: 40px;
+  font-weight: 400;
+  color: black;
+}
+
+.newsletter-checkbox {
+  height: 40px;
+  padding-bottom: 5px;
+  margin-top: 20px;
+}
+
+.newsletter-checkbox-inner {
+  padding: 10px 0;
+  height: 19px;
+}
+
+.newsletter-checkbox-inner input {
+  margin-right: 10px;
 }
