@@ -22,8 +22,7 @@ class NavBar extends React.Component{
     render () {
         return <ul className="nav-bar-list">
             <div className="user-icon-div">
-                <i className="far fa-user-circle user-icon"
-                onClick={this.toggleUserOptions} />
+            <img className='header-icon' src={require('../../images/header/profile.jpg')} onClick={this.toggleUserOptions} />
             </div>
             <div className={`${this.state.userOptions} user-options`}>
               <div onClick={() => this.props.openModal("login")} className={"nav-link"}>
