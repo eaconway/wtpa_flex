@@ -15,7 +15,7 @@ export const getLocation = () => {
 }
 export const showPosition = (position) => {
     let x = document.getElementById("location");
-    x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+    // x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
 
     let latlon = position.coords.latitude + "," + position.coords.longitude;
     // Note:
@@ -50,7 +50,7 @@ export const showPosition = (position) => {
 export const showError = (error) => {
     switch (error.code) {
         case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation."
+            // x.innerHTML = "User denied the request for Geolocation."
             break;
         case error.POSITION_UNAVAILABLE:
             x.innerHTML = "Location information is unavailable."

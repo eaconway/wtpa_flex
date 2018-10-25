@@ -1,0 +1,137 @@
+.left-homepage-sidebar {
+  position: absolute;
+  float: left;
+  width: 479px;
+  height: 1000px;
+  background-color: white;
+  z-index: 1;
+}
+
+.left-homepage-sidebar-inner {
+  width: 399px;
+  height: 374px;
+  padding: 40px;
+  border-bottom: 1px solid #eee;
+}
+
+.middle-homepage-sidebar-inner {
+  width: 399px;
+  height: 274px;
+  padding: 19px 40px 40px 40px;
+  border-bottom: 1px solid #eee;
+}
+
+.left-homepage-sidebar-inner h1 {
+  font-size: 40px;
+  font-weight: 400;
+  height: 76px;
+  display: flex;
+  justify-content: center;
+}
+
+.party-icon-bar {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.left-sidebar-picture-section {
+  height: 188px;
+  margin-top: 10px;
+}
+
+.emoji-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 30px;
+}
+
+.left-sidebar-picture-section img {
+  background-color: black;
+  float: left;
+  width: 184px;
+  height: 184px;
+  margin-right: 15px;
+}
+
+.left-homepage-sidebar-inner a {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 18px;
+}
+
+.five-star {
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.five-star-icons {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+
+.middle-homepage-sidebar-inner img {
+  background-color: black;
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+
+.user-name-rating {
+  font-weight: bold;
+  font-size: 17px;
+  display: block;
+}
+
+.member-since {
+  margin-top: 4px;
+  font-size: 15px;
+  color: #999;
+  display: block;
+}
+
+.rating-name-section {
+  margin-left: 10px;
+  height: 80px;
+  float: left;
+}
+
+.five-star-rating-eachuser {
+  float: left;
+  height: 80px;
+  width: 189px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.five-star-rating-eachuser img {
+  width: 13px !important;
+  height: 13px !important;
+  background-color: transparent !important;
+}
+
+.user-rating-reviews {
+  margin-top: 10px;
+  width: 100%;
+  height: 55px;
+  float: left;
+}
+
+.middle-homepage-sidebar-inner-inner {
+  height: 145px;
+}
+
+.see-more-reviews {
+  display: flex;
+  justify-content: center;
+}
+
+.left-sidebar-modal {
+  width: 43px;
+  height: 1000px;
+  background-color: white;
+  float: left;
+}

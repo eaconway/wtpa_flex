@@ -110,4 +110,21 @@ router.get("/", (req, res) => {
         .catch(err => res.status(404).json({ nousersfound: "No users found" }));
 });
 
+router.get("/:id", (req, res) => {
+  User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch(err =>
+      res.status(404).json({ nouserfound: "No user found with that ID" })
+    );
+});
+
+router.patch("/:id", (req, res) => {
+    console.log(req.body);
+    User.findOneAndUpdate({ _id: req.params.id }, req.body)
+        .then(user => res.json(user))
+        .catch(err =>
+            res.status(404).json({ nouserfound: "No user found with that ID" })
+        );
+});
+
 module.exports = router;
