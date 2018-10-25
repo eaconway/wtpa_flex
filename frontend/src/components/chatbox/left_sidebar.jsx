@@ -42,7 +42,7 @@ class LeftSidebar extends React.Component {
           <div className='create-rect'></div>
         </div>
         <div className='left-homepage-sidebar-inner'>
-          <div className='five-star'>
+          <div className='form-five-star'>
             <img className='five-star-icons' src={require('../../images/header/149765.png')} />
             <img className='five-star-icons' src={require('../../images/header/149765.png')} />
             <img className='five-star-icons' src={require('../../images/header/149765.png')} />
