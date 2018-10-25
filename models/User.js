@@ -11,8 +11,7 @@ const UserSchema = new Schema({
     require: true
   },
   phone: {
-    type: String,
-    require: true
+    type: String
   },
   password: {
     type: String,
@@ -20,7 +19,11 @@ const UserSchema = new Schema({
   },
   date: {
     type: Date,
-    require: true
+    default: Date.now
+  },
+  profilePicture: {
+    data: Buffer,
+    contentType: String
   }
 });
 
