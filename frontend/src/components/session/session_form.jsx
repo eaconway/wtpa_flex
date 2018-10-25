@@ -36,38 +36,77 @@ class SessionForm extends React.Component {
 
     render() {
         let sessionBody = this.props.formType === 'signup' ? (
-            <form className='session-form' onSubmit={this.handleSubmit}>
-                <h3 className='form-header'>Sign up below!</h3>
-                <input type='text' value={this.state.email} 
-                    onChange={this.update('email')} className='form-input'
-                    placeholder='Email'/>
-                <input type='text' value={this.state.name}
-                    onChange={this.update('name')} className='form-input' 
-                    placeholder='Name'/>
-                <input type='password' value={this.state.password}
-                    onChange={this.update('password')} className='form-input' 
-                    placeholder='Create Password'/>
-                <input type='password' value={this.state.password2}
-                    onChange={this.update('password2')} className='form-input'
-                    placeholder='Re-enter Password' />
-                <input type='submit' value='Signup!' 
-                    className='form-input submit-button'/>
-                <span className='switch-form-span'>Already have an account? {this.props.otherForm}</span>
-            </form>
+            <div className='modal-form's>
+                <div className='background-signup-login'></div>
+                <div className='register-modal'>
+                    <a onClick={() => this.props.closeModal()}><i className="fas fa-times"></i></a>
+                    <div className='register-modal-inner'>
+                        <h1>Register</h1>
+                        <div className='register-modal-form-field'>
+                            <p>Register for a Where's the Party At account below. Don't worry, none of your changes will be lost.</p>
+                            <div className='register-form-field-inner'>
+                                <form>
+                                    <div className='login-email-input-field'>
+                                        <span>Name</span>
+                                        <input onChange={this.update('name')} type='text' />
+                                    </div>
+                                    <div className='login-password-input-field'>
+                                        <span>Email Address</span>
+                                        <input onChange={this.update('email')} type='text' />
+                                    </div>
+                                    <div className='login-password-input-field'>
+                                        <span>Password</span>
+                                        <input onChange={this.update('password')} type='password' />
+                                    </div>
+                                    <div className='login-password-input-field'>
+                                        <span>Confirm password</span>
+                                        <input onChange={this.update('password')} type='password' />
+                                    </div>
+                                    <div className='newsletter-checkbox'>
+                                        <div className='newsletter-checkbox-inner'>
+                                            <input type='checkbox'/>
+                                            <span>I'd like to receive a Where's the Party At newsletter</span>
+                                        </div>
+                                    </div>
+                                    <div className='register-button'>
+                                        <button>REGISTER</button>
+                                    </div>
+                                </form>
+                                <p>Already registered? Click here to log in.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         ) : (
-            <form className='session-form' onSubmit={this.handleSubmit}>
-                <h3 className='form-header'>Log In below!</h3>
-                <input type='text' value={this.state.email}
-                    onChange={this.update('email')} className='form-input'
-                    placeholder='Email' />
-                <input type='password' value={this.state.password}
-                    onChange={this.update('password')} className='form-input'
-                    placeholder='Provide Password' />
-                <input type='submit' value='Log In!'
-                    className='form-input submit-button' />
-                <span className='switch-form-span'>Already have an account? {this.props.otherForm}</span>
-                <button onClick={this.demoSignIn} className='demo-button'>Demo</button>
-            </form>
+            <div className='modal-forms'>
+                    <div className='background-signup-login'></div>
+                    <div className='signup-modal'>
+                        <a onClick={() => this.props.closeModal()}><i className="fas fa-times"></i></a>
+                        <div className='login-modal-inner'>
+                            <h1>Login</h1>
+                            <div className='login-modal-form-field'>
+                            <p>Enter your email and password below to log in. Don't worry, none of your changes will be lost.</p>
+                            <div className='login-form-field-inner'>
+                                <form>
+                                    <div className='login-email-input-field'>
+                                        <span>Email Address</span>
+                                        <input onChange={this.update('email')} type='text' />
+                                    </div>
+                                    <div className='login-password-input-field'>
+                                        <span>Password</span>
+                                        <input onChange={this.update('password')} type='password' />
+                                    </div>
+                                    <div className='login-button'>
+                                        <button>LOG IN</button>
+                                    </div>
+                                </form>
+                                <p>Don't have an account? Click here to register.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
 
         return (

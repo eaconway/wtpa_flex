@@ -1,19 +1,8 @@
-.header-avatar {
-  height: 1000px;
-}
-
 .avatar-position {
-  position: relative;
   height: 170px;
   width: 170px;
   border-radius: 50%;
   background-color: black;
-  overflow: hidden;
-}
-
-.avatar-img {
-  width: 100%;
-  height: 100%;
 }
 
 .avatar-section {
@@ -23,18 +12,6 @@
   display: flex;
   justify-content: center;
   padding-bottom: 30px;
-}
-
-.avatar-fileInput {
-  width: 60%;
-  height: 100%;
-  vertical-align: middle;
-  text-align: center;
-  padding: 0 20%;
-  margin-top: -170px;
-  overflow: hidden;
-  font-size: 100px;
-  opacity: 0;
 }
 
 .users-name {
@@ -127,7 +104,7 @@
   align-items: center;
   background-color: #f6f7f6;
   color: #00bc66;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 17px;
 }
 
@@ -190,7 +167,7 @@
 .name-field-title span {
   font-size: 13px;
   margin-bottom: 2px;
-  color: #D9534E;
+  color: #d9534e;
   font-style: italic;
   float: left;
   font-family: Verdana;
@@ -269,7 +246,7 @@
   height: 14px;
   width: 32px;
   padding: 10px 14px 17px 14px;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
   color: white;
   background-color: #00bc66;
   border-radius: 3px;
@@ -288,7 +265,7 @@
   height: 14px;
   width: 172px;
   padding: 10px 14px 17px 14px;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
   color: white;
   background-color: #00bc66;
   border-radius: 3px;
@@ -330,7 +307,7 @@
   width: 152px;
   height: 14px;
   padding: 10px 14px 17px 14px;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
   color: white;
   background-color: #d9534f;
   border-radius: 3px;
@@ -348,7 +325,7 @@
   width: 162px;
   height: 14px;
   padding: 10px 14px 17px 14px;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
   color: white;
   background-color: #00bc66;
   border-radius: 3px;

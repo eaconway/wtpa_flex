@@ -11,7 +11,7 @@
   justify-content: center;
 }
 
-.form-header{
+.form-header {
   margin: 0 auto;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -23,7 +23,7 @@
   width: 94%;
   height: 45px;
   border-radius: 5px;
-  border: 1px solid #D8D8D8;
+  border: 1px solid #d8d8d8;
   margin: 15px 0px;
   font-size: 18px;
   padding: 0% 3%;
@@ -32,14 +32,14 @@
   align-items: center;
 }
 
-.submit-button{
+.submit-button {
   border: 2px solid purple;
   color: purple;
   /* width: 100%; */
   font-weight: 500;
 }
 
-.submit-button:hover{
+.submit-button:hover {
   border: 2px solid black;
   color: white;
   background-color: purple;
@@ -62,7 +62,7 @@
   align-items: center;
 }
 
-.demo-button:hover{
+.demo-button:hover {
   border: 2px solid purple;
   color: white;
   background-color: rgb(30, 144, 197);
@@ -75,19 +75,232 @@
   font-size: 18px;
 }
 
-.switch-form:hover{
-  cursor:pointer;
+.switch-form:hover {
+  cursor: pointer;
   color: purple;
   font-size: 20px;
   font-weight: 600;
 }
 
-.switch-form-span{
+.switch-form-span {
   font-size: 18px;
   margin: 0 auto;
   margin-top: 15px;
 }
 
 
-/* * { margin: 0; padding: 0; box-sizing: border-box; } */
-/* body { font: 13px Helvetica, Arial; } */
+
+
+.signin-login {
+  width: 130px;
+}
+
+.signup-header-link {
+  margin-right: 30px;
+}
+
+.background-signup-login {
+  position: absolute;
+  width: 1600px;
+  height: 2000px;
+  z-index: 2;
+  background-color: black;
+  opacity: 0.7;
+  left: 0;
+}
+
+.signup-modal {
+  left: 490px;
+  width: 590px;
+  height: 510px;
+  background-color: white;
+  z-index: 3;
+  position: absolute;
+  top: 120px;
+  border-radius: 6px;
+}
+
+.register-modal a {
+  width: 20px;
+  height: 20px;
+  right: 11px;
+  top: 14px;
+  position: absolute;
+}
+
+.signup-modal a {
+  width: 20px;
+  position: absolute;
+  height: 20px;
+  right: 11px;
+  top: 14px;
+}
+
+.fa-times {
+  color: #333;
+  font-size: 21px;
+}
+
+.login-modal-inner {
+  top: 0;
+  width: 510px;
+  height: 420px;
+  padding: 40px;
+  position: absolute;
+  color: black;
+}
+
+.login-modal-inner h1 {
+  font-size: 40px;
+  font-weight: 400;
+  color: black;
+}
+
+.login-modal-form-field {
+  height: 326px;
+  margin-top: 40px;
+}
+
+.register-modal-form-field {
+  height: 536px;
+  margin-top: 40px;
+}
+
+.login-modal-form-field p {
+  font-size: 18px;
+}
+
+.register-modal-form-field p {
+  font-size: 18px;
+}
+
+.login-form-field-inner {
+  height: 248px;
+  margin-top: 40px;
+}
+
+.register-form-field-inner {
+  height: 448px;
+  margin-top: 40px;
+}
+
+.login-form-field-inner form {
+  height: 209px;
+}
+
+.login-email-input-field {
+  height: 56px;
+}
+
+.login-email-input-field span {
+  font-weight: bold;
+}
+
+.login-email-input-field input {
+  width: 484px;
+  height: 20px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-top: 2px;
+}
+
+.login-password-input-field {
+  margin-top: 20px;
+  height: 56px;
+}
+
+.login-password-input-field span {
+  font-weight: bold;
+}
+
+.login-password-input-field input {
+  width: 484px;
+  height: 20px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-top: 2px;
+}
+
+.login-button {
+  height: 37px;
+  margin-top: 40px;
+}
+
+.login-button button {
+  width: 46px;
+  height: 14px;
+  padding: 10px 14px 16px 14px;
+  border: 1px solid #00bc66;
+  background-color: #00bc66;
+  color: white;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+}
+
+.register-button {
+  height: 37px;
+  margin-top: 40px;
+}
+
+.register-button button {
+  width: 66px;
+  height: 14px;
+  padding: 10px 14px 16px 14px;
+  border: 1px solid #00bc66;
+  background-color: #00bc66;
+  color: white;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+}
+
+.login-form-field-inner p {
+  color: #00bc66;
+  margin-top: 20px;
+}
+
+.login-form-field-inner p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.register-form-field-inner p {
+  color: #00bc66;
+  margin-top: 20px;
+}
+
+.register-form-field-inner p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.register-modal {
+  left: 490px;
+  width: 590px;
+  height: 732px;
+  background-color: white;
+  z-index: 3;
+  position: absolute;
+  top: 70px;
+  border-radius: 6px;
+}
+
+.register-modal-inner {
+  top: 0;
+  width: 510px;
+  height: 622px;
+  padding: 40px;
+  position: absolute;
+  color: black;
+}
+
+.register-modal-inner h1 {
+  font-size: 40px;
+  font-weight: 400;
+  color: black;
+}

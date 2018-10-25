@@ -16,8 +16,7 @@
   transform: translate(-50%, -50%);
 }
 
-
-.modal-close{
+.modal-close {
   font-size: 18px;
   font-weight: normal;
   margin-bottom: 0px;
@@ -26,4 +25,8 @@
   text-align: left;
   position: fixed;
   top: 45px;
+}
+
+.modal-forms {
+  width: 90px;
 }
