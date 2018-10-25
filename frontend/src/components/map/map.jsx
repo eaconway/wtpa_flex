@@ -21,12 +21,13 @@ export default class Map extends React.Component {
   }
 
   render() {
+    var windowHeight = window.innerHeight - 50;
     const style = {
       position: "absolute",
       top: 0,
       bottom: 0,
       width: "100%",
-      height: "900px"
+      height: windowHeight
     };
 
     return <div id="map" style={style} ref={el => (this.mapContainer = el)} />;
