@@ -1,5 +1,6 @@
 import React from 'react';
 import * as ReactDOM from "react-dom";
+// import SocketIOFileUpload from "socketio-file-upload";
 
 class ChatRoom extends React.Component {
     constructor(props){
@@ -13,6 +14,8 @@ class ChatRoom extends React.Component {
         this.update = this.update.bind(this);
         this.registerListeners();
         this.scrollToBottom = this.scrollToBottom.bind(this);
+        this.handleFile = this.handleFile.bind(this);
+        
     }
 
     componentDidMount() {
@@ -43,6 +46,13 @@ class ChatRoom extends React.Component {
             messages.push(curr);
             this.setState({ messages });
         });
+
+        // window.uploader.listenOnInput(document.getElementById("siofu_input"));
+
+        window.uploader.addEventListener("complete", function (event) {
+            console.log(event.success);
+            console.log(event.file);
+        });
     }
 
     update(field){
@@ -52,15 +62,9 @@ class ChatRoom extends React.Component {
     handleSubmit(e){
         e.preventDefault();
 
-        // const formData = new FormData();
-
-        // if (this.state.imageFile) {
-        //     formData.append('message[image]', this.state.imageFile);
-        // }
-
-        // formData.append('body', this.state.body);
-        // formData.append('partyId', this.props.partyId);
-        // formData.append("userId", this.props.currentUser.id);
+        if (this.state.imageFile) {
+            window.uploader.submitFiles([this.state.imageFile])
+        }
 
         let backendPayload = {
             body: this.state.body,
@@ -68,8 +72,6 @@ class ChatRoom extends React.Component {
             userId: this.props.currentUser.id
         }
 
-        // debugger
-        // window.socket.emit('chat message', formData);
         window.socket.emit("chat message", backendPayload);
         this.setState({message: ''});
     }
@@ -92,6 +94,16 @@ class ChatRoom extends React.Component {
           </li>
         ));
 
+        const preview = this.state.imageUrl ? (
+            <div>
+                <img className={'image-upload-preview'} src={this.state.imageUrl} />
+            </div>
+        ) : (
+            <input autoComplete="off" value={this.state.body}
+            onChange={this.update("body")} placeholder="Enter Text"
+            className="chat-message-input" />
+        );
+
         console.log(this.state.messages);
         return <div className="chat-room-section">
             <h1>Chat The Party</h1>
@@ -99,15 +111,14 @@ class ChatRoom extends React.Component {
               {messages}
             </ul>
             <form className="chat-room" onSubmit={this.handleSubmit}>
-              <input autoComplete="off" value={this.state.body} onChange={this.update("body")} 
-              placeholder="Enter Text" className='chat-message-input'/>
+                { preview }
               <button>
                 <i className="far fa-envelope chat-send-icon" />
               </button>
-              <div className='chat-file-wrapper'>
-                    <i className="fas fa-paperclip chat-file-icon"/>
-                    <input type="file" onChange={this.handleFile} className='chat-file-input' 
-                    placeholder=''/>
+              <div className="chat-file-wrapper">
+                <i className="fas fa-paperclip chat-file-icon" />
+                <input type="file" id="siofu_input" onChange={this.handleFile} 
+                    className="chat-file-input" placeholder="" />
               </div>
             </form>
           </div>;

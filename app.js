@@ -15,10 +15,13 @@ require("./config/passport")(passport);
 const Message = require("./models/Message");
 const User = require("./models/User");
 
+
 //SOCKET.IO SETUP
 const app = express();
 var http = require("http").Server(app);
 var io = require("socket.io")(http);
+//SOCKET File Upload
+const siofu = require("socketio-file-upload");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -44,12 +47,32 @@ app.use('/api/users', users);
 app.use("/api/parties", parties);
 app.use("/api/ratings", ratings);
 app.use("/api/messages", messages);
+app.use(siofu.router);
 
 // SOCKET.IO SETUP
-io.on('connection', function (socket) {
+io.on('connection', (socket) => {
+
+    var uploader = new siofu();
+    uploader.dir = "./images";
+    uploader.listen(socket);
+
+    uploader.on("saved", function (event) {
+        console.log('file was saved on the backend');
+        console.log(event.file);
+    });
+
+    uploader.on("upload", file => {
+        console.log("file was saved on the backend");
+        // console.log(event.file);
+    });
+
     console.log('a user connected');
     socket.on('disconnect', () => {
         console.log('user disconnected');
+    });
+
+    socket.on("upload", file => {
+        console.log(file);
     });
 
     // socket.on('chat message', function (msg) {
@@ -112,7 +135,7 @@ io.on('connection', function (socket) {
                 name = User.find({ _id: newMessage.user }).name;
             }
 
-            io.emit("chat message", { msg: newMessage.body, name: name});
+            io.emit("chat message", { msg: newMessage.body, name: name, partyId: newMessage.party});
         }
     
     });

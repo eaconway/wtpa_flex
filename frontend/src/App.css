@@ -779,6 +779,11 @@ div h1 h2 h3 h3 p span {
   font-weight: 600;
 }
 
+.image-upload-preview {
+  width: 100px;
+  height: 100px;
+}
+
 .map-div {
   /* position: fixed; */
   /* top: 100px; */
