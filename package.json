@@ -28,6 +28,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
+    "css-toggle-switch": "^4.1.0",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.3.0",
     "mapbox-gl": "^0.50.0",
