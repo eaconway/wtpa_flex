@@ -1,0 +1,14 @@
+.map-div {
+  /* position: fixed; */
+  /* top: 100px; */
+}
+
+#map {
+  width: 1000px;
+  height: 250px;
+}
+
+#events {
+    height: 250px;
+    overflow-y: scroll;
+}

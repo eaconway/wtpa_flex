@@ -1,5 +1,6 @@
 import React from 'react';
 import * as scriptAPI from './script';
+import './map.css';
 
 class Map extends React.Component {
 

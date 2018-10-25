@@ -1,9 +1,10 @@
 import React from 'react';
 import { closeModalAndClearErrors } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import LoginFormContainer from './login_container';
-import SignupFormContainer from './signup_container';
+import LoginFormContainer from '../session/login_container';
+import SignupFormContainer from '../session/signup_container';
 // import ForgotPassContainer from './forgot_pass_container';
+import './modal.css';
 
 function Modal({ modal, closeModal }) {
     if (!modal) {

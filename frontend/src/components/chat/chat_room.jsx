@@ -1,5 +1,6 @@
 import React from 'react';
 import * as ReactDOM from "react-dom";
+import './chat.css';
 
 class ChatRoom extends React.Component {
     constructor(props){

@@ -1,4 +1,5 @@
 import React from 'react';
+import './profile.css';
 
 class Profile extends React.Component {
 
@@ -75,9 +76,9 @@ class Profile extends React.Component {
     // let loading = <div className="avatar-previewText">Loading...</div>;
 
     if (imagePreviewUrl) {
-      profilePicture = (<img src={imagePreviewUrl} />);
+      profilePicture = (<img className='avatar-img' src={imagePreviewUrl} />);
     } 
-    // else if (online_url) {
+    // else if (online_url) { 
     //   if (this.imageExists(online_url)) {
     //     $imagePreview = (<img src={online_url} />);
     //   } else {

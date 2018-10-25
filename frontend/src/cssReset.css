@@ -1,0 +1,88 @@
+html, body, header, nav, h1, a, ul, li, strong, main, button, i, section, img, div, h2, p, form, fieldset, label, input, textarea, span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+  font-family: 'Source Sans Pro';
+}
+
+input[type='password'],
+input[type='email'],
+input[type='text'],
+input[type='submit'],
+textarea, button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Font Family for entire site */
+div h1 h2 h3 h3 p span {
+  font-family: 'Source Sans Pro';
+}
+
+.main-section {
+  position: relative;
+  top: 200px;
+}
+
+.hidden {
+  display: none;
+}
+
+.header {
+  height: 80px;
+  /* border-bottom: 1px solid	#D8D8D8; */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  /* padding: 10px 50px; */
+}
+
+.root {
+  height: 1000px;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
-import './App.css';
+import './cssReset.css';
 import HomeLogoContainer from './components/nav/home_logo_container';
 import NavBarContainer from "./components/nav/nav_bar_container";
 
@@ -15,7 +15,7 @@ import { Switch, Route } from "react-router-dom";
 import ChangePassword from './components/profile/change_password';
 
 import MapContainer from "./components/map/map_container";
-import Modal from "./components/session/modal";
+import Modal from "./components/modal/modal";
 
 import { Link } from "react-router-dom";
 
