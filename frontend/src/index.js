@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     
     window.socket = window.io();
+    window.uploader = new window.SocketIOFileUpload(window.socket);
     
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, root);
