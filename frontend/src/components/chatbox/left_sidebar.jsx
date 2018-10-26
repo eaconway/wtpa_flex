@@ -56,7 +56,7 @@ class LeftSidebar extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1
     };
-    // TODO: fetch parties created by party-manager
+    // TODO: fetch parties added by party host
     const images = [
       "https://res.cloudinary.com/wtpa/image/upload/v1540573064/ynx03yd2m9isj0qh7xip.jpg",
       "https://res.cloudinary.com/wtpa/image/upload/v1540572935/yd0lpvtcoumcpjlzpuvq.jpg", 
