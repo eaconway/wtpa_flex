@@ -1,16 +1,17 @@
-import {connect} from 'react-redux';
-import LeftSidebar from './left_sidebar';
+import { connect } from "react-redux";
+import LeftSidebar from "./left_sidebar";
 
 const mapStateToProps = state => {
   return {
-
+    currEvent: state.selectedMarker
   };
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-
-  };
+  return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LeftSidebar);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LeftSidebar);

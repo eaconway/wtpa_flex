@@ -61,6 +61,10 @@ button {
   max-width: 600px;
 }
 
+.highlighted {
+  color: darkmagenta;
+}
+
 /* end custom styles */
 .App {
   text-align: center;
