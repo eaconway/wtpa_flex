@@ -34,14 +34,25 @@ export default class Map extends React.Component {
     }
   }
 
+  // logic for handelling hover
+  // handleHover(e, marker, place) {
+  //   this.props.highlightMarker(place);
+  //   e.target.classList.add("highlighted");
+  // }
+
+  // handleOut(e, marker) {
+  //   e.target.classList.remove("highlighted");
+  //   this.props.removehighlightMarker();
+  // }
+
   parseTime(date, time) {
-    let d;
-    d = {
+    let ddate;
+    ddate = {
       month: moment(date).format("MMM"),
       time: moment(time, "HH:mm:ss").format("h:mm a"),
       day: moment(date).format("DD")
     };
-    return d;
+    return ddate;
   }
 
   getRandomInt(min, max) {
