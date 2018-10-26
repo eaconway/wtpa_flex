@@ -30,13 +30,81 @@ router.post("/", (req, res) => {
       rating: req.body.rating,
       feeling: req.body.feeling,
       music: req.body.music,
-      author: req.body.authorId,
-      party: req.body.partyId
+      author: req.body.author,
+      party: req.body.party
     });
-
+    
     newOpinion.save().then(opinion => res.json(opinion));
 }
 );
+
+router.delete("/:id", (req, res) => {
+    Opinion.findById(req.params.id)
+        .then(opinion => {
+            opinion.remove();
+            res.status(200).json({ successDelete: "Successfully removed opinion" });
+        })
+        .catch(err =>
+            res.status(404).json({ noopinionfound: "No opinion found with that ID" })
+        );
+});
+
+router.get("/party/:partyId", (req, res) => {
+    Opinion.find({ party: req.params.partyId })
+        .then(opinions => {
+            let countFeels = {};
+            let countRatings = [];
+            let countMusic = {};
+            
+            console.log(countFeels['hype']);
+            // let avg = 0;
+            opinions.forEach(opinion => {
+                countRatings.push(opinion.rating);
+                // Count instances of party description
+                if (countFeels[opinion.feeling] === undefined) {
+                    countFeels[opinion.feeling] = 1;
+                } else {
+                    countFeels[opinion.feeling] = countFeels[opinion.feeling] + 1;
+                }
+
+                if (countMusic[opinion.music] === undefined) {
+                    countMusic[opinion.music] = 1;
+                } else {
+                    countMusic[opinion.music] = countMusic[opinion.music] + 1;
+                }
+            })
+
+            // avg = Math.ceil((avg) / ratings.length);
+            // console.log(avg)
+            // res.json(avg);
+
+            //get average rating
+            let avgRating = countRatings.reduce((acc, el) => acc += el)/countRatings.length;
+
+            let highestVal = 0;
+            let feelKey = '';
+            Object.keys(countFeels).forEach(key => {
+                if (countFeels[key] > highestVal){
+                    highestVal = countFeels[key];
+                    feelKey = key;
+                }
+            });
+
+            highestVal = 0;
+            let musicKey = '';
+            Object.keys(countMusic).forEach(key => {
+                if (countMusic[key] > highestVal) {
+                    highestVal = countMusic[key];
+                    musicKey = key;
+                }
+            });
+
+            res.send({avgRating, feelKey, musicKey});
+        })
+        .catch(err =>
+            res.status(404).json({ noratingfound: "No rating found with that ID" })
+        );
+});
 
 // router.get("/:id", (req, res) => {
 //     Rating.findById(req.params.id)
@@ -66,17 +134,6 @@ router.post("/", (req, res) => {
 //         .then(party => res.json(party))
 //         .catch(err =>
 //             res.status(404).json({ nopartyfound: "No party found with that ID" })
-//         );
-// });
-
-// router.delete("/:id", (req, res) => {
-//     Rating.findById(req.params.id)
-//         .then(rating => {
-//             rating.remove();
-//             res.status(200).json({ successDelete: "Successfully removed rating" });
-//         })
-//         .catch(err =>
-//             res.status(404).json({ noratingfound: "No rating found with that ID" })
 //         );
 // });
 
