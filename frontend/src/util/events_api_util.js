@@ -1,5 +1,6 @@
 // Will move key to .env in production mode
-const key = "AS61CrvUrl6XtTCpJhJb43RZWNt50k2G";
+// const key = "AS61CrvUrl6XtTCpJhJb43RZWNt50k2G";
+const key = "BHFjDGKYYBYl65HYDBYWgVEt2IV7Thnc";
 
 export const TestTour = () =>
   fetch(
