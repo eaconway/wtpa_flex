@@ -77,9 +77,6 @@
 
 .switch-form:hover {
   cursor: pointer;
-  color: purple;
-  font-size: 20px;
-  font-weight: 600;
 }
 
 .switch-form-span {
@@ -87,9 +84,6 @@
   margin: 0 auto;
   margin-top: 15px;
 }
-
-
-
 
 .signin-login {
   width: 130px;
@@ -142,12 +136,21 @@
 }
 
 .login-modal-inner {
-  top: 0;
+  left: -270px;
+  top: -240px;
   width: 510px;
-  height: 420px;
+  height: 450px;
   padding: 40px;
   position: absolute;
   color: black;
+  background-color: white;
+  border-radius: 3px;
+}
+
+.login-modal-inner a {
+  position: absolute;
+  top: 10px;
+  right: 12px;
 }
 
 .login-modal-inner h1 {
@@ -205,6 +208,10 @@
   margin-top: 2px;
 }
 
+.login-email-input-field input:focus {
+  border: 1px solid #00bc66;
+}
+
 .login-password-input-field {
   margin-top: 20px;
   height: 56px;
@@ -223,6 +230,10 @@
   margin-top: 2px;
 }
 
+.login-password-input-field input:focus {
+  border: 1px solid #00bc66;
+}
+
 .login-button {
   height: 37px;
   margin-top: 40px;
@@ -239,6 +250,8 @@
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
+  float: left;
+  margin-right: 20px;
 }
 
 .register-button {
@@ -246,7 +259,7 @@
   margin-top: 40px;
 }
 
-.register-button button {
+.register-button input {
   width: 66px;
   height: 14px;
   padding: 10px 14px 16px 14px;
@@ -280,13 +293,13 @@
 }
 
 .register-modal {
-  left: 490px;
+  left: -290px;
   width: 590px;
   height: 732px;
   background-color: white;
   z-index: 3;
   position: absolute;
-  top: 70px;
+  top: -360px;
   border-radius: 6px;
 }
 
@@ -303,4 +316,8 @@
   font-size: 40px;
   font-weight: 400;
   color: black;
+}
+
+.demo-login {
+  width: 87px !important;
 }
