@@ -11,8 +11,8 @@ import { searchType } from "../../actions/search_actions";
 
 const mapStateToProps = state => {
   return {
-    text: state.search,
-    artistSearch: state.artist_search,
+    text: state.searchStatus.search,
+    artistSearch: state.searchStatus,
     error: state.errors.search
   };
 };

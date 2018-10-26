@@ -6,11 +6,10 @@ import {
 import Map from "./map";
 
 const mapStateToProps = state => {
-  // debugger;
-  // return {
-  //   venues: events.venues,
-  //   artistSearch: state.artist_search
-  // };
+  return {
+    venues: state.events.venue,
+    artistSearch: state.search_status
+  };
 };
 
 const mapDispatchToProps = dispatch => ({
