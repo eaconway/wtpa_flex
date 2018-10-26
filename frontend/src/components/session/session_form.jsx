@@ -45,7 +45,7 @@ class SessionForm extends React.Component {
                         <div className='register-modal-form-field'>
                             <p>Register for a Where's the Party At account below. Don't worry, none of your changes will be lost.</p>
                             <div className='register-form-field-inner'>
-                                <form>
+                                <form onSubmit={(e) => this.handleSubmit(e)}>
                                     <div className='login-email-input-field'>
                                         <span>Name</span>
                                         <input onChange={this.update('name')} type='text' />
@@ -69,7 +69,7 @@ class SessionForm extends React.Component {
                                         </div>
                                     </div>
                                     <div className='register-button'>
-                                        <button>REGISTER</button>
+                                        <input type='submit' value='REGISTER'/>
                                     </div>
                                 </form>
                                 <p>Already registered? {this.props.otherForm}</p>
@@ -82,13 +82,14 @@ class SessionForm extends React.Component {
             <div className='modal-forms'>
                     <div className='background-login-signup'></div>
                     <div className='login-modal'>
-                        <a onClick={() => this.props.closeModal()}><i className="fas fa-times"></i></a>
+                        
                         <div className='login-modal-inner'>
+                            <a onClick={() => this.props.closeModal()}><i className="fas fa-times"></i></a>
                             <h1>Login</h1>
                             <div className='login-modal-form-field'>
                             <p>Enter your email and password below to log in. Don't worry, none of your changes will be lost.</p>
                             <div className='login-form-field-inner'>
-                                <form>
+                                <form onSubmit={(e) => this.handleSubmit(e)}>
                                     <div className='login-email-input-field'>
                                         <span>Email Address</span>
                                         <input onChange={this.update('email')} type='text' />
@@ -98,7 +99,8 @@ class SessionForm extends React.Component {
                                         <input onChange={this.update('password')} type='password' />
                                     </div>
                                     <div className='login-button'>
-                                        <button>LOG IN</button>
+                                        <input type='submit' value='LOG IN' />
+                                        <button onClick={(e) => this.demoSignIn(e)} className='demo-login'>DEMO LOGIN</button>
                                     </div>
                                 </form>
                                 <p>Don't have an account? {this.props.otherForm}</p>

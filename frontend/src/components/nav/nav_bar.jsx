@@ -60,10 +60,10 @@ class NavBar extends React.Component {
     return (
       <ul className="nav-bar-list">
         <div className="user-icon-div">
-          <i
-            className="far fa-user-circle user-icon"
-            onClick={this.toggleUserOptions}
-          />
+            <div className='register-login-upper-link'>
+                <span className='register-link-header'>Register</span>
+                <span className='login-link-header'>Log in</span>
+            </div>
         </div>
         {userOptions}
       </ul>
