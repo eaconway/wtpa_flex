@@ -10,9 +10,25 @@ const PartySchema = new Schema({
         type: String,
         required: true
     },
-    address: {
-        type: String,
+    lat: {
+        type: Number,
         required: true
+    },
+    lng: {
+        type: Number,
+        required: true
+    },
+    address: {
+        type: String
+    },
+    city: {
+        type: String
+    },
+    state: {
+        type: String
+    },
+    zipcode: {
+        type: Number
     },
     partyType: {
         type: String

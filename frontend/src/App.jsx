@@ -24,8 +24,7 @@ import { Link } from "react-router-dom";
 
 export default class App extends Component {
   render() {
-    return (
-      <div id="app">
+    return <div id="app">
         <Modal />
         <header className={"header"} />
         <div className="main-header-inner">
@@ -33,31 +32,21 @@ export default class App extends Component {
           <Route path="/" component={NavBarContainer} />
         </div>
         <main className="main-section">
-          <Route exact path="/" component={LeftSidebarContainer} />
-          <Route exact path="/" component={LeftSidebarModalContainer} />
-          <Route exact path="/profile" component={ProfileContainer} />
-          <Route
-            exact
-            path="/account/update-profile"
-            s
-            component={UpdateProfileContainer}
-          />
-          <Route
-            exact
-            path="/account/change-email"
-            component={ChangeEmailContainer}
-          />
-          <Route
-            exact
-            path="/account/change-password"
-            component={ChangePasswordContainer}
-          />
           <Switch>
-            <Route path="/party/:partyId" component={ChatRoomContainer} />
-            <Route exact path="/" component={MapContainer} />
+            <Route path="/profile" component={ProfileContainer} />
+            <Route path="/account/update-profile" component={UpdateProfileContainer} />
+            <Route path="/account/change-email" component={ChangeEmailContainer} />
+            <Route path="/account/change-password" component={ChangePasswordContainer} />
+            <React.Fragment>
+              <Route path="/party/:id" component={LeftSidebarContainer} />
+              <Route path="/party/:id" component={LeftSidebarModalContainer} />
+              <Route path="/" component={MapContainer} />
+            </React.Fragment>
+
           </Switch>
         </main>
-      </div>
-    );
+      </div>;
   }
 }
+
+//<Route path="/party/:partyId" component={ChatRoomContainer} />

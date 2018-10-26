@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
-app.use(passport.initialize());
+// app.use(passport.initialize());
 
 
 app.get('/', (req, res) => res.send("backend server"));
