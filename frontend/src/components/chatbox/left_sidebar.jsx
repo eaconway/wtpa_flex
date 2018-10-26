@@ -188,7 +188,6 @@ class LeftSidebar extends React.Component {
               <option>Dinner</option>
               <option>Easter</option>
               <option>Fourth of July</option>
-              <option>Frat</option>
               <option>Game Day</option>
               <option>Halloween</option>
               <option>Magic Show</option>
