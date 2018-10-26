@@ -4,32 +4,16 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 
 const CLOUDINARY_UPLOAD_PRESET = "d02vszw5";
-const CLOUDINARY_UPLOAD_URL =
-  "https://api.cloudinary.com/v1_1/WTPA/upload";
-
-
-// import { Image, Video, Transformation, CloudinaryContext } from 'cloudinary-react';
-// import cloudinary from 'cloudinary-core';
-// const cloudinaryCore = new cloudinary.Cloudinary({ cloud_name: 'demo' });
-// const SampleImg = () => (
-//   <img src={cloudinaryCore.url('sample')} />
-// );
-
+const CLOUDINARY_UPLOAD_URL = "https://api.cloudinary.com/v1_1/WTPA/upload";
 
 class Profile extends React.Component {
 
-  
-  // https://stackoverflow.com/a/20744868/2734863
-  // String newFileName = "my-image";
-  // File imageFile = new File("/users/victor/images/image.png");
-  // GridFS gfsPhoto = new GridFS(db, "photo");
-  // GridFSInputFile gfsFile = gfsPhoto.createFile(imageFile);
-  // gfsFile.setFilename(newFileName);
-  // gfsFile.save();
-
   componentDidMount(){
     this.props.fetchUser(this.props.currentUserId).then( res => {
-      this.setState({ imagePreviewUrl: res.user.data.profilePicture });
+      this.setState({
+        imagePreviewUrl: res.user.data.profilePicture,
+        uploadedFileCloudinaryUrl: res.user.data.profilePicture
+      });
     });
   }
 
@@ -63,6 +47,10 @@ class Profile extends React.Component {
       if (response.body.secure_url !== '') {
         this.setState({
           uploadedFileCloudinaryUrl: response.body.secure_url
+        });
+        this.props.updateUser({
+          id: this.props.currentUserId,
+          profilePicture: this.state.uploadedFileCloudinaryUrl
         });
       }
     });

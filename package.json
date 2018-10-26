@@ -34,13 +34,17 @@
     "express": "^4.16.4",
     "jsonwebtoken": "^8.3.0",
     "mapbox-gl": "^0.50.0",
-    "mongoose": "^5.3.4",
+    "mongoose": "^5.3.7",
     "mongoose-double": "0.0.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "react-dropzone": "^7.0.1",
     "react-router-dom": "^4.3.1",
+    "react-slick": "^0.23.2",
+    "react-slideshow-image": "^1.0.7",
+    "slick-carousel": "^1.8.1",
     "socket.io": "^2.1.1",
     "socketio-file-upload": "^0.6.4",
     "superagent": "^4.0.0-beta.5",
@@ -48,6 +52,6 @@
     "websocket": "^1.0.28"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.5"
   }
 }
