@@ -63,9 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ReactDOM.render(<Root store={store} />, root);
     // registerServiceWorker();
 
-  window.registerUser = APIUtil.registerUser;
-  window.loginUser = APIUtil.loginUser;
-  window.logoutUser = APIUtil.logoutUser;
+    window.registerUser = APIUtil.registerUser;
+    window.loginUser = APIUtil.loginUser;
+    window.logoutUser = APIUtil.logoutUser;
 
     window.store = store;
     window.dispatch = store.dispatch;
