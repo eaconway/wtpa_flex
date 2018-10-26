@@ -7,7 +7,7 @@ export default class Search extends React.Component {
     super();
     this.state = {
       //   searchtype can be "Event, "City", or "Party"
-      searchType: ""
+      searchType: "Events"
     };
 
     this.handleUpdate = this.handleUpdate.bind(this);

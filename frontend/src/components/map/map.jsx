@@ -11,6 +11,10 @@ export default class Map extends React.Component {
     this.state = {
       markers: []
     };
+
+    this.loadPlaces = this.loadPlaces.bind(this);
+    this.getRandomInt = this.getRandomInt.bind(this);
+    this.parseTime = this.
   }
 
   componentDidMount() {
@@ -22,6 +26,22 @@ export default class Map extends React.Component {
       zoom: 13
     });
     this.map.addControl(new mapboxgl.FullscreenControl());
+  }
+
+  componentDidUpdate() {
+    if (this.props.venues.length > 0) {
+      this.loadPlaces();
+    }
+  }
+
+  parseTime(date, time) {
+    let d;
+    d = {
+      month: moment(date).format("MMM"),
+      time: moment(time, "HH:mm:ss").format("h:mm a"),
+      day: moment(date).format("DD")
+    };
+    return d;
   }
 
   render() {
