@@ -49,12 +49,19 @@ button {
   -moz-appearance: none;
 }
 
+/* These are stysles that I have specifically recently added since the css merge */
 .left-homepage-sidebar {
   color: goldenrod;
   opacity: 0.9;
   background-color: azure;
 }
 
+.tooltip__img {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* end custom styles */
 .App {
   text-align: center;
 }
