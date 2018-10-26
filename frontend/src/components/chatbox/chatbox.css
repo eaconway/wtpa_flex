@@ -286,26 +286,3 @@
 .bold {
   font-weight: bold;
 }
-
-.register-login-upper-link {
-  height: 50px;
-  width: 140px;
-  background-color: #303030;
-  padding-right: 29px;
-  padding-left: 20px;
-}
-
-.register-link-header {
-  margin-right: 30px;
-  cursor: pointer;
-  color: #a1a3a2;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  width: 60px;
-  float: left;
-}
-
-.register-link-header:hover {
-  color: white;
-}

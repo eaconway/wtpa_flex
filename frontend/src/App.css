@@ -97,7 +97,15 @@ div h1 h2 h3 h3 p span {
 }
 
 .header {
-  height: 0;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
 }
 
 .main-header-inner {
@@ -136,8 +144,8 @@ div h1 h2 h3 h3 p span {
   justify-content: space-between;
   margin-left: 15px;
   /* padding: 10px 50px; */
-  background-color: #222;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  /* background-color: #222; */
+  /* box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25); */
   color: #ffffff;
 }
 

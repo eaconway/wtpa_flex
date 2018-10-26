@@ -5,15 +5,14 @@
   justify-content: space-between;
   margin-left: 15px;
   /* padding: 10px 50px; */
-  background-color: #222;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  /* background-color: #222;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25); */
   color: #ffffff;
 }
 
 .header-icon {
   width: 40px;
   height: 40px;
-  float: left;
   margin-right: 10px;
 }
 
@@ -60,6 +59,11 @@
   font-size: 16px;
 }
 
+.nav-bar-container{
+  display: flex;
+  justify-content: center;
+}
+
 .nav-bar-list {
   display: flex;
   flex-direction: row;
@@ -67,7 +71,7 @@
   justify-content: space-around;
   margin-right: 15px;
   /* border: 1px solid red; */
-  height: 80px;
+  height: 50px;
   width: 10%;
 }
 
@@ -95,8 +99,8 @@
 }
 
 .user-icon-div {
-  height: 100%;
-  width: 210px;
+  height: 80%;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -137,14 +141,39 @@
 }
 
 .login-link-header {
+  
   margin-right: 30px;
   cursor: pointer;
   color: #a1a3a2;
   height: 50px;
   display: flex;
   align-items: center;
+  width: 60px;
+  float: left;
 }
 
 .login-link-header:hover {
+  color: white;
+}
+
+.register-login-upper-link {
+  height: 50px;
+  width: 140px;
+  background-color: #303030;
+  padding-right: 29px;
+  padding-left: 20px;
+}
+
+.register-link-header {
+  margin-right: 30px;
+  cursor: pointer;
+  color: #a1a3a2;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  width: 60px;
+}
+
+.register-link-header:hover {
   color: white;
 }
