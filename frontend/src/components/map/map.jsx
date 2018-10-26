@@ -35,15 +35,15 @@ export default class Map extends React.Component {
   }
 
   // logic for handelling hover
-  // handleHover(e, marker, place) {
-  //   this.props.highlightMarker(place);
-  //   e.target.classList.add("highlighted");
-  // }
+  handleHover(e, marker, place) {
+    this.props.highlightMarker(place);
+    e.target.classList.add("highlighted");
+  }
 
-  // handleOut(e, marker) {
-  //   e.target.classList.remove("highlighted");
-  //   this.props.removehighlightMarker();
-  // }
+  handleOut(e, marker) {
+    e.target.classList.remove("highlighted");
+    this.props.removehighlightMarker();
+  }
 
   parseTime(date, time) {
     let ddate;

@@ -49,6 +49,12 @@ button {
   -moz-appearance: none;
 }
 
+.left-homepage-sidebar {
+  color: goldenrod;
+  opacity: 0.9;
+  background-color: azure;
+}
+
 .App {
   text-align: center;
 }
