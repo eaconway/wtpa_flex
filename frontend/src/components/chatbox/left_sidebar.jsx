@@ -1,4 +1,5 @@
 import React from 'react';
+import ChatRoom from '../chat/chat_room';
 import './chatbox.css';
 import { Zoom } from "react-slideshow-image";
 import Slider from "react-slick"; //TODO: multi-image-slider https://stackoverflow.com/a/47050930/2734863
@@ -16,6 +17,10 @@ class LeftSidebar extends React.Component {
     };
     this.rate = this.rate.bind(this);
     this.leftSidebarChange = this.leftSidebarChange.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.requestParty(this.props.match.params.partyId);
   }
 
   leftSidebarChange(side) {
@@ -234,9 +239,16 @@ class LeftSidebar extends React.Component {
         </div>
       </div>
     );
+    let currentUser = this.props.currentUser === undefined ? null : this.props.currentUser.id
+
+    let chatRoom = this.props.party === undefined ? '' : (
+      <ChatRoom partyId={this.props.party._id} currentUserId = {currentUser} />
+    )
+
     return (
       <div>
         {currentSection}
+        {chatRoom}
       </div>
     );
   }

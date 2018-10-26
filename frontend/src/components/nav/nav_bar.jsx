@@ -57,16 +57,25 @@ class NavBar extends React.Component {
         </div>
       );
 
-    return (
+    let options = this.props.currentUser.id === undefined ? (
       <ul className="nav-bar-list">
-        <div className="user-icon-div">
-            <div className='register-login-upper-link'>
-                <span className='register-link-header'>Register</span>
-                <span className='login-link-header'>Log in</span>
-            </div>
-        </div>
-        {userOptions}
+        <span className='register-link-header'
+          onClick={() => this.handleClick("signup")}>
+          Register</span>
+        <span className='login-link-header'
+          onClick={() => this.handleClick("login")}>Log in</span>
       </ul>
+    ) : (
+      <ul className="nav-bar-list">
+        <img src={require('../../images/header/profile.jpg')}
+          className='user-icon-div'/>
+      </ul>
+    )
+
+    return (
+      <div className='nav-bar-container'>
+        {options}
+      </div>
     );
   }
 }
