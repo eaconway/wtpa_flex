@@ -14,7 +14,7 @@ export default class Map extends React.Component {
 
     this.loadPlaces = this.loadPlaces.bind(this);
     this.getRandomInt = this.getRandomInt.bind(this);
-    this.parseTime = this.
+    this.parseTime = this.parseTime.bind(this);
   }
 
   componentDidMount() {
@@ -42,6 +42,12 @@ export default class Map extends React.Component {
       day: moment(date).format("DD")
     };
     return d;
+  }
+
+  getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
   }
 
   render() {
