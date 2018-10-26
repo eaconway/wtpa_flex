@@ -34,30 +34,17 @@ class NavBar extends React.Component {
 
   render() {
     let userOptions =
-      this.props.currentUser.id === undefined ? (
-        <div className={`${this.state.userOptions} user-options`}>
-          <div onClick={() => this.handleClick("login")} className={"nav-link"}>
-            Login
-          </div>
-          <div
-            onClick={() => this.handleClick("signup")}
-            className={"nav-link"}
-          >
-            Signup
-          </div>
-        </div>
-      ) : (
+      this.props.currentUser.id === undefined ? "": (
         <div className={`${this.state.userOptions} user-options`}>
           <div
             onClick={() => this.handleClick("logout")}
-            className={"nav-link"}
-          >
+            className={"nav-link"} >
             Logout
           </div>
         </div>
       );
 
-    let options = this.props.currentUser.id === undefined ? (
+    let options = this.props.currentUser.id === null ? (
       <ul className="nav-bar-list">
         <span className='register-link-header'
           onClick={() => this.handleClick("signup")}>
@@ -68,13 +55,14 @@ class NavBar extends React.Component {
     ) : (
       <ul className="nav-bar-list">
         <img src={require('../../images/header/profile.jpg')}
-          className='user-icon-div'/>
+          className='user-icon-div' onClick={this.toggleUserOptions}/>
       </ul>
     )
 
     return (
       <div className='nav-bar-container'>
         {options}
+        {userOptions}
       </div>
     );
   }

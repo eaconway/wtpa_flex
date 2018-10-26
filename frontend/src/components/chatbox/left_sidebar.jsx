@@ -215,6 +215,7 @@ class LeftSidebar extends React.Component {
     let chatRoom = this.props.party === undefined ? '' : (
       <ChatRoom partyId={this.props.party._id} currentUserId = {currentUser} />
     )
+    console.log('this is the party on the show page', this.props.party)
 
     return (
       <div>
