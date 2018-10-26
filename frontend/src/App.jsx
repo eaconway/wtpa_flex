@@ -37,6 +37,7 @@ export default class App extends Component {
             <Route path="/account/update-profile" component={UpdateProfileContainer} />
             <Route path="/account/change-email" component={ChangeEmailContainer} />
             <Route path="/account/change-password" component={ChangePasswordContainer} />
+            
             <React.Fragment>
               <Route path="/party/:id" component={LeftSidebarContainer} />
               <Route path="/party/:id" component={LeftSidebarModalContainer} />

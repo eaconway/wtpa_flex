@@ -72,7 +72,7 @@ class ChatRoom extends React.Component {
         let backendPayload = {
             body: this.state.body,
             partyId: this.props.partyId,
-            userId: this.props.currentUser.id
+            userId: this.props.currentUserId
         }
 
         window.socket.emit("chat message", backendPayload);

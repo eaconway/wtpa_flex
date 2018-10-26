@@ -26,11 +26,12 @@ export const requestParties = () => dispatch => (
         err => dispatch(receivePartyErrors(err)))
 );
 
-export const requestParty = (id) => dispatch => (
-    PartyAPIUtil.fetchParty(id)
+export const requestParty = (id) => dispatch => {
+    console.log('requesting a party')
+    return PartyAPIUtil.fetchParty(id)
         .then(party => dispatch(receiveParty(party)),
             err => dispatch(receivePartyErrors(err)))
-);
+};
 
 export const createParty = (newParty) => dispatch => (
     PartyAPIUtil.createParty(newParty)

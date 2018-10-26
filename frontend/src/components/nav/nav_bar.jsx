@@ -34,39 +34,36 @@ class NavBar extends React.Component {
 
   render() {
     let userOptions =
-      this.props.currentUser.id === undefined ? (
-        <div className={`${this.state.userOptions} user-options`}>
-          <div onClick={() => this.handleClick("login")} className={"nav-link"}>
-            Login
-          </div>
-          <div
-            onClick={() => this.handleClick("signup")}
-            className={"nav-link"}
-          >
-            Signup
-          </div>
-        </div>
-      ) : (
+      this.props.currentUser.id === undefined ? "": (
         <div className={`${this.state.userOptions} user-options`}>
           <div
             onClick={() => this.handleClick("logout")}
-            className={"nav-link"}
-          >
+            className={"nav-link"} >
             Logout
           </div>
         </div>
       );
 
-    return (
+    let options = this.props.currentUser.id === null ? (
       <ul className="nav-bar-list">
-        <div className="user-icon-div">
-            <div className='register-login-upper-link'>
-                <span className='register-link-header'>Register</span>
-                <span className='login-link-header'>Log in</span>
-            </div>
-        </div>
-        {userOptions}
+        <span className='register-link-header'
+          onClick={() => this.handleClick("signup")}>
+          Register</span>
+        <span className='login-link-header'
+          onClick={() => this.handleClick("login")}>Log in</span>
       </ul>
+    ) : (
+      <ul className="nav-bar-list">
+        <img src={require('../../images/header/profile.jpg')}
+          className='user-icon-div' onClick={this.toggleUserOptions}/>
+      </ul>
+    )
+
+    return (
+      <div className='nav-bar-container'>
+        {options}
+        {userOptions}
+      </div>
     );
   }
 }

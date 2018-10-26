@@ -1,4 +1,5 @@
 import React from 'react';
+import ChatRoom from '../chat/chat_room';
 import './chatbox.css';
 
 class LeftSidebar extends React.Component {
@@ -14,6 +15,10 @@ class LeftSidebar extends React.Component {
     };
     this.rate = this.rate.bind(this);
     this.leftSidebarChange = this.leftSidebarChange.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.requestParty(this.props.match.params.partyId);
   }
 
   leftSidebarChange(side) {
@@ -204,9 +209,17 @@ class LeftSidebar extends React.Component {
         </div>
       </div>
     );
+    let currentUser = this.props.currentUser === undefined ? null : this.props.currentUser.id
+
+    let chatRoom = this.props.party === undefined ? '' : (
+      <ChatRoom partyId={this.props.party._id} currentUserId = {currentUser} />
+    )
+    console.log('this is the party on the show page', this.props.party)
+
     return (
       <div>
         {currentSection}
+        {chatRoom}
       </div>
     );
   }
