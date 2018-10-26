@@ -3,19 +3,18 @@ import {
   removehighlightMarker,
   highlightMarker
 } from "../../actions/map_actions";
+import {requestParties, requestParty} from '../../actions/party_actions';
+
 import Map from "./map";
 
-const mapStateToProps = state => {
-  // debugger;
-  // return {
-  //   venues: events.venues,
-  //   artistSearch: state.artist_search
-  // };
-};
+const mapStateToProps = (state, ownProps) => ({
+  parties: Object.values(state.parties)
+});
 
 const mapDispatchToProps = dispatch => ({
   highlightMarker: place => dispatch(highlightMarker(place)),
-  removehighlightMarker: () => dispatch(removehighlightMarker())
+  removehighlightMarker: () => dispatch(removehighlightMarker()),
+  requestParty: (id) => dispatch(requestParty(id)) 
 });
 
 export default connect(

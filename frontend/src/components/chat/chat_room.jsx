@@ -44,8 +44,10 @@ class ChatRoom extends React.Component {
         window.socket.on('chat message', curr => {
             let messages = this.state.messages;
 
-            messages.push(curr);
-            this.setState({ messages });
+            if (curr.partyId === this.props.partyId){
+                messages.push(curr);
+                this.setState({ messages });
+            } 
         });
 
         // window.uploader.listenOnInput(document.getElementById("siofu_input"));
