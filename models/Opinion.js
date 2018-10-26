@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 require("mongoose-double")(mongoose);
 
-const RatingSchema = new Schema({
+const OpinionSchema = new Schema({
   author: {
     type: Schema.Types.ObjectId,
     ref: "users"
@@ -12,9 +12,14 @@ const RatingSchema = new Schema({
     ref: "parties"
   },
   rating: {
-    type: Number,
-    required: true
+    type: Number
+  },
+  feeling: {
+    type: String
+  },
+  music: {
+    type: String
   }
 });
 
-module.exports = Rating = mongoose.model("ratings", RatingSchema);
+module.exports = Opinion = mongoose.model("option", OpinionSchema);

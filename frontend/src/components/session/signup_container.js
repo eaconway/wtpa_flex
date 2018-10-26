@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => {
                     e.preventDefault();
                     dispatch(openModalAndClearErrors('login'));
                 }}>
-                Login
+                Click here to log in.
             </span>
         ),
         closeModal: () => dispatch(closeModalAndClearErrors())

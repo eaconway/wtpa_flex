@@ -8,7 +8,7 @@ class SessionForm extends React.Component {
             email: '',
             name: '',
             password:'',
-            password2:'',
+            password2:''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
@@ -21,15 +21,15 @@ class SessionForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-
-
         this.props.processForm(this.state)
             .then(() => this.props.closeModal())
     }
 
+    changeFormField(field) {
+    }
+
     demoSignIn(e){
         e.preventDefault();
-
         this.props.processForm({ email: 'demo@wtpa.com', password: 'password'})
           .then(() => this.props.closeModal());
     }
@@ -45,7 +45,7 @@ class SessionForm extends React.Component {
                         <div className='register-modal-form-field'>
                             <p>Register for a Where's the Party At account below. Don't worry, none of your changes will be lost.</p>
                             <div className='register-form-field-inner'>
-                                <form>
+                                <form onSubmit={(e) => this.handleSubmit(e)}>
                                     <div className='login-email-input-field'>
                                         <span>Name</span>
                                         <input onChange={this.update('name')} type='text' />
@@ -69,10 +69,10 @@ class SessionForm extends React.Component {
                                         </div>
                                     </div>
                                     <div className='register-button'>
-                                        <button>REGISTER</button>
+                                        <input type='submit' value='REGISTER'/>
                                     </div>
                                 </form>
-                                <p>Already registered? Click here to log in.</p>
+                                <p>Already registered? {this.props.otherForm}</p>
                             </div>
                         </div>
                     </div>
@@ -80,15 +80,16 @@ class SessionForm extends React.Component {
             </div>
         ) : (
             <div className='modal-forms'>
-                    <div className='background-signup-login'></div>
-                    <div className='signup-modal'>
-                        <a onClick={() => this.props.closeModal()}><i className="fas fa-times"></i></a>
+                    <div className='background-login-signup'></div>
+                    <div className='login-modal'>
+                        
                         <div className='login-modal-inner'>
+                            <a onClick={() => this.props.closeModal()}><i className="fas fa-times"></i></a>
                             <h1>Login</h1>
                             <div className='login-modal-form-field'>
                             <p>Enter your email and password below to log in. Don't worry, none of your changes will be lost.</p>
                             <div className='login-form-field-inner'>
-                                <form>
+                                <form onSubmit={(e) => this.handleSubmit(e)}>
                                     <div className='login-email-input-field'>
                                         <span>Email Address</span>
                                         <input onChange={this.update('email')} type='text' />
@@ -98,10 +99,11 @@ class SessionForm extends React.Component {
                                         <input onChange={this.update('password')} type='password' />
                                     </div>
                                     <div className='login-button'>
-                                        <button>LOG IN</button>
+                                        <input type='submit' value='LOG IN' />
+                                        <button onClick={(e) => this.demoSignIn(e)} className='demo-login'>DEMO LOGIN</button>
                                     </div>
                                 </form>
-                                <p>Don't have an account? Click here to register.</p>
+                                <p>Don't have an account? {this.props.otherForm}</p>
                             </div>
                         </div>
                     </div>
