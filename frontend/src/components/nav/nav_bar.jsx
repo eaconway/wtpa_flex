@@ -27,7 +27,11 @@ class NavBar extends React.Component {
     console.log(`userOptions state is ${this.state.userOptions}`);
     if (field === "logout") {
       this.props.logout();
-    } else {
+    }
+    else if (field === "profile") {
+      this.props.history.push("/profile");
+    }
+    else {
       this.props.openModal(field);
     }
   }
@@ -36,6 +40,11 @@ class NavBar extends React.Component {
     let userOptions =
       this.props.currentUser.id === undefined ? "": (
         <div className={`${this.state.userOptions} user-options`}>
+          <div
+            onClick={() => this.handleClick("profile")}
+            className={"nav-link"} >
+            Profile
+          </div>
           <div
             onClick={() => this.handleClick("logout")}
             className={"nav-link"} >

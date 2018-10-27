@@ -11,7 +11,6 @@ class Profile extends React.Component {
   componentDidMount(){
     this.props.fetchUser(this.props.currentUserId).then( res => {
       this.setState({
-        imagePreviewUrl: res.user.data.profilePicture,
         uploadedFileCloudinaryUrl: res.user.data.profilePicture
       });
     });
@@ -19,16 +18,17 @@ class Profile extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { file: '', imagePreviewUrl: '', online_url: '',
+    this.state = {
+      uploadedProfilePic: '', //imagePreviewUrl: '', online_url: '',
       uploadedFileCloudinaryUrl: '' };
-    this._handleProfilePicChange = this._handleProfilePicChange.bind(this);
-    this._handleSubmit = this._handleSubmit.bind(this);
-    this.imageExists = this.imageExists.bind(this);
+    // this._handleProfilePicChange = this._handleProfilePicChange.bind(this);
+    // this._handleSubmit = this._handleSubmit.bind(this);
+    // this.imageExists = this.imageExists.bind(this);
   }
 
   onImageDrop(files) {
     this.setState({
-      uploadedFile: files[0]
+      uploadedProfilePic: files[0]
     });
 
     this.handleImageUpload(files[0]);
@@ -44,9 +44,17 @@ class Profile extends React.Component {
         console.error(err);
       }
 
+      let height = response.body.height;
+      let width = response.body.width;
+      if(height > width){height = width} else {width = height}
+
+
       if (response.body.secure_url !== '') {
         this.setState({
-          uploadedFileCloudinaryUrl: response.body.secure_url
+          uploadedFileCloudinaryUrl: response.body.secure_url.replace(
+            "v" + response.body.version.toString(),
+            `w_${width},h_${height},c_crop,g_face,r_max/w_170`
+          )
         });
         this.props.updateUser({
           id: this.props.currentUserId,
@@ -57,58 +65,58 @@ class Profile extends React.Component {
   }
 
 
-  imageExists(url) {
-    var image = new Image();
-    image.src = url;
-    if (!image.complete) {
-      return false;
-    }
-    else if (image.height === 0) {
-      return false;
-    }
-    return true;
-  }
+  // imageExists(url) {
+  //   var image = new Image();
+  //   image.src = url;
+  //   if (!image.complete) {
+  //     return false;
+  //   }
+  //   else if (image.height === 0) {
+  //     return false;
+  //   }
+  //   return true;
+  // }
 
-  _handleProfilePicChange(e) {
-    e.preventDefault();
-    // this.setState({ online_url: "" });
-    let reader = new FileReader();
-    let file = e.target.files[0];
-    let that = this;
-    reader.onloadend = () => {
-      this.setState({
-        file: file,
-        imagePreviewUrl: reader.result
-      });
-      that.props.updateUser({
-        id: that.props.currentUserId,
-        profilePicture: that.state.imagePreviewUrl
-      });
-    };
+  // _handleProfilePicChange(e) {
+  //   e.preventDefault();
+  //   // this.setState({ online_url: "" });
+  //   let reader = new FileReader();
+  //   let file = e.target.files[0];
+  //   let that = this;
+  //   reader.onloadend = () => {
+  //     this.setState({
+  //       file: file,
+  //       imagePreviewUrl: reader.result
+  //     });
+  //     that.props.updateUser({
+  //       id: that.props.currentUserId,
+  //       profilePicture: that.state.imagePreviewUrl
+  //     });
+  //   };
 
-    reader.readAsDataURL(file);
-  }
+  //   reader.readAsDataURL(file);
+  // }
 
-  _handleSubmit(e) {
-    debugger
-    e.preventDefault();
-    // if (this.imageExists(this.state.online_url)) {
-    //   this.props.updateUser({ id: this.props.currentUser.id, image_url: this.state.online_url }).then(
-    //     this.eventFire(document.getElementById('cog'), 'click'));
-    // } else 
-    if (this.imageExists(this.state.imagePreviewUrl)) {
-      debugger
-      this.props.updateUser({ id: this.props.currentUser.id, profilePicture: this.state.imagePreviewUrl })
-    }
-  }
+  // _handleSubmit(e) {
+  //   debugger
+  //   e.preventDefault();
+  //   // if (this.imageExists(this.state.online_url)) {
+  //   //   this.props.updateUser({ id: this.props.currentUser.id, image_url: this.state.online_url }).then(
+  //   //     this.eventFire(document.getElementById('cog'), 'click'));
+  //   // } else 
+  //   if (this.imageExists(this.state.imagePreviewUrl)) {
+  //     debugger
+  //     this.props.updateUser({ id: this.props.currentUser.id, profilePicture: this.state.imagePreviewUrl })
+  //   }
+  // }
 
   render() {
-    let { imagePreviewUrl, online_url } = this.state;
+    // let { imagePreviewUrl, online_url } = this.state;
     let profilePicture = null;
     // let loading = <div className="avatar-previewText">Loading...</div>;
-
-    if (imagePreviewUrl) {
-      profilePicture = (<img className='avatar-img' src={imagePreviewUrl} />);
+  
+    if (this.state.uploadedFileCloudinaryUrl != '') {
+      profilePicture = <img className="avatar-img" src={this.state.uploadedFileCloudinaryUrl} />;
     } 
     // else if (online_url) { 
     //   if (this.imageExists(online_url)) {
@@ -137,6 +145,11 @@ class Profile extends React.Component {
 
 
 
+  // <Image publicId="lady.jpg" >
+  //   <Transformation width="400" height="400" gravity="face" radius="max" crop="crop" />
+  //   <Transformation width="200" crop="scale" />
+  // </Image> 
+
     return (
       <div>
         <div className="header-avatar">
@@ -145,26 +158,26 @@ class Profile extends React.Component {
             <div className="avatar-section">
               <div className="avatar-position" >
                 {profilePicture}
-                <input className="avatar-fileInput"
+                {/* <input className="avatar-fileInput"
                   type="file"
-                  onChange={this._handleProfilePicChange} />
-              <Dropzone
+                  onChange={this._handleProfilePicChange} /> */}
+              <Dropzone className='avatar-dropzone'
                 multiple={false}
                 accept="image/*"
                 onDrop={this.onImageDrop.bind(this)}>
-                <p>Drop an image or click to select a file to upload.</p>
               </Dropzone>
-              <div className="FileUpload">
+              {/* <div className="FileUpload">
                 ...
-              </div>
+              </div> */}
 
-              <div>
+              {/* <div>
                 {this.state.uploadedFileCloudinaryUrl === '' ? null :
                   <div>
-                    <p>{this.state.uploadedFile.name}</p>
                     <img src={this.state.uploadedFileCloudinaryUrl} />
                   </div>}
-              </div>
+              </div> */}
+
+
               {/* <input name="file" type="file"
                 class="file-upload" data-cloudinary-field="image_id"
                 data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}" /> */}
