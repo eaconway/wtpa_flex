@@ -1,6 +1,8 @@
 import React from 'react';
 import ChatRoom from '../chat/chat_room';
 import './chatbox.css';
+import { Zoom } from "react-slideshow-image";
+import Slider from "react-slick"; //TODO: multi-image-slider https://stackoverflow.com/a/47050930/2734863
 
 class LeftSidebar extends React.Component {
   constructor(props) {
@@ -44,6 +46,26 @@ class LeftSidebar extends React.Component {
   }
 
   render() {
+    const zoomOutProperties = {
+      duration: 5000,
+      transitionDuration: 500,
+      infinite: true,
+      indicators: true,
+      scale: 0.4,
+      arrows: true
+    }
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+    // TODO: fetch parties added by party host
+    const images = [
+      "https://res.cloudinary.com/wtpa/image/upload/v1540573064/ynx03yd2m9isj0qh7xip.jpg",
+      "https://res.cloudinary.com/wtpa/image/upload/v1540572935/yd0lpvtcoumcpjlzpuvq.jpg", 
+      "https://res.cloudinary.com/wtpa/image/upload/v1540511137/sample.jpg"];
     let currentSection = this.state.infoSidebar === 'info' ? (
     <div className='left-homepage-sidebar'>
       <div className='toggle-info-create'>
@@ -72,10 +94,17 @@ class LeftSidebar extends React.Component {
         <img className='five-star-icons' src={require('../../images/header/149765.png')} />
         <img className='five-star-icons' src={require('../../images/header/149765.png')} />
       </div>
-      <div className='left-sidebar-picture-section'>
+      <Zoom {...zoomOutProperties}>
+        {
+          images.map((each, index) => <img className='left-sidebar-slideshow-img' key={index} src={each} />)
+        }
+      </Zoom>
+        {/* TODO: CREATE CAROSOL BY YOURSELF (weekend time-permitting...) */}
+
+      {/* <div className='left-sidebar-picture-section'>
         <img />
         <img />
-      </div>
+      </div> */}
       <a>See more</a>
       </div>
     </div>

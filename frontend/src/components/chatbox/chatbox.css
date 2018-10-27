@@ -61,6 +61,12 @@
   margin-right: 15px;
 }
 
+.left-sidebar-slideshow-img {
+  background-color: black;
+  height: 184px;
+  margin: 0 auto;
+}
+
 .left-homepage-sidebar-inner a {
   display: flex;
   justify-content: flex-end;
