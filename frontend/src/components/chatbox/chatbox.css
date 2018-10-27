@@ -1,16 +1,24 @@
-.left-homepage-sidebar {
-  position: absolute;
-  float: left;
-  width: 479px;
-  height: 1000px;
+.left-sidebar{
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+  height: 670px;
   background-color: white;
-  z-index: 1;
+}
+
+.left-homepage-sidebar {
+  /* position: absolute;
+  float: left; */
+  width: 479px;
+  /* height: 700px; */
+  /* background-color: white; */
+  /* z-index: 1; */
 }
 
 .left-homepage-sidebar-inner {
   width: 399px;
-  height: 394px;
-  padding: 40px;
+  height: 325px;
+  padding: 10px 40px;
   border-bottom: 1px solid #eee;
 }
 
@@ -43,8 +51,9 @@
 }
 
 .left-sidebar-picture-section {
-  height: 188px;
+  height: auto;
   margin-top: 10px;
+  width: 100%;
 }
 
 .emoji-icon {
@@ -55,10 +64,14 @@
 
 .left-sidebar-picture-section img {
   background-color: black;
-  float: left;
-  width: 184px;
-  height: 184px;
-  margin-right: 15px;
+  width: 100px;
+  height: 100px;
+  margin: 0px 15px;
+}
+
+.see-more{
+  display:flex;
+  justify-content: center;
 }
 
 .left-homepage-sidebar-inner a {
@@ -154,10 +167,14 @@
 }
 
 .toggle-info-create {
-  width: 70px;
+  width: 90%;
   height: 20px;
-  margin-top: 20px;
-  margin-left: 410px;
+  /* margin-top: 20px; */
+  display:flex;
+  justify-content: flex-end;
+  padding: 0px 5%;
+  /* margin-top: 20px; */
+  
 }
 
 .info-rectangle {
@@ -280,9 +297,22 @@
 .thumbs-up-thumbs-down {
   display: flex;
   justify-content: center;
-  margin-bottom: 35px;
+  margin-bottom: 15px;
 }
 
 .bold {
   font-weight: bold;
+}
+
+.close-sidebar{
+  position: relative;
+  top: 25px;
+  left: 25px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.star-ratings {
+  display: flex;
+  justify-content: center;
 }

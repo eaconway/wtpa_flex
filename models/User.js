@@ -17,7 +17,7 @@ const UserSchema = new Schema({
     type: String,
     require: true
   },
-  date: {
+  dateCreated: {
     type: Date,
     default: Date.now
   },

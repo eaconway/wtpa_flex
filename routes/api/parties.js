@@ -49,7 +49,8 @@ router.post("/", (req, res) => {
     feel: req.body.feel,
     dress: req.body.dress,
     orientation: req.body.orientation,
-    date: req.body.date
+    eventDate: req.body.date,
+    dateCreated: Date.now()
   });
   
   newParty.save().then(party => res.json(party));
