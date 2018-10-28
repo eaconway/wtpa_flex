@@ -23,7 +23,6 @@ export const registerUser = (userData, history) => dispatch => {
         .post('/api/users/register', userData)
         .then(res => {
             // Save to localStorage
-            debugger
             const { token, payload } = res.data;
             // Set token to ls
             localStorage.setItem('jwtToken', token);

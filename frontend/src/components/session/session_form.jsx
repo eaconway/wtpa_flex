@@ -60,7 +60,7 @@ class SessionForm extends React.Component {
                                     </div>
                                     <div className='login-password-input-field'>
                                         <span>Confirm password</span>
-                                        <input onChange={this.update('password')} type='password' />
+                                        <input onChange={this.update('password2')} type='password' />
                                     </div>
                                     <div className='newsletter-checkbox'>
                                         <div className='newsletter-checkbox-inner'>
