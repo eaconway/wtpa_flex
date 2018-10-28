@@ -1,108 +1,87 @@
 import React from 'react';
 import './profile.css';
+import Dropzone from 'react-dropzone';
+import request from 'superagent';
+
+const CLOUDINARY_UPLOAD_PRESET = "d02vszw5";
+const CLOUDINARY_UPLOAD_URL = "https://api.cloudinary.com/v1_1/WTPA/upload";
 
 class Profile extends React.Component {
 
-  // https://stackoverflow.com/a/20744868/2734863
-  // String newFileName = "my-image";
-  // File imageFile = new File("/users/victor/images/image.png");
-  // GridFS gfsPhoto = new GridFS(db, "photo");
-  // GridFSInputFile gfsFile = gfsPhoto.createFile(imageFile);
-  // gfsFile.setFilename(newFileName);
-  // gfsFile.save();
-
   componentDidMount(){
     this.props.fetchUser(this.props.currentUserId).then( res => {
-      this.setState({ imagePreviewUrl: res.user.data.profilePicture });
+      this.setState({
+        uploadedFileCloudinaryUrl: res.user.data.profilePicture
+      });
     });
   }
 
   constructor(props) {
     super(props);
-    this.state = { file: '', imagePreviewUrl: '', online_url: '' };
-    this._handleProfilePicChange = this._handleProfilePicChange.bind(this);
-    this._handleSubmit = this._handleSubmit.bind(this);
-    this.imageExists = this.imageExists.bind(this);
+    this.state = {
+      uploadedProfilePic: '', 
+      uploadedFileCloudinaryUrl: '' };
   }
 
-  imageExists(url) {
-    var image = new Image();
-    image.src = url;
-    if (!image.complete) {
-      return false;
-    }
-    else if (image.height === 0) {
-      return false;
-    }
-    return true;
+  onImageDrop(files) {
+    this.setState({
+      uploadedProfilePic: files[0]
+    });
+
+    this.handleImageUpload(files[0]);
   }
 
-  _handleProfilePicChange(e) {
-    e.preventDefault();
-    // this.setState({ online_url: "" });
-    let reader = new FileReader();
-    let file = e.target.files[0];
-    let that = this;
-    reader.onloadend = () => {
-      this.setState({
-        file: file,
-        imagePreviewUrl: reader.result
-      });
-      that.props.updateUser({
-        id: that.props.currentUserId,
-        profilePicture: that.state.imagePreviewUrl
-      });
-    };
+  handleImageUpload(file) {
+    let upload = request.post(CLOUDINARY_UPLOAD_URL)
+      .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+      .field('file', file);
 
-    reader.readAsDataURL(file);
-  }
+    upload.end((err, response) => {
+      if (err) {
+        console.error(err);
+      }
 
-  _handleSubmit(e) {
-    debugger
-    e.preventDefault();
-    // if (this.imageExists(this.state.online_url)) {
-    //   this.props.updateUser({ id: this.props.currentUser.id, image_url: this.state.online_url }).then(
-    //     this.eventFire(document.getElementById('cog'), 'click'));
-    // } else 
-    if (this.imageExists(this.state.imagePreviewUrl)) {
-      debugger
-      this.props.updateUser({ id: this.props.currentUser.id, profilePicture: this.state.imagePreviewUrl })
-    }
+      let height = response.body.height;
+      let width = response.body.width;
+      if(height > width){height = width} else {width = height}
+
+
+      if (response.body.secure_url !== '') {
+        this.setState({
+          uploadedFileCloudinaryUrl: response.body.secure_url.replace(
+            "v" + response.body.version.toString(),
+            `w_${width},h_${height},c_crop,g_face,r_max/w_170`
+          )
+        });
+        this.props.updateUser({
+          id: this.props.currentUserId,
+          profilePicture: this.state.uploadedFileCloudinaryUrl
+        });
+      }
+    });
   }
 
   render() {
-    let { imagePreviewUrl, online_url } = this.state;
     let profilePicture = null;
-    // let loading = <div className="avatar-previewText">Loading...</div>;
-
-    if (imagePreviewUrl) {
-      profilePicture = (<img className='avatar-img' src={imagePreviewUrl} />);
+  
+    if (this.state.uploadedFileCloudinaryUrl != '') {
+      profilePicture = <img className="avatar-img" src={this.state.uploadedFileCloudinaryUrl} />;
     } 
-    // else if (online_url) { 
-    //   if (this.imageExists(online_url)) {
-    //     $imagePreview = (<img src={online_url} />);
-    //   } else {
-    //     $imagePreview = loading;
-    //   }
-    // } else {
-    //   $imagePreview = <div className="avatar-previewText">
-    //     </div>;
-    // }
 
     return (
       <div>
         <div className="header-avatar">
           <div className="users-name">Testing</div>
-          {/* <form onSubmit={this._handleSubmit}> */}
             <div className="avatar-section">
               <div className="avatar-position" >
                 {profilePicture}
-                <input className="avatar-fileInput"
-                  type="file"
-                  onChange={this._handleProfilePicChange} />
+              <Dropzone className='avatar-dropzone'
+                multiple={false}
+                accept="image/*"
+                onDrop={this.onImageDrop.bind(this)}>
+              </Dropzone>
               </div>
             </div>
-          {/* </form> */}
           <div className="users-location">San Francisco, CA</div>
           <div className="users-name-field">
             <input type="text" placeholder="Name" />

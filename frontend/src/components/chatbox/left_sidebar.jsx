@@ -3,6 +3,8 @@ import ChatRoom from '../chat/chat_room';
 import './chatbox.css';
 import { Link } from 'react-router-dom';
 import StarRatings from "react-star-ratings";
+import { Zoom } from "react-slideshow-image";
+import Slider from "react-slick"; //TODO: multi-image-slider https://stackoverflow.com/a/47050930/2734863
 
 class LeftSidebar extends React.Component {
   constructor(props) {
@@ -56,11 +58,27 @@ class LeftSidebar extends React.Component {
         <ChatRoom partyId={this.props.party._id} currentUserId={currentUser} />
       )
 
+      const zoomOutProperties = {
+        duration: 5000,
+        transitionDuration: 500,
+        infinite: true,
+        indicators: true,
+        scale: 0.4,
+        arrows: true
+      }
+      const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+      };
+
       let currentSection = this.state.infoSidebar === "info" ? <div className="left-sidebar">
             <div className="left-homepage-sidebar">
-            <Link className='close-sidebar' to="/">
-              X
-            </Link>
+              <Link className='close-sidebar' to="/">
+                X
+              </Link>
               <div className="toggle-info-create">
                 <div className="info-rectangle" />
                 <div onClick={() => this.leftSidebarChange("info")} className="create-rectangle" />
@@ -94,11 +112,11 @@ class LeftSidebar extends React.Component {
                   <img className="five-star-icons" src={require("../../images/header/149765.png")} />
                   <img className="five-star-icons" src={require("../../images/header/149765.png")} />
                 </div>
-                <div className="left-sidebar-picture-section">
-                  <img />
-                  <img />
-                  <img />
-                </div>
+                <Zoom {...zoomOutProperties}>
+                  {
+                    images.map((each, index) => <img className='left-sidebar-slideshow-img' key={index} src={each} />)
+                  }
+                </Zoom>
                 <div className="see-more">See more</div>
               </div>
             </div>
