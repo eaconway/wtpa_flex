@@ -58,11 +58,6 @@ class NavBar extends React.Component {
           <div onClick={() => this.props.history.push('/account/change-password')} className={"nav-link"}>Change Password</div>
           <div className='grey-border'></div>
           <div
-            onClick={() => this.handleClick("profile")}
-            className={"nav-link"} >
-            Profile
-          </div>
-          <div
             onClick={() => this.handleClick("logout")}
             className={"nav-link"} >
             Logout

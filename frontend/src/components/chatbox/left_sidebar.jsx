@@ -97,14 +97,14 @@ class LeftSidebar extends React.Component {
                   <img className="emoji-icon" src={require("../../images/theme/673890.png")} />
                   <img className="emoji-icon" src={require("../../images/music/1184619.png")} />
                   <img className="emoji-icon" src={require("../../images/food/931959.svg")} />
-                  <img className="emoji-icon" src={require("../../images/drugs/991884.png")} />
+                  <img className='emoji-icon-right' src={require("../../images/drugs/991884.png")} />
                 </div>
                 <div className="five-star">
                   <img className="five-star-icons" src={require("../../images/header/149765.png")} />
                   <img className="five-star-icons" src={require("../../images/header/149765.png")} />
                   <img className="five-star-icons" src={require("../../images/header/149765.png")} />
                   <img className="five-star-icons" src={require("../../images/header/149765.png")} />
-                  <img className="five-star-icons" src={require("../../images/header/149765.png")} />
+                  <img className="five-star-icons-right" src={require("../../images/header/149765.png")} />
                 </div>
                 {/*<Zoom {...zoomOutProperties}>
                   {
@@ -129,9 +129,10 @@ class LeftSidebar extends React.Component {
        : 
        <div>
         <div className='left-sidebar'>
-          <div className="left-homepage-sidebar">
+          <div className="left-homepage-sidebar-party-survey">
             <div className="left-create-homepage-sidebar-inner">
               <div className="five-star-section">
+                <h1>Party Survey</h1>
                 <span className="bold">Rate the party:</span>
                 <div className="form-five-star">
                   <i onClick={() => this.rate("one-star")} className={`${this.state.oneStar} fas fa-star`} />
@@ -199,14 +200,6 @@ class LeftSidebar extends React.Component {
                   <option>Soundtracks</option>
                   <option>Easy Listening</option>
                   <option>World</option>
-                </select>
-              </div>
-              <div className="select-dropdown">
-                <span className="bold">Drug of choice:</span>
-                <i className="drug-caret fas fa-caret-down" />
-                <select className="mood-dropdown">
-                  <option>Ecstasy</option>
-                  <option>Marijuana</option>
                 </select>
               </div>
               <div className="select-dropdown">
