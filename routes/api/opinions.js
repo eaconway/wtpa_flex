@@ -79,7 +79,25 @@ router.get("/party/:partyId", (req, res) => {
             // res.json(avg);
 
             //get average rating
-            let avgRating = countRatings.reduce((acc, el) => acc += el)/countRatings.length;
+            // let avgRating = countRatings.reduce((acc, el) => acc += el)/countRatings.length;
+
+
+
+            let upVotes = countRatings.filter(el => el > 0)
+            let downVotes = countRatings.filter(el => el < 0)
+            let upVotePercentage = 0;
+            let downVotePercentage = 0;
+            if (upVotes.length > 0 && downVotes.length > 0) {
+                let totalVotes = upVotes.reduce((acc, el) => (acc += el)) + downVotes.reduce((acc, el) => (acc += el)) * -1;
+                upVotePercentage = upVotes / totalVotes; 
+                downVotePercentage = downVotes / totalVotes; 
+            } else if (upVotes.length > 0) {
+                upVotePercentage = 100;
+                downVotePercentage = 0;
+            } else if (downVotes.length > 0) {
+                upVotePercentage = 0;
+                downVotePercentage = 100;                
+            }
 
             let highestVal = 0;
             let feelKey = '';
@@ -99,7 +117,13 @@ router.get("/party/:partyId", (req, res) => {
                 }
             });
 
-            res.send({avgRating, feelKey, musicKey});
+            res.send({
+              upVotePercentage,
+              downVotePercentage,
+              feelKey,
+              musicKey,
+                countRatings
+            });
         })
         .catch(err =>
             res.status(404).json({ noratingfound: "No rating found with that ID" })
