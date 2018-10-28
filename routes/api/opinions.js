@@ -56,7 +56,7 @@ router.get("/party/:partyId", (req, res) => {
             let countRatings = [];
             let countMusic = {};
             
-            console.log(countFeels['hype']);
+            // console.log(countFeels['hype']);
             // let avg = 0;
             opinions.forEach(opinion => {
                 countRatings.push(opinion.rating);
@@ -85,19 +85,21 @@ router.get("/party/:partyId", (req, res) => {
 
             let upVotes = countRatings.filter(el => el > 0)
             let downVotes = countRatings.filter(el => el < 0)
-            let upVotePercentage = 0;
-            let downVotePercentage = 0;
+            let upvotePercentage = 0;
+            let downvotePercentage = 0;
             if (upVotes.length > 0 && downVotes.length > 0) {
-                let totalVotes = upVotes.reduce((acc, el) => (acc += el)) + downVotes.reduce((acc, el) => (acc += el)) * -1;
-                upVotePercentage = upVotes / totalVotes; 
-                downVotePercentage = downVotes / totalVotes; 
+                let totalVotes = upVotes.reduce((acc, el) => (acc += el)) + (downVotes.reduce((acc, el) => (acc += el)) * -1);
+                upvotePercentage = (upVotes / totalVotes) * 100; 
+                downvotePercentage = ((-1 * downVotes) / totalVotes) * 100; 
             } else if (upVotes.length > 0) {
-                upVotePercentage = 100;
-                downVotePercentage = 0;
+                upvotePercentage = 100;
+                downvotePercentage = 0;
             } else if (downVotes.length > 0) {
-                upVotePercentage = 0;
-                downVotePercentage = 100;                
+                upvotePercentage = 0;
+                downvotePercentage = 100;                
             }
+            // console.log(upvotePercentage);
+            // console.log(downvotePercentage);
 
             let highestVal = 0;
             let feelKey = '';
@@ -118,11 +120,11 @@ router.get("/party/:partyId", (req, res) => {
             });
 
             res.send({
-              upVotePercentage,
-              downVotePercentage,
+              upvotePercentage,
+              downvotePercentage,
               feelKey,
               musicKey,
-                countRatings
+              countRatings
             });
         })
         .catch(err =>

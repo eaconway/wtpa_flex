@@ -13,25 +13,32 @@ class LeftSidebar extends React.Component {
       feeling: '',
       music: '',
       infoSidebar: 'info',
-
+      upvotePercentage: 0,
+      downvotePercentage: 0
     };
     this.rate = this.rate.bind(this);
     this.leftSidebarChange = this.leftSidebarChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setFeeling = this.setFeeling.bind(this);
     this.setMusic = this.setMusic.bind(this);
+    this.retrieveLogos = this.retrieveLogos.bind(this);
   }
 
   componentDidMount(){
     this.props.requestParty(this.props.match.params.id);
-    this.props.fetchPartyOpinions(this.props.match.params.id);
+    this.props.fetchPartyOpinions(this.props.match.params.id).then(payload => {
+      this.setState({
+        upvotePercentage: payload.opinions.data.upvotePercentage,
+        downvotePercentage: payload.opinions.data.downvotePercentage
+      });
+    });
   }
 
   leftSidebarChange(side) {
-    if (side === 'info') {
-      this.setState({infoSidebar: 'create'});
+    if (side === "create") {
+      this.setState({ infoSidebar: "create" });
     } else {
-      this.setState({infoSidebar: 'info'});
+      this.setState({ infoSidebar: "info" });
     }
   }
 
@@ -71,6 +78,156 @@ class LeftSidebar extends React.Component {
       }
     this.props.createOpinion(opinion);
     this.leftSidebarChange("info");
+    window.location.reload(); 
+  }
+
+  retrieveLogos() {
+    let feelingImage = "../../images/mood/637646.png"; //TODO: put the default images here
+    let musicImage = "../../images/theme/673890.png";
+    
+    switch (this.state.feeling) {
+      case "Aggressive":
+        feelingImage = "../../images/mood/637646.png";
+        break;
+      case "Angry":
+        feelingImage = "../../images/theme/673890.png";
+        break;
+      case "Calm":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Cheesy":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Celebratory":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Confident":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Dark":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Energetic":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Fancy":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Funky":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Happy":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Introspective":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Mellow":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Pumped-up":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Romantic":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Rawdy":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Sad":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Sexy":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Spacey":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+      case "Trippy":
+        feelingImage = "../../images/music/1184619.png";
+        break;
+    }
+
+    switch (this.state.music) {
+      case "Alternative/Indie":
+        musicImage = "../../images/mood/637646.png";
+        break;
+      case "Blues":
+        musicImage = "../../images/theme/673890.png";
+        break;
+      case "Bollywood & Indian":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "Children's Music":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "Christian":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "Christmas":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "Classical":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "Country":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "Dance & Electronic":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "Folk & Americana":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "Hip-Hop/Rap":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "K-Pop":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "Latin":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "Metal":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "New Age":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "Oldies":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "Opera":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "Sexy":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "Pop":
+        musicImage = "../../images/music/1184619.png";
+        break;
+      case "Punk":
+        musicImage = "../../images/music/1184619.png";
+        break;
+    }
+
+      // <option>R&B</option> //Todo.... add these...
+      // <option>Reggae</option>
+      // <option>Rock</option>
+      // <option>Singer-Songwriter</option>
+      // <option>Soul</option>
+      // <option>Soundtracks</option>
+      // <option>Easy Listening</option>
+      // <option>World</option>
+
+
+
+    let logos = [feelingImage, musicImage]; 
+    return logos.map(logoLoc => {
+      debugger
+      return (<img className="emoji-icon" src={require(logoLoc)} />);
+    })
+
   }
 
   render() {
@@ -108,63 +265,70 @@ class LeftSidebar extends React.Component {
       "https://res.cloudinary.com/wtpa/image/upload/v1540573064/ynx03yd2m9isj0qh7xip.jpg",
       "https://res.cloudinary.com/wtpa/image/upload/v1540572935/yd0lpvtcoumcpjlzpuvq.jpg", 
       "https://res.cloudinary.com/wtpa/image/upload/v1540511137/sample.jpg"];
-    let currentSection = this.state.infoSidebar === 'info' ? (
-    <div className='left-homepage-sidebar'>
-      <div className='toggle-info-create'>
-        <div className='info-rectangle'></div>
-        <div onClick={() => this.leftSidebarChange('info')} className='create-rectangle'></div>
-      </div>
-      <div className='left-homepage-sidebar-inner'>
-      <div className='party-title-wrapper'>
-        <h1>Party Title Testing</h1>
-      </div>
-      <div className='thumbs-up-thumbs-down'>
-          <span>18% <i className="far fa-thumbs-up"></i></span>
-          <span>21% <i className="far fa-thumbs-down"></i></span>
-        </div>
-      <div className='party-icon-bar'>
-        <img className='emoji-icon' src={require('../../images/mood/637646.png')} />
+    let currentSection = this.state.infoSidebar === "info" ? <div className="left-homepage-sidebar">
+          <div className="toggle-info-create">
+            <div className="info-rectangle" />
+            <div onClick={() => this.leftSidebarChange("create")} className="create-rectangle" />
+          </div>
+          <div className="left-homepage-sidebar-inner">
+            <div className="party-title-wrapper">
+              <h1>Party Title Testing</h1>
+            </div>
+            <div className="thumbs-up-thumbs-down">
+              <span>
+                {this.state.upvotePercentage}% <i className="far fa-thumbs-up" />
+              </span>
+              <span>
+                {this.state.downvotePercentage}% <i className="far fa-thumbs-down" />
+              </span>
+            </div>
+            <div className="party-icon-bar">
+              {this.retrieveLogos()}
+              {/* <img className='emoji-icon' src={require('../../images/mood/637646.png')} />
         <img className='emoji-icon' src={require('../../images/theme/673890.png')} />
         <img className='emoji-icon' src={require('../../images/music/1184619.png')} />
         <img className='emoji-icon' src={require('../../images/food/931959.svg')} />
-        <img className='emoji-icon' src={require('../../images/drugs/991884.png')} />
-      </div>
-      <div className='five-star'>
-        <img className='five-star-icons' src={require('../../images/header/149765.png')} />
-        <img className='five-star-icons' src={require('../../images/header/149765.png')} />
-        <img className='five-star-icons' src={require('../../images/header/149765.png')} />
-        <img className='five-star-icons' src={require('../../images/header/149765.png')} />
-        <img className='five-star-icons' src={require('../../images/header/149765.png')} />
-      </div>
-      <Zoom {...zoomOutProperties}>
-        {
-          images.map((each, index) => <img className='left-sidebar-slideshow-img' key={index} src={each} />)
-        }
-      </Zoom>
-      <a>See more</a>
-      </div>
-    </div>
-    ) : (
-      <div className='left-homepage-sidebar'>
-        <div className='toggle-info-create'>
-          <div onClick={() => this.leftSidebarChange('create')} className='info-rect'></div>
-          <div className='create-rect'></div>
-        </div>
-        <form className='left-create-homepage-sidebar-inner' onSubmit={this.handleSubmit}>
-          <div className='five-star-section'>
-            <span className='bold'>Rate the party:</span>
-            <div className='form-five-star'>
-              <i onClick={() => this.rate('one-star')} className={`${oneStar} fas fa-star`}></i>
-              <i onClick={() => this.rate('two-star')} className={`${twoStar} fas fa-star`}></i>
-              <i onClick={() => this.rate('three-star')} className={`${threeStar} fas fa-star`}></i>
-              <i onClick={() => this.rate('four-star')} className={`${fourStar} fas fa-star`}></i>
-              <i onClick={() => this.rate('five-star')} className={`${fiveStar} fas fa-star`}></i>
+        <img className='emoji-icon' src={require('../../images/drugs/991884.png')} /> */}
             </div>
+            {/* <div className='five-star'>
+        <img className='five-star-icons' src={require('../../images/header/149765.png')} />
+        <img className='five-star-icons' src={require('../../images/header/149765.png')} />
+        <img className='five-star-icons' src={require('../../images/header/149765.png')} />
+        <img className='five-star-icons' src={require('../../images/header/149765.png')} />
+        <img className='five-star-icons' src={require('../../images/header/149765.png')} />
+      </div> */}
+            <Zoom {...zoomOutProperties}>
+              {images.map((each, index) => (
+                <img
+                  className="left-sidebar-slideshow-img"
+                  key={index}
+                  src={each}
+                />
+              ))}
+            </Zoom>
+            <a>See more</a>
           </div>
-          <div className='select-dropdown'>
-            <span className='bold'>Select the mood:</span>
-            <i className="fas fa-caret-down"></i>
-              <select className='mood-dropdown' onChange={this.setFeeling} >
+        </div> : <div className="left-homepage-sidebar">
+          <div className="toggle-info-create">
+            <div onClick={() => this.leftSidebarChange("info")} className="info-rect" />
+            <div className="create-rect" />
+          </div>
+          <form className="left-create-homepage-sidebar-inner" onSubmit={this.handleSubmit}>
+            <div className="five-star-section">
+              <span className="bold">Rate the party:</span>
+              <div className="form-five-star">
+                <i onClick={() => this.rate("one-star")} className={`${oneStar} fas fa-star`} />
+                <i onClick={() => this.rate("two-star")} className={`${twoStar} fas fa-star`} />
+                <i onClick={() => this.rate("three-star")} className={`${threeStar} fas fa-star`} />
+                <i onClick={() => this.rate("four-star")} className={`${fourStar} fas fa-star`} />
+                <i onClick={() => this.rate("five-star")} className={`${fiveStar} fas fa-star`} />
+              </div>
+            </div>
+            <div className="select-dropdown">
+              <span className="bold">Select the mood:</span>
+              <i className="fas fa-caret-down" />
+              <select className="mood-dropdown" onChange={this.setFeeling}>
+                <option>-- SELECT ONE --</option>
                 <option>Aggressive</option>
                 <option>Angry</option>
                 <option>Calm</option>
@@ -185,17 +349,18 @@ class LeftSidebar extends React.Component {
                 <option>Sexy</option>
                 <option>Spacey</option>
                 <option>Trippy</option>
-            </select>
-          </div>
-          <div className='select-dropdown'>
-            <span className='bold'>Select the music:</span>
-            <i className="music-caret fas fa-caret-down"></i>
-              <select className='mood-dropdown' onChange={this.setMusic}>
+              </select>
+            </div>
+            <div className="select-dropdown">
+              <span className="bold">Select the music:</span>
+              <i className="music-caret fas fa-caret-down" />
+              <select className="mood-dropdown" onChange={this.setMusic}>
+                <option>-- SELECT ONE --</option>
                 <option>Alternative/Indie</option>
                 <option>Blues</option>
                 <option>Bollywood & Indian</option>
                 <option>Children's Music</option>
-              <option>Christian</option>
+                <option>Christian</option>
                 <option>Christmas</option>
                 <option>Classical</option>
                 <option>Country</option>
@@ -219,63 +384,62 @@ class LeftSidebar extends React.Component {
                 <option>Soundtracks</option>
                 <option>Easy Listening</option>
                 <option>World</option>
-            </select>
-          </div>
-          <div className='select-dropdown'>
-            <span className='bold'>Drug of choice:</span>
-            <i className="drug-caret fas fa-caret-down"></i>
-            <select className='mood-dropdown'>
-              <option>Ecstasy</option>
-              <option>Marijuana</option>
-            </select>
-          </div>
-          <div className='select-dropdown'>
-            <span className='bold'>Food & Drink of choice:</span>
-            <i className="food-drink-caret fas fa-caret-down"></i>
-            <select className='mood-dropdown'>
-              <option>Beer</option>
-              <option>Champagne</option>
-              <option>Cocktail</option>
-              <option>Cupcakes</option>
-              <option>Martini</option>
-              <option>Pizza</option>
-              <option>Wine</option>
-            </select>
-          </div>
-          <div className='select-dropdown'>
-            <span className='bold'>Type of party:</span>
-            <i className="type-party-caret fas fa-caret-down"></i>
-            <select className='mood-dropdown'>
-              <option>Bachelor</option>
-              <option>Bachelorette</option>
-              <option>BBQ</option>
-              <option>Birthday</option>
-              <option>Casino</option>
-              <option>Christmas</option>
-              <option>Cocktail</option>
-              <option>Costume</option>
-              <option>Dance</option>
-              <option>Dinner</option>
-              <option>Easter</option>
-              <option>Fourth of July</option>
-              <option>Frat</option>
-              <option>Game Day</option>
-              <option>Halloween</option>
-              <option>Magic Show</option>
-              <option>New Year's Eve</option>
-              <option>Office</option>
-              <option>Pinata</option>
-              <option>Pool</option>
-              <option>Tea</option>
-              <option>Thanksgiving</option>
-              <option>Valentine's Day</option>
-              <option>Wedding</option>
-            </select>
-          </div>
-          <input type='submit' value='Submit'/>
-        </form>
-      </div>
-    );
+              </select>
+            </div>
+            <div className="select-dropdown">
+              <span className="bold">Drug of choice:</span>
+              <i className="drug-caret fas fa-caret-down" />
+              <select className="mood-dropdown">
+                <option>Ecstasy</option>
+                <option>Marijuana</option>
+              </select>
+            </div>
+            <div className="select-dropdown">
+              <span className="bold">Food & Drink of choice:</span>
+              <i className="food-drink-caret fas fa-caret-down" />
+              <select className="mood-dropdown">
+                <option>Beer</option>
+                <option>Champagne</option>
+                <option>Cocktail</option>
+                <option>Cupcakes</option>
+                <option>Martini</option>
+                <option>Pizza</option>
+                <option>Wine</option>
+              </select>
+            </div>
+            <div className="select-dropdown">
+              <span className="bold">Type of party:</span>
+              <i className="type-party-caret fas fa-caret-down" />
+              <select className="mood-dropdown">
+                <option>Bachelor</option>
+                <option>Bachelorette</option>
+                <option>BBQ</option>
+                <option>Birthday</option>
+                <option>Casino</option>
+                <option>Christmas</option>
+                <option>Cocktail</option>
+                <option>Costume</option>
+                <option>Dance</option>
+                <option>Dinner</option>
+                <option>Easter</option>
+                <option>Fourth of July</option>
+                <option>Frat</option>
+                <option>Game Day</option>
+                <option>Halloween</option>
+                <option>Magic Show</option>
+                <option>New Year's Eve</option>
+                <option>Office</option>
+                <option>Pinata</option>
+                <option>Pool</option>
+                <option>Tea</option>
+                <option>Thanksgiving</option>
+                <option>Valentine's Day</option>
+                <option>Wedding</option>
+              </select>
+            </div>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>;
     let currentUser = this.props.currentUser === undefined ? null : this.props.currentUser.id
 
     let chatRoom = this.props.party === undefined ? '' : (
