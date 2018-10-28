@@ -51,32 +51,41 @@ class LeftSidebar extends React.Component {
         <div onClick={() => this.leftSidebarChange('info')} className='create-rectangle'></div>
       </div>
       <div className='left-homepage-sidebar-inner'>
-      <div className='party-title-wrapper'>
-        <h1>Party Title Testing</h1>
-      </div>
-      <div className='thumbs-up-thumbs-down'>
+        <div className='party-title-wrapper'>
+          <h1>Party Title Testing</h1>
+        </div>
+        <div className='thumbs-up-thumbs-down'>
           <span>18% <i className="far fa-thumbs-up"></i></span>
           <span>21% <i className="far fa-thumbs-down"></i></span>
         </div>
-      <div className='party-icon-bar'>
-        <img className='emoji-icon' src={require('../../images/mood/637646.png')} />
-        <img className='emoji-icon' src={require('../../images/theme/673890.png')} />
-        <img className='emoji-icon' src={require('../../images/music/1184619.png')} />
-        <img className='emoji-icon' src={require('../../images/food/931959.svg')} />
-        <img className='emoji-icon' src={require('../../images/drugs/991884.png')} />
+        <div className='party-icon-bar'>
+          <img className='emoji-icon' src={require('../../images/mood/637646.png')} />
+          <img className='emoji-icon' src={require('../../images/theme/673890.png')} />
+          <img className='emoji-icon' src={require('../../images/music/1184619.png')} />
+          <img className='emoji-icon' src={require('../../images/food/931959.svg')} />
+          <img className='emoji-icon' src={require('../../images/drugs/991884.png')} />
+        </div>
+        <div className='five-star'>
+          <img className='five-star-icons' src={require('../../images/header/149765.png')} />
+          <img className='five-star-icons' src={require('../../images/header/149765.png')} />
+          <img className='five-star-icons' src={require('../../images/header/149765.png')} />
+          <img className='five-star-icons' src={require('../../images/header/149765.png')} />
+          <img className='five-star-icons' src={require('../../images/header/149765.png')} />
+        </div>
+        <div className='left-sidebar-picture-section'>
+          <img />
+          <img />
+        </div>
+        <a>See more</a>
       </div>
-      <div className='five-star'>
-        <img className='five-star-icons' src={require('../../images/header/149765.png')} />
-        <img className='five-star-icons' src={require('../../images/header/149765.png')} />
-        <img className='five-star-icons' src={require('../../images/header/149765.png')} />
-        <img className='five-star-icons' src={require('../../images/header/149765.png')} />
-        <img className='five-star-icons' src={require('../../images/header/149765.png')} />
-      </div>
-      <div className='left-sidebar-picture-section'>
-        <img />
-        <img />
-      </div>
-      <a>See more</a>
+      <div className='chatbox'>
+        <div className='chat-session'>
+          <div className='each-user'><span>PartyAnimal: </span><p>Yoyoyo! What is happenin?</p></div>
+        </div>
+        <div className='chatbox-box'>
+          <textarea></textarea>
+          <button>CHAT</button>
+        </div>
       </div>
     </div>
     ) : (
@@ -86,6 +95,7 @@ class LeftSidebar extends React.Component {
           <div className='create-rect'></div>
         </div>
         <div className='left-create-homepage-sidebar-inner'>
+          <h1>Party Survey</h1>
           <div className='five-star-section'>
             <span className='bold'>Rate the party:</span>
             <div className='form-five-star'>
@@ -154,14 +164,6 @@ class LeftSidebar extends React.Component {
               <option>Soundtracks</option>
               <option>Easy Listening</option>
               <option>World</option>
-            </select>
-          </div>
-          <div className='select-dropdown'>
-            <span className='bold'>Drug of choice:</span>
-            <i className="drug-caret fas fa-caret-down"></i>
-            <select className='mood-dropdown'>
-              <option>Ecstasy</option>
-              <option>Marijuana</option>
             </select>
           </div>
           <div className='select-dropdown'>

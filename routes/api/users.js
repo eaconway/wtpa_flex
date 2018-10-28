@@ -26,7 +26,18 @@ router.post("/register", (req, res) => {
             const newUser = new User({
                 name: req.body.name,
                 email: req.body.email,
-                password: req.body.password
+                password: req.body.password,
+                phone: req.body.phone,
+                thingsilove: req.body.thingsilove,
+                location: req.body.location,
+                bio: req.body.bio,
+                social: {
+                    facebook: req.body.facebook,
+                    twitter: req.body.twitter,
+                    instagram: req.body.instagram,
+                    linkedin: req.body.linkedin,
+                    youtube: req.body.youtube
+                }
             });
 
             bcrypt.genSalt(10, (err, salt) => {
@@ -94,7 +105,18 @@ router.get('/current', passport.authenticate('jsonwebtoken', { session: false })
     res.json({
         id: req.user.id,
         name: req.user.name,
-        email: req.user.email
+        email: req.user.email,
+        phone: req.body.phone,
+        thingsilove: req.body.thingsilove,
+        location: req.body.location,
+        bio: req.body.bio,
+        social: {
+            facebook: req.body.facebook,
+            twitter: req.body.twitter,
+            instagram: req.body.instagram,
+            linkedin: req.body.linkedin,
+            youtube: req.body.youtube
+        }
     });
 })
 

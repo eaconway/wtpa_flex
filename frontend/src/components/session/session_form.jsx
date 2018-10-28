@@ -20,9 +20,10 @@ class SessionForm extends React.Component {
     }
 
     handleSubmit(e){
+        debugger;
         e.preventDefault();
         this.props.processForm(this.state)
-            .then(() => this.props.closeModal())
+            .then(() => this.props.closeModal());
     }
 
     changeFormField(field) {

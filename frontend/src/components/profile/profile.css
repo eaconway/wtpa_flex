@@ -1,8 +1,27 @@
 .avatar-position {
+  overflow: hidden;
   height: 170px;
   width: 170px;
   border-radius: 50%;
-  background-color: black;
+  background-position: 50%;
+}
+
+.avatar-position img {
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.avatar-position input {
+  display: none;
+}
+
+.fa-plus {
+  color: black;
+  position: absolute;
+  z-index: 5;
+  right: 736px;
+  top: 256px;
 }
 
 .avatar-section {
@@ -267,7 +286,7 @@
   margin-top: 20px;
 }
 
-.update-profile-save button {
+.update-profile-save input {
   height: 14px;
   width: 32px;
   padding: 10px 14px 17px 14px;
