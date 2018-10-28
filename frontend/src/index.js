@@ -7,6 +7,7 @@ import jwt_decode from "jwt-decode";
 import * as APIUtil from "./util/session_api_util";
 import * as APIUser from "./util/user_api_util";
 import * as APIParty from "./util/party_api_util";
+import * as APIOpinion from "./util/opinion_api_util";
 
 //Actions
 import {updateUser} from "./actions/user_actions";
@@ -55,9 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ReactDOM.render(<Root store={store} />, root);
     // registerServiceWorker();
 
-  window.registerUser = APIUtil.registerUser;
-  window.loginUser = APIUtil.loginUser;
-  window.logoutUser = APIUtil.logoutUser;
+    window.registerUser = APIUtil.registerUser;
+    window.loginUser = APIUtil.loginUser;
+    window.logoutUser = APIUtil.logoutUser;
 
     window.store = store;
     window.dispatch = store.dispatch;
@@ -71,5 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.updateUser = APIUser.updateUser;
     window.updateUserAction = updateUser;
 
-    window.fetchParty = APIParty.fetchParty
+    window.fetchParty = APIParty.fetchParty;
+    window.fetchCombinedOpinion = APIOpinion.fetchCombinedOpinion;
 });

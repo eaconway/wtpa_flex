@@ -13,11 +13,16 @@ class UpdateProfile extends React.Component {
       thingsilove3: '',
       bio: ''
     };
+    this.deleteAccount = this.deleteAccount.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateUser({name: this.state.name, location: this.state.location, phone: this.state.phone, thingsilove: this.state.thingsilove1 + ', ' + this.state.thingsilove2 + ', ' + this.state.thingsilove3});
+    this.props.updateUser({name: this.state.name, location: this.state.location, phone: this.state.phone, thingsilove: this.state.thingsilove1 + ', ' + this.state.thingsilove2 + ', ' + this.state.thingsilove3, bio: this.state.bio});
+  }
+
+  deleteAccount() {
+    this.props.deleteUser(this.props.currentUser.id).then(() => this.props.history.push('/'));
   }
 
   update(field) {
@@ -37,7 +42,7 @@ class UpdateProfile extends React.Component {
             <div className='update-profile-right'>
               <h1>Update Profile</h1>
               <p>Update your profile settings below.</p>
-              <form>
+              <form onSubmit={(e) => this.handleSubmit(e)}>
                 <div className='name-location-input-field'>
                   <div className='name-location-input-inner'>
                     <div className='name-field'>
@@ -98,7 +103,7 @@ class UpdateProfile extends React.Component {
                 <h2>Delete My Account</h2>
                 <p>Your styles, favourites, API key, and profile settings will be deleted.</p>
                 <div className='delete-my-account-button'>
-                  <button>DELETE MY ACCOUNT</button>
+                  <button onClick={() => this.deleteAccount()}>DELETE MY ACCOUNT</button>
                 </div>
               </div>
             </div>

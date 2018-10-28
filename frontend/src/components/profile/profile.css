@@ -24,6 +24,12 @@
   top: 256px;
 }
 
+.avatar-dropzone {
+  width: 100%;
+  height: 100%;
+  margin-top: -170px;
+}
+
 .avatar-section {
   width: 100%;
   height: 170px;
@@ -305,7 +311,7 @@
   margin-top: 20px;
 }
 
-.change-email-address button {
+.change-email-address input {
   height: 14px;
   width: 172px;
   padding: 10px 14px 17px 14px;
@@ -365,7 +371,7 @@
   margin-top: 40px;
 }
 
-.change-my-password button {
+.change-my-password input {
   width: 162px;
   height: 14px;
   padding: 10px 14px 17px 14px;

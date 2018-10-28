@@ -45,7 +45,8 @@ class ChatRoom extends React.Component {
             let messages = this.state.messages;
 
             if (curr.partyId === this.props.partyId){
-                messages.push(curr);
+                messages.unshift(curr);
+                console.log('curr is about to be added', curr)
                 this.setState({ messages });
             } 
         });
@@ -91,7 +92,7 @@ class ChatRoom extends React.Component {
     }
 
     render(){
-        let messages = this.state.messages.map(message => (
+        let messages = this.state.messages.slice().reverse().map(message => (
           <li className="chat-message">
             <span className='chat-name'>{message.name}</span>: {message.msg}
           </li>
@@ -102,29 +103,35 @@ class ChatRoom extends React.Component {
                 <img className={'image-upload-preview'} src={this.state.imageUrl} />
             </div>
         ) : (
-            <input autoComplete="off" value={this.state.body}
+            <textarea autoComplete="off" value={this.state.body}
             onChange={this.update("body")} placeholder="Enter Text"
-            className="chat-message-input" />
+            className="chat-message-input"></textarea>
         );
 
         console.log(this.state.messages);
-        return <div className="chat-room-section">
-            <h1>Chat The Party</h1>
+        return (
+        <div>
+        <div className="chat-room-section">
             <ul id="messages" ref="messages">
               {messages}
             </ul>
             <form className="chat-room" onSubmit={this.handleSubmit}>
-                { preview }
-              <button>
-                <i className="far fa-envelope chat-send-icon" />
-              </button>
+                <div className='chat-room-input-field'>
+                    { preview }
+                </div>
+                <div>
+                    <button>CHAT</button>
+                </div>
+                
               <div className="chat-file-wrapper">
                 <i className="fas fa-paperclip chat-file-icon" />
                 <input type="file" id="siofu_input" onChange={this.handleFile} 
                     className="chat-file-input" placeholder="" />
               </div>
             </form>
-          </div>;
+          </div>
+        </div>
+        );
     }
 }
 

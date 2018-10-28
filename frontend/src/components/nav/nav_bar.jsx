@@ -33,7 +33,10 @@ class NavBar extends React.Component {
     if (field === "logout") {
       this.props.logout();
       this.setState({greenBackground: ''});
-    } else {
+    } else if (field === "profile") {
+      this.props.history.push("/profile");
+    }
+    else {
       this.props.openModal(field);
     }
   }
@@ -54,6 +57,11 @@ class NavBar extends React.Component {
           <div onClick={() => this.props.history.push('/account/change-email')} className={"nav-link"}>Change Email</div>
           <div onClick={() => this.props.history.push('/account/change-password')} className={"nav-link"}>Change Password</div>
           <div className='grey-border'></div>
+          <div
+            onClick={() => this.handleClick("profile")}
+            className={"nav-link"} >
+            Profile
+          </div>
           <div
             onClick={() => this.handleClick("logout")}
             className={"nav-link"} >

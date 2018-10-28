@@ -37,7 +37,8 @@ router.post("/register", (req, res) => {
                     instagram: req.body.instagram,
                     linkedin: req.body.linkedin,
                     youtube: req.body.youtube
-                }
+                },
+                dateCreated: Date.now()
             });
 
             bcrypt.genSalt(10, (err, salt) => {
@@ -148,5 +149,13 @@ router.patch("/:id", (req, res) => {
             res.status(404).json({ nouserfound: "No user found with that ID" })
         );
 });
+
+router.delete('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+    User.findOneAndRemove({ id: req.user.id })
+      .then(() => {
+        User.findOneAndRemove({ _id: req.user.id })
+          .then(() => res.json({ success: true }));
+      })
+  });
 
 module.exports = router;
