@@ -17,6 +17,32 @@ const UserSchema = new Schema({
     type: String,
     require: true
   },
+  thingsilove: {
+    type: String
+  },
+  location: {
+    type: String
+  },
+  bio: {
+    type: String
+  },
+  social: {
+    facebook: {
+      type: String
+    },
+    twitter: {
+      type: String
+    },
+    instagram: {
+      type: String
+    },
+    linkedin: {
+      type: String
+    },
+    youtube: {
+      type: String
+    }
+  },
   dateCreated: {
     type: Date,
     default: Date.now

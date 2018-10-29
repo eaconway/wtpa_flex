@@ -10,3 +10,13 @@ export const fetchUser = id => {
     return axios
         .get(`/api/users/${id}`)
 };
+
+export const fetchUsers = () => {
+    return axios
+        .get('/api/users')
+};
+
+// export const deleteUser = () => {
+//     return axios
+//         .delete('/api/users')
+// };

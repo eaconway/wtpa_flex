@@ -107,10 +107,10 @@ div h1 h2 h3 h3 p span {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(34,34,34);
+  background-color: rgba(0,0,0,0.9);
   /* background-color: #222; */
-  box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.5);
   color: #ffffff;
+  z-index: 2;
   /* padding: 10px 50px; */
 }
 

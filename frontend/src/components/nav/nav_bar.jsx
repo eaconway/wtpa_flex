@@ -6,18 +6,23 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userOptions: "hidden"
+      userOptions: "hidden",
+      greenBackground: ''
     };
     this.toggleUserOptions = this.toggleUserOptions.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchUser(this.props.currentUser.id);
+  }
+
   toggleUserOptions(e) {
     e.preventDefault();
     if (this.state.userOptions === "hidden") {
-      this.setState({ userOptions: "" });
+      this.setState({ greenBackground: 'green-background', userOptions: "" });
     } else {
-      this.setState({ userOptions: "hidden" });
+      this.setState({ greenBackground: '', userOptions: "hidden" });
     }
   }
 
@@ -27,8 +32,10 @@ class NavBar extends React.Component {
     console.log(`userOptions state is ${this.state.userOptions}`);
     if (field === "logout") {
       this.props.logout();
-    }
-    else if (field === "profile") {
+      this.setState({greenBackground: ''});
+      this.props.history.push("/");
+      window.location.reload();
+    } else if (field === "profile") {
       this.props.history.push("/profile");
     }
     else {
@@ -37,14 +44,21 @@ class NavBar extends React.Component {
   }
 
   render() {
+    let usersEmail = '';
+    if (this.props.user != null) {
+        usersEmail = <div className={"nav-link green-background bold white-font"}>{this.props.user.email}</div>;
+    } else {
+        usersEmail = <div></div>;
+    }
     let userOptions =
       this.props.currentUser.id === undefined ? "": (
         <div className={`${this.state.userOptions} user-options`}>
-          <div
-            onClick={() => this.handleClick("profile")}
-            className={"nav-link"} >
-            Profile
-          </div>
+          {usersEmail}
+          <div onClick={() => this.props.history.push('/profile')} className={"nav-link"}>My Profile</div>
+          <div onClick={() => this.props.history.push('/account/update-profile')} className={"nav-link"}>Update Profile</div>
+          <div onClick={() => this.props.history.push('/account/change-email')} className={"nav-link"}>Change Email</div>
+          <div onClick={() => this.props.history.push('/account/change-password')} className={"nav-link"}>Change Password</div>
+          <div className='grey-border'></div>
           <div
             onClick={() => this.handleClick("logout")}
             className={"nav-link"} >
@@ -53,7 +67,7 @@ class NavBar extends React.Component {
         </div>
       );
 
-    let options = this.props.currentUser.id === null ? (
+    let options = (this.props.currentUser.id === undefined || this.props.currentUser.id === null) ? (
       <ul className="nav-bar-list">
         <span className='register-link-header'
           onClick={() => this.handleClick("signup")}>
@@ -63,13 +77,13 @@ class NavBar extends React.Component {
       </ul>
     ) : (
       <ul className="nav-bar-list">
-        <img src={require('../../images/header/profile.jpg')}
+        <img src={require('../../images/header/profile.png')}
           className='user-icon-div' onClick={this.toggleUserOptions}/>
       </ul>
     )
 
     return (
-      <div className='nav-bar-container'>
+      <div className={`nav-bar-container ${this.state.greenBackground}`}>
         {options}
         {userOptions}
       </div>

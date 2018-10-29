@@ -26,6 +26,10 @@
   margin: 10px 30px;
 }
 
+.white-font {
+  color: white !important;
+}
+
 .nav-search {
   width: 361px;
   height: 27px;
@@ -36,6 +40,10 @@
   align-items: center;
   padding: 0px 5px;
   border-radius: 3px;
+}
+
+.bold {
+  font-weight: bold !important;
 }
 
 .search-input {
@@ -49,6 +57,10 @@
   color: #222;
 }
 
+.home-logo-comp img {
+  height: 44px;
+}
+
 .search-input:focus {
   outline: none;
   /* background-color: rgba(255, 255, 255, 0.561) */
@@ -60,6 +72,7 @@
 }
 
 .nav-bar-container{
+  padding-left: 14px;
   display: flex;
   justify-content: center;
 }
@@ -72,11 +85,11 @@
   margin-right: 15px;
   /* border: 1px solid red; */
   height: 50px;
-  width: 10%;
+  width: 80%;
 }
 
 .header-avatar {
-  height: 1000px;
+  height: 1210px;
 }
 
 
@@ -84,18 +97,24 @@
 /* HOME LOGO */
 
 .nav-link {
+  background-color: white;
   text-decoration: none;
   color: black;
   width: 95%;
-  height: 50%;
+  height: 65%;
   padding: 0% 5%;
   display: flex;
   align-items: center;
 }
 
 .nav-link:hover {
-  color: white;
-  background-color: #00bc66;
+  color: #00bc66;
+  cursor: pointer;
+}
+
+.grey-border {
+  background-color: #eee;
+  height: 1px;
 }
 
 .user-icon-div {
@@ -114,14 +133,17 @@
   color: #00bc66;
 }
 
+.green-background {
+  background-color: #00bc66 !important;
+}
+
 .user-options {
   position: absolute;
-  top: 49px;
+  top: 50px;
   right: 0;
   width: 260px;
   height: 80px;
   background-color: white;
-  border: 1px solid black;
   z-index: 10;
 }
 

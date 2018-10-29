@@ -17,7 +17,7 @@ router.post("/register", (req, res) => {
     if (!isValid) {
         return res.status(400).json(errors);
     }
-
+    // debugger
     User.findOne({ name: req.body.name }).then(user => {
         if (user) {
             errors.name = "User already exists";
@@ -27,6 +27,17 @@ router.post("/register", (req, res) => {
                 name: req.body.name,
                 email: req.body.email,
                 password: req.body.password,
+                phone: req.body.phone,
+                thingsilove: req.body.thingsilove,
+                location: req.body.location,
+                bio: req.body.bio,
+                social: {
+                    facebook: req.body.facebook,
+                    twitter: req.body.twitter,
+                    instagram: req.body.instagram,
+                    linkedin: req.body.linkedin,
+                    youtube: req.body.youtube
+                },
                 dateCreated: Date.now()
             });
 
@@ -95,7 +106,18 @@ router.get('/current', passport.authenticate('jsonwebtoken', { session: false })
     res.json({
         id: req.user.id,
         name: req.user.name,
-        email: req.user.email
+        email: req.user.email,
+        phone: req.body.phone,
+        thingsilove: req.body.thingsilove,
+        location: req.body.location,
+        bio: req.body.bio,
+        social: {
+            facebook: req.body.facebook,
+            twitter: req.body.twitter,
+            instagram: req.body.instagram,
+            linkedin: req.body.linkedin,
+            youtube: req.body.youtube
+        }
     });
 })
 
@@ -127,5 +149,13 @@ router.patch("/:id", (req, res) => {
             res.status(404).json({ nouserfound: "No user found with that ID" })
         );
 });
+
+router.delete('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+    User.findOneAndRemove({ id: req.user.id })
+      .then(() => {
+        User.findOneAndRemove({ _id: req.user.id })
+          .then(() => res.json({ success: true }));
+      })
+  });
 
 module.exports = router;

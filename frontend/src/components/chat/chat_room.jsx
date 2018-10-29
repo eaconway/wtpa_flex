@@ -103,29 +103,35 @@ class ChatRoom extends React.Component {
                 <img className={'image-upload-preview'} src={this.state.imageUrl} />
             </div>
         ) : (
-            <input autoComplete="off" value={this.state.body}
+            <textarea autoComplete="off" value={this.state.body}
             onChange={this.update("body")} placeholder="Enter Text"
-            className="chat-message-input" />
+            className="chat-message-input"></textarea>
         );
 
         console.log(this.state.messages);
-        return <div className="chat-room-section">
-            <h1>Chat The Party</h1>
+        return (
+        <div>
+        <div className="chat-room-section">
             <ul id="messages" ref="messages">
               {messages}
             </ul>
             <form className="chat-room" onSubmit={this.handleSubmit}>
-                { preview }
-              <button>
-                <i className="far fa-envelope chat-send-icon" />
-              </button>
+                <div className='chat-room-input-field'>
+                    { preview }
+                </div>
+                <div>
+                    <button>CHAT</button>
+                </div>
+                
               <div className="chat-file-wrapper">
                 <i className="fas fa-paperclip chat-file-icon" />
                 <input type="file" id="siofu_input" onChange={this.handleFile} 
                     className="chat-file-input" placeholder="" />
               </div>
             </form>
-          </div>;
+          </div>
+        </div>
+        );
     }
 }
 
