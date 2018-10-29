@@ -33,6 +33,8 @@ class NavBar extends React.Component {
     if (field === "logout") {
       this.props.logout();
       this.setState({greenBackground: ''});
+      this.props.history.push("/");
+      window.location.reload();
     } else if (field === "profile") {
       this.props.history.push("/profile");
     }

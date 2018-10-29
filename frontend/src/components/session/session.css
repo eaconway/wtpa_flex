@@ -332,3 +332,7 @@
   float: left;
   margin-right: 20px;
 }
+
+.session-form-error-messages {
+  color: red;
+}
