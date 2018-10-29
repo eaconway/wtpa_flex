@@ -8,11 +8,13 @@ class SessionForm extends React.Component {
             email: '',
             name: '',
             password:'',
-            password2:''
+            password2:'',
+            errors: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
         this.demoSignIn = this.demoSignIn.bind(this);
+        // this.props.updateErrors([]);
     }
 
     update(field){
@@ -22,19 +24,32 @@ class SessionForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         this.props.processForm(this.state)
-            .then(() => this.props.closeModal())
+            .then((err) =>{ 
+                if(err) {
+                    this.setState({errors: err.payload})
+                } else {
+                    this.props.closeModal();
+                }
+            })
     }
 
     changeFormField(field) {
     }
 
-    demoSignIn(e){
+    demoSignIn(e) {
         e.preventDefault();
         this.props.processForm({ email: 'demo@wtpa.com', password: 'password'})
           .then(() => this.props.closeModal());
     }
 
     render() {
+        let errors = this.state.errors;
+        if (Object.values(this.state.errors).length > 0) { 
+            Object.keys(this.state.errors).map((errorKey, i) => {
+                errors[errorKey] = (<li className='session-form-error-messages' key={`error-msg-${i}`}>{errors[errorKey]}</li>);
+            });
+        }
+
         let sessionBody = this.props.formType === 'signup' ? (
             <div className='modal-form's>
                 <div className='background-signup-login'></div>
@@ -50,18 +65,22 @@ class SessionForm extends React.Component {
                                         <span>Name</span>
                                         <input onChange={this.update('name')} type='text' />
                                     </div>
+                                    {errors.name}
                                     <div className='login-password-input-field'>
                                         <span>Email Address</span>
                                         <input onChange={this.update('email')} type='text' />
                                     </div>
+                                    {errors.email}
                                     <div className='login-password-input-field'>
                                         <span>Password</span>
                                         <input onChange={this.update('password')} type='password' />
                                     </div>
+                                    {errors.password}
                                     <div className='login-password-input-field'>
                                         <span>Confirm password</span>
-                                        <input onChange={this.update('password')} type='password' />
+                                        <input onChange={this.update('password2')} type='password' />
                                     </div>
+                                    {errors.password2}
                                     <div className='newsletter-checkbox'>
                                         <div className='newsletter-checkbox-inner'>
                                             <input type='checkbox'/>
@@ -94,10 +113,12 @@ class SessionForm extends React.Component {
                                         <span>Email Address</span>
                                         <input onChange={this.update('email')} type='text' />
                                     </div>
+                                    {errors.email}
                                     <div className='login-password-input-field'>
                                         <span>Password</span>
                                         <input onChange={this.update('password')} type='password' />
                                     </div>
+                                    {errors.password}
                                     <div className='login-button'>
                                         <input type='submit' value='LOG IN' />
                                         <button onClick={(e) => this.demoSignIn(e)} className='demo-login'>DEMO LOGIN</button>

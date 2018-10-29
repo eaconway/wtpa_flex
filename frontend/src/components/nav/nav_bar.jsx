@@ -26,7 +26,9 @@ class NavBar extends React.Component {
 
     console.log(`userOptions state is ${this.state.userOptions}`);
     if (field === "logout") {
-      this.props.logout();
+      this.props.logout()
+      this.props.history.push("/");
+      window.location.reload();
     }
     else if (field === "profile") {
       this.props.history.push("/profile");

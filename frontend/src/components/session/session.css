@@ -321,3 +321,7 @@
 .demo-login {
   width: 87px !important;
 }
+
+.session-form-error-messages {
+  color: red;
+}
