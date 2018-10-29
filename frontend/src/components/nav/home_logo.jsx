@@ -1,10 +1,15 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
 
 class HomePage extends React.Component {
+    redirectToHomepage() {
+        this.props.history.push('/');
+    }
+
     render () {
         return (
         <div className='home-logo-comp'>
-            <img onClick={() => this.props.history.push('/')} src={require('../../images/header/balloons.jpg')}
+            <img onClick={() => this.redirectToHomepage()} src={require('../../images/header/balloons.jpg')}
           className='user-icon-div' onClick={this.toggleUserOptions}/>
             <div className='nav-search'>
                 <i className="fas fa-search search-icon" />

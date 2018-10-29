@@ -439,9 +439,6 @@ class LeftSidebar extends React.Component {
     //       </form>
     //     </div>;
 
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
       let currentSection =
         this.state.infoSidebar === "info" ? (
           <div>
@@ -477,11 +474,6 @@ class LeftSidebar extends React.Component {
                 </div>
                 <div className="party-icon-bar">
                   {this.retrieveLogos()}
-                  {/* <img className='emoji-icon' src={require('../../images/mood/637646.png')} />
-        <img className='emoji-icon' src={require('../../images/theme/673890.png')} />
-        <img className='emoji-icon' src={require('../../images/music/1184619.png')} />
-        <img className='emoji-icon' src={require('../../images/food/931959.svg')} />
-        <img className='emoji-icon' src={require('../../images/drugs/991884.png')} /> */}
                 </div>
                 <Zoom {...zoomOutProperties}>
                   {images.map((each, index) => (
@@ -560,6 +552,7 @@ class LeftSidebar extends React.Component {
           <div>
             <div className="left-homepage-sidebar">
               <form className="left-create-homepage-sidebar-inner" onSubmit={this.handleSubmit}>
+                <h1>Party Survey</h1>
                 <div className="five-star-section">
                   <span className="bold">Rate the party:</span>
                   <div className="form-five-star">
@@ -738,132 +731,132 @@ class LeftSidebar extends React.Component {
   }
 
   retrieveLogos() {
-    let feelingImage = `mood/637646.png`; //TODO: put the default images here
-    let musicImage = `theme/673890.png`;
+    let feelingImage = `mood/637609.png`; //TODO: put the default images here
+    let musicImage = `music/1184633.svg`;
 
     switch (this.state.feeling) {
       case `Aggressive`:
-        feelingImage = `mood/637646.png`;
+        feelingImage = `mood/637609.png`;
         break;
       case `Angry`:
-        feelingImage = `theme/673890.png`;
+        feelingImage = `mood/637592.png`;
         break;
       case `Calm`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637591.png`;
         break;
       case `Cheesy`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637641.png`;
         break;
       case `Celebratory`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637598.png`;
         break;
       case `Confident`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637595.png`;
         break;
       case `Dark`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637631.png`;
         break;
       case `Energetic`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637600.png`;
         break;
       case `Fancy`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637628.png`;
         break;
       case `Funky`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637601.png`;
         break;
       case `Happy`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637595.png`;
         break;
       case `Introspective`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637612.png`;
         break;
       case `Mellow`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637641.png`;
         break;
       case `Pumped-up`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637627.png`;
         break;
       case `Romantic`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637605.png`;
         break;
       case `Rawdy`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637633.png`;
         break;
       case `Sad`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637617.png`;
         break;
       case `Sexy`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637619.png`;
         break;
       case `Spacey`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637611.png`;
         break;
       case `Trippy`:
-        feelingImage = `music/1184619.png`;
+        feelingImage = `mood/637601.png`;
         break;
     }
 
     switch (this.state.music) {
       case `Alternative/Indie`:
-        musicImage = `mood/637646.png`;
+        musicImage = `music/1184633.svg`;
         break;
       case `Blues`:
-        musicImage = `theme/673890.png`;
+        musicImage = `music/1184624.svg`;
         break;
       case `Bollywood & Indian`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184650.svg`;
         break;
       case `Children's Music`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184637.svg`;
         break;
       case `Christian`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184614.svg`;
         break;
       case `Christmas`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184645.svg`;
         break;
       case `Classical`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184629.svg`;
         break;
       case `Country`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184612.svg`;
         break;
       case `Dance & Electronic`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184611.svg`;
         break;
       case `Folk & Americana`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184615.svg`;
         break;
       case `Hip-Hop/Rap`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184638.svg`;
         break;
       case `K-Pop`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184616.svg`;
         break;
       case `Latin`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184639.svg`;
         break;
       case `Metal`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184646.svg`;
         break;
       case `New Age`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184618.svg`;
         break;
       case `Oldies`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184636.svg`;
         break;
       case `Opera`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184640.svg`;
         break;
       case `Sexy`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184613.svg`;
         break;
       case `Pop`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184620.svg`;
         break;
       case `Punk`:
-        musicImage = `music/1184619.png`;
+        musicImage = `music/1184649.svg`;
         break;
     }
 
