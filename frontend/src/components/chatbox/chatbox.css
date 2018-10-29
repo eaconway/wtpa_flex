@@ -4,7 +4,6 @@
   width: 480px;
   height: 617px;
   background-color: white;
-  float: left;
 }
 
 .white-middle-bar-toggle {
@@ -21,7 +20,7 @@
   background-color: white;
   opacity: 0.7;
   position: absolute;
-  top: 25px;
+  top: -593px;
   left: 455px;
 }
 
@@ -32,7 +31,7 @@
   opacity: 0.7;
   position: absolute;
   top: -50px;
-  left: 0;
+  left: 1px;
 }
 
 .fa-angle-left {
@@ -348,7 +347,7 @@
   position: absolute;
   float: left;
   top: 0;
-  left: 479px;
+  left: 480px;
 }
 
 .create-rect {
@@ -408,7 +407,7 @@
   height: 30px;
 }
 
-.left-homepage-sidebar input {
+.left-sidebar-submit{
   height: 14px;
   width: 62px;
   padding: 10px 14px 17px 14px;
@@ -419,6 +418,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 0;
 }
 
 .fa-caret-down {

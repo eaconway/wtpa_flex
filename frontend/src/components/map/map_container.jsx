@@ -20,7 +20,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   highlightMarker: place => dispatch(highlightMarker(place)),
   removehighlightMarker: () => dispatch(removehighlightMarker()),
-  requestParty: (id) => dispatch(requestParty(id)) 
+  requestParty: (id) => dispatch(requestParty(id)),
+  requestParties: () => dispatch(requestParties())
 });
 
 export default connect(

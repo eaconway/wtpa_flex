@@ -19,7 +19,7 @@
 .fa-plus {
   color: black;
   position: absolute;
-  right: 577px;
+  right: 733px;
   top: 153px;
 }
 
@@ -236,6 +236,7 @@
   border: 1px solid #ccc;
   color: #333;
   border-radius: 3px;
+  margin-left: 0;
 }
 
 .thingsilove-field-input input {
@@ -246,6 +247,7 @@
   color: #333;
   border-radius: 3px;
   margin-bottom: 20px;
+  margin-left: 0;
 }
 
 .location-field {
@@ -313,6 +315,7 @@
 }
 
 .change-email-address input {
+  margin-left: 0;
   height: 14px;
   width: 172px;
   padding: 10px 14px 17px 14px;
@@ -373,6 +376,7 @@
 }
 
 .change-my-password input {
+  margin-left: 0;
   width: 162px;
   height: 14px;
   padding: 10px 14px 17px 14px;

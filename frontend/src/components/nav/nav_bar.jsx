@@ -60,6 +60,12 @@ class NavBar extends React.Component {
         <div className={`${this.state.userOptions} user-options`}>
           {usersEmail}
           <div
+            onClick={() => this.props.history.push("/")}
+            className={"nav-link"}
+          >
+            Home
+          </div>
+          <div
             onClick={() => this.props.history.push("/profile")}
             className={"nav-link"}
           >
@@ -70,6 +76,12 @@ class NavBar extends React.Component {
             className={"nav-link"}
           >
             Update Profile
+          </div>
+          <div
+            onClick={() => this.props.history.push("/party/create-party")}
+            className={"nav-link"}
+          >
+            Create Party
           </div>
           <div
             onClick={() => this.props.history.push("/account/change-email")}

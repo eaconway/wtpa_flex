@@ -735,7 +735,7 @@ class LeftSidebar extends React.Component {
                 <option>Wedding</option>
               </select>
             </div> */}
-                <input type="submit" value="SUBMIT" />
+                <input type="submit" value="SUBMIT" className='left-sidebar-submit' />
               </form>
             </div>
             <div>

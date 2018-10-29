@@ -25,19 +25,20 @@ export const fetchParty = id => (
     })
 )
 
-export const createParty = party => (
-    $.ajax({
+export const createParty = party => {
+    console.log('party is ', party);
+    return $.ajax({
         url: `/api/parties`,
         method: 'POST',
-        data: {party}
+        data: party
     })
-)
+};
 
 export const updateParty = party => (
     $.ajax({
         url: `/api/parties/${party.id}`,
         method: 'PATCH',
-        data: { party }
+        data: party
     })
 )
 

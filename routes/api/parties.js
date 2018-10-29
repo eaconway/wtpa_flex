@@ -35,15 +35,23 @@ router.get("/", (req, res) => {
 // router.post("/", passport.authenticate("jwt", { session: false }), (req, res) => {
 router.post("/", (req, res) => {
   console.log(req.params)
+  console.log('About to create a party', req.body)
   const { errors, isValid } = validatePartyInput(req.body);
   
   if (!isValid) {
     return res.status(400).json(errors);
   }
+
   
   const newParty = new Party({
     title: req.body.title,
+    description: req.body.description,
     address: req.body.address,
+    city: req.body.city,
+    state: req.body.state,
+    zipcode: req.body.zipcode,
+    lat: Number(req.body.lat),
+    lng: Number(req.body.lng),
     partyType: req.body.partyType,
     musicType: req.body.musicType,
     feel: req.body.feel,
@@ -53,6 +61,7 @@ router.post("/", (req, res) => {
     dateCreated: Date.now()
   });
   
+  console.log('new party is now', newParty)
   newParty.save().then(party => res.json(party));
 }
 );

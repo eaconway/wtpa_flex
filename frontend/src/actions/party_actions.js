@@ -25,7 +25,7 @@ export const removeParty = partyId => ({
 });
 
 export const requestParties = () => dispatch => (
-    PartyAPIUtil.fetchParties
+    PartyAPIUtil.fetchParties()
         .then(parties => dispatch(receiveParties(parties)),
         err => dispatch(receivePartyErrors(err)))
 );

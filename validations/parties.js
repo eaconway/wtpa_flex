@@ -15,13 +15,13 @@ module.exports = function validatePartyInput(data) {
         errors.title = "Text field is required";
     }
 
-    if (!Validator.isLength(data.address, { min: 6, max: 100 })) {
-      errors.address = "Address must be greater than 6 letters";
-    }
+    // if (!Validator.isLength(data.address, { min: 6, max: 100 })) {
+    //   errors.address = "Address must be greater than 6 letters";
+    // }
 
-    if (Validator.isEmpty(data.address)) {
-      errors.address = "Address field is required";
-    }
+    // if (Validator.isEmpty(data.address)) {
+    //   errors.address = "Address field is required";
+    // }
 
     return {
         errors,
