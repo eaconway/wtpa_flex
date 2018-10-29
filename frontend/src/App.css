@@ -99,6 +99,7 @@ button {
   }
 }
 
+
 /* Font Family for entire site */
 div h1 h2 h3 h3 p span {
   font-family: "Source Sans Pro";
@@ -113,7 +114,15 @@ div h1 h2 h3 h3 p span {
 }
 
 .header {
-  height: 0;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
 }
 
 .main-header-inner {
@@ -123,11 +132,26 @@ div h1 h2 h3 h3 p span {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.9);
-  box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.5);
+  background-color: rgba(12, 7, 17, 0.8);
   color: #ffffff;
   /* padding: 10px 50px; */
 }
+
+
+
+/* -------------------------------   */
+/* -------------------------------   */
+
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+
+
+/* -------------------------------   */
+/* -------------------------------   */
+
 
 .home-logo-comp {
   display: flex;
@@ -136,7 +160,7 @@ div h1 h2 h3 h3 p span {
   justify-content: space-between;
   margin-left: 15px;
   /* padding: 10px 50px; */
-  background-color: #222;
+  /* background-color: #222; */
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
   color: #ffffff;
 }
@@ -210,6 +234,21 @@ div h1 h2 h3 h3 p span {
 .header-avatar {
   height: 1000px;
 }
+
+
+
+/* -------------------------------   */
+/* -------------------------------   */
+
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+
+
+/* -------------------------------   */
+/* -------------------------------   */
 
 .avatar-position {
   height: 170px;
@@ -552,6 +591,20 @@ div h1 h2 h3 h3 p span {
   background-color: #00bc66 !important;
 }
 
+
+/* -------------------------------   */
+/* -------------------------------   */
+
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+/* -------------------------------   */
+
+
+/* -------------------------------   */
+/* -------------------------------   */
+
 .nav-link {
   text-decoration: none;
   color: black;
@@ -585,14 +638,12 @@ div h1 h2 h3 h3 p span {
 
 .user-options {
   position: absolute;
-  top: 80px;
+  top: 49px;
   right: 0;
-  width: 120px;
+  width: 240px;
   height: 80px;
   background-color: white;
   border: 1px solid black;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
 }
 
 /* MODAL STYLING */
@@ -701,11 +752,8 @@ div h1 h2 h3 h3 p span {
   font-size: 18px;
 }
 
-.switch-form:hover {
-  cursor: pointer;
-  color: purple;
-  font-size: 20px;
-  font-weight: 600;
+.switch-form:hover{
+  cursor:pointer;
 }
 
 .switch-form-span {
@@ -714,17 +762,19 @@ div h1 h2 h3 h3 p span {
   margin-top: 15px;
 }
 
-<<<<<<< head .map-div {
+
+.map-div {
+
   float: left;
   top: 100px;
 }
 /* * { margin: 0; padding: 0; box-sizing: border-box; } */
 /* body { font: 13px Helvetica, Arial; } */
-
+/* 
 .chat-room-section {
   /* width: 100%;
   height: 400px; */
-}
+} */
 
 .chat-room {
   background: #000;
@@ -758,10 +808,7 @@ div h1 h2 h3 h3 p span {
 #messages li:nth-child(odd) {
   background: #eee;
 }
-=======
 
-/* * { margin: 0; padding: 0; box-sizing: border-box; } */
-/* body { font: 13px Helvetica, Arial; } */
 
 .chat-room-section {
   width: 40.5%;
@@ -882,7 +929,8 @@ div h1 h2 h3 h3 p span {
   color: greenyellow;
   font-weight: 600;
 }
->>>>>>>85a3a22312819227e49f45964d6e43cc2f16a700 .mapboxgl-canvas {
+
+.mapboxgl-canvas {
   left: 0;
   height: 100%;
   width: 100%;
@@ -911,6 +959,8 @@ div h1 h2 h3 h3 p span {
   height: 740px;
 }
 
+
+
 /* mapboxgl-canvas-container {
   width: 3000px;
   height: 3000px;
@@ -921,7 +971,7 @@ div h1 h2 h3 h3 p span {
   height: 100%;
 }
 
-.left-homepage-sidebar {
+/* .left-homepage-sidebar {
   position: absolute;
   float: left;
   width: 479px;
@@ -933,8 +983,9 @@ div h1 h2 h3 h3 p span {
 .left-homepage-sidebar-inner {
   width: 399px;
   height: 374px;
-  padding: 40px;
+  padding: 10px 40px 40px 40px;
   border-bottom: 1px solid #eee;
+  position: relative;
 }
 
 .middle-homepage-sidebar-inner {
@@ -950,12 +1001,16 @@ div h1 h2 h3 h3 p span {
   height: 76px;
   display: flex;
   justify-content: center;
+  width: 345px;
+  margin-right: 0;
+  float: left;
 }
 
 .party-icon-bar {
   height: 50px;
   display: flex;
   justify-content: center;
+  widtH: 100%;
 }
 
 .left-sidebar-picture-section {
@@ -1057,7 +1112,7 @@ div h1 h2 h3 h3 p span {
   height: 1000px;
   background-color: white;
   float: left;
-}
+} */
 
 .signin-login {
   width: 130px;
@@ -1068,13 +1123,11 @@ div h1 h2 h3 h3 p span {
 }
 
 .background-signup-login {
-  position: absolute;
   width: 1600px;
-  height: 2000px;
+  height: 860px;
   z-index: 2;
   background-color: black;
   opacity: 0.7;
-  left: 0;
 }
 
 .signup-modal {
@@ -1088,7 +1141,37 @@ div h1 h2 h3 h3 p span {
   border-radius: 6px;
 }
 
+.background-login-signup {
+  width: 1610px;
+  height: 860px;
+  z-index: 2;
+  background-color: black;
+  opacity: 0.7;
+  position: absolute;
+  top: -420px;
+  left: -760px;
+}
+
+.login-modal {
+  left: -250px;
+  width: 590px;
+  height: 510px;
+  background-color: white;
+  z-index: 3;
+  position: absolute;
+  top: -250px;
+  border-radius: 6px;
+}
+
 .register-modal a {
+  width: 20px;
+  height: 20px;
+  right: 11px;
+  top: 14px;
+  position: absolute;
+}
+
+.login-modal a {
   width: 20px;
   height: 20px;
   right: 11px;

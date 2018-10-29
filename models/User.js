@@ -11,16 +11,45 @@ const UserSchema = new Schema({
     require: true
   },
   phone: {
-    type: String,
-    require: true
+    type: String
   },
   password: {
     type: String,
     require: true
   },
-  date: {
+  thingsilove: {
+    type: String
+  },
+  location: {
+    type: String
+  },
+  bio: {
+    type: String
+  },
+  social: {
+    facebook: {
+      type: String
+    },
+    twitter: {
+      type: String
+    },
+    instagram: {
+      type: String
+    },
+    linkedin: {
+      type: String
+    },
+    youtube: {
+      type: String
+    }
+  },
+  dateCreated: {
     type: Date,
-    require: true
+    default: Date.now
+  },
+  profilePicture: {
+    data: Buffer,
+    contentType: String
   }
 });
 

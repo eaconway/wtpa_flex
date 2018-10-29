@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import {} from "../../util/chat_api_util";
+// import {} from "../../util/chat_api_util";
 import ChatRoom from "./chat_room";
 
 const mapStateToProps = (state, ownProps) => {

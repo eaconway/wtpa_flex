@@ -19,6 +19,19 @@ router.get("/", (req, res) => {
     .catch(err => res.status(404).json({ nopartiesfound: "No parties found" }));
 });
 
+// router.get("/", (req, res) => {
+//   Party.find()
+//     .sort({ date: -1 })
+//     .then(parties => {
+//       let results = {};
+//       parties.forEach(party => {
+//         results[party.id] = party
+//       });
+//       res.json(results);
+//     })
+//     .catch(err => res.status(404).json({ nopartiesfound: "No parties found" }));
+// });
+
 // router.post("/", passport.authenticate("jwt", { session: false }), (req, res) => {
 router.post("/", (req, res) => {
   console.log(req.params)
@@ -36,7 +49,8 @@ router.post("/", (req, res) => {
     feel: req.body.feel,
     dress: req.body.dress,
     orientation: req.body.orientation,
-    date: req.body.date
+    eventDate: req.body.date,
+    dateCreated: Date.now()
   });
   
   newParty.save().then(party => res.json(party));

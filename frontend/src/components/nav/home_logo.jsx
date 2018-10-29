@@ -6,25 +6,15 @@ class HomePage extends React.Component {
     return (
       <div className="home-logo-comp">
         <img
-          className="margin-left header-icon"
-          src={require("../../images/header/martini.jpg")}
-        />
-        <img
-          className="header-icon"
-          src={require("../../images/header/beer.jpg")}
-        />
-        <img
-          className="header-icon"
+          onClick={() => this.props.history.push("/")}
           src={require("../../images/header/balloons.jpg")}
+          className="user-icon-div"
+          onClick={this.toggleUserOptions}
         />
-        <img
-          className="header-icon"
-          src={require("../../images/header/champagne.jpg")}
-        />
-        {/* <div className="nav-search"> */}
-        {/* <i className="fas fa-search search-icon" /> */}
-        <Search />
-        {/* </div> */}
+        <div className="nav-search">
+          <i className="fas fa-search search-icon" />
+          <input type="text" className="search-input" placeholder="Search" />
+        </div>
       </div>
     );
   }

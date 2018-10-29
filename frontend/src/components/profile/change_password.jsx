@@ -2,6 +2,23 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 class ChangePassword extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPassword: '',
+      newPassword: '',
+      newPassword2: ''
+    };
+  }
+
+  changePassword() {
+
+  }
+
+  update(field) {
+    return (e) => this.setState({[field]: e.target.value});
+  }
+
   render() {
     return (
       <div className='update-profile'>
@@ -15,7 +32,7 @@ class ChangePassword extends React.Component {
             <div className='update-profile-right'>
               <h1>Change Password</h1>
               <p>If you want to change your password please enter all necessary information below.</p>
-              <form>
+              <form onSubmit={() => this.changePassword()}>
                 <div className='name-location-input-field'>
                   <div className='name-location-input-inner'>
                     <div className='name-field'>
@@ -23,7 +40,7 @@ class ChangePassword extends React.Component {
                         <label>Current Password</label>
                       </div>
                       <div className='name-field-input'>
-                        <input type='text' />
+                        <input onChange={this.update('currentPassword')} type='text' />
                       </div>
                     </div>
                     <div className='location-field'>
@@ -31,7 +48,7 @@ class ChangePassword extends React.Component {
                         <label>New Password</label>
                       </div>
                       <div className='name-field-input'>
-                        <input type='text' />
+                        <input onChange={this.update('newPassword')} type='text' />
                       </div>
                     </div>
                     <div className='confirm-new-password'>
@@ -39,11 +56,11 @@ class ChangePassword extends React.Component {
                         <label>Confirm new password</label>
                       </div>
                       <div className='name-field-input'>
-                        <input type='text' />
+                        <input onChange={this.update('newPassword2')} type='text' />
                       </div>
                     </div>
                     <div className='change-my-password'>
-                      <button>CHANGE MY PASSWORD</button>
+                      <input type='submit' value='CHANGE MY PASSWORD'/>
                     </div>
                   </div>
                 </div>

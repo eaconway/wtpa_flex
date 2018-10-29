@@ -2,6 +2,15 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 class ChangeEmail extends React.Component {
+  constructor(props) {
+    super(props);
+    this.changeEmail = this.changeEmail.bind(this);
+  }
+
+  changeEmail() {
+    this.props.updateUser(this.props.currentUser.id);
+  }
+
   render() {
     return (
       <div className='update-profile'>
@@ -15,7 +24,7 @@ class ChangeEmail extends React.Component {
             <div className='update-profile-right'>
               <h1>Change Email</h1>
               <p>If you would like to change your email address, simply enter in a new email address below.</p>
-              <form>
+              <form onSubmit={() => this.changeEmail()}>
                 <div className='name-location-input-field'>
                   <div className='name-location-input-inner'>
                     <div className='name-field'>
@@ -27,7 +36,7 @@ class ChangeEmail extends React.Component {
                       </div>
                     </div>
                     <div className='change-email-address'>
-                      <button>CHANGE EMAIL ADDRESS</button>
+                      <input type='submit' value='CHANGE EMAIL ADDRESS'/>
                     </div>
                   </div>
                 </div>

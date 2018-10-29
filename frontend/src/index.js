@@ -1,24 +1,19 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from './App';
-// import * as serviceWorker from './serviceWorker';
-
-// ReactDOM.render(<App />, document.getElementById('root'));
-
-// // If you want your app to work offline and load faster, you can change
-// // unregister() to register() below. Note this comes with some pitfalls.
-// // Learn more about service workers: http://bit.ly/CRA-PWA
-// serviceWorker.unregister();
-
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import jwt_decode from "jwt-decode";
+
+//Utils
 import * as APIUtil from "./util/session_api_util";
+import * as APIUser from "./util/user_api_util";
+import * as APIParty from "./util/party_api_util";
+import * as APIOpinion from "./util/opinion_api_util";
+
+//Actions
+import {updateUser} from "./actions/user_actions";
+
 //Components
 import configureStore from "./store/store";
-// import App from './App.jsx';
 import Root from "./Root.jsx";
 // import registerServiceWorker from './registerServiceWorker';
 
@@ -55,14 +50,15 @@ document.addEventListener("DOMContentLoaded", () => {
   
     
     window.socket = window.io();
+    window.uploader = new window.SocketIOFileUpload(window.socket);
     
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, root);
     // registerServiceWorker();
 
-  window.registerUser = APIUtil.registerUser;
-  window.loginUser = APIUtil.loginUser;
-  window.logoutUser = APIUtil.logoutUser;
+    window.registerUser = APIUtil.registerUser;
+    window.loginUser = APIUtil.loginUser;
+    window.logoutUser = APIUtil.logoutUser;
 
     window.store = store;
     window.dispatch = store.dispatch;
@@ -73,16 +69,9 @@ document.addEventListener("DOMContentLoaded", () => {
     window.searchCitieState = searchCitieState;
     window.TestTour = TestTour;
 
-    // console.log(`this is the socket: ${window.socket}`);
+    window.updateUser = APIUser.updateUser;
+    window.updateUserAction = updateUser;
 
-    // window.socket.on('chat message', function (msg) {
-    //     console.log(msg)
-    // });
-
+    window.fetchParty = APIParty.fetchParty;
+    window.fetchCombinedOpinion = APIOpinion.fetchCombinedOpinion;
 });
-
-// window.socket.on('chat message', function (msg) {
-//     console.log(msg)
-// });
-
-// console.log(`this is the socket: ${window.socket}`);
