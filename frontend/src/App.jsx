@@ -13,6 +13,8 @@ import UpdateProfileContainer from "./components/profile/update_profile_containe
 import ChangeEmailContainer from "./components/profile/change_email_container";
 import ChangePasswordContainer from "./components/profile/change_password_container";
 import LeftSidebarContainer from "./components/chatbox/left_sidebar_container";
+import CreatePartyContainer from './components/party/create_party_container';
+
 import { Switch, Route } from "react-router-dom";
 import ChangePassword from "./components/profile/change_password";
 
@@ -31,6 +33,7 @@ export default class App extends Component {
           <Route path="/" component={HomeLogoContainer} />
           <Route path="/" component={NavBarContainer} />
         </div>
+        
         <main className="main-section">
           <Switch>
             <Route path="/profile" component={ProfileContainer} />
@@ -39,8 +42,15 @@ export default class App extends Component {
             <Route path="/account/change-password" component={ChangePasswordContainer} />
             
             <React.Fragment>
-              <Route path="/party/:id" component={LeftSidebarContainer} />
-              <Route path="/party/:id" component={LeftSidebarModalContainer} />
+              <Switch>
+                  <Route path="/party/create-party" component={CreatePartyContainer} />
+
+                  <React.Fragment>
+                    <Route path="/party/:id" component={LeftSidebarContainer} />
+                    <Route path="/party/:id" component={LeftSidebarModalContainer} />
+                  </React.Fragment>
+                  
+              </Switch>
               <Route path="/" component={MapContainer} />
             </React.Fragment>
 

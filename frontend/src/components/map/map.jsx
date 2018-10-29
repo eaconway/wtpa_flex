@@ -21,7 +21,7 @@ export default class Map extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestParty("5bcf6482ffb3ee129aef1e23").then(() => {
+    this.props.requestParties().then(() => {
       this.places = this.props.parties.map(party => ({
         type: "Feature",
         properties: {

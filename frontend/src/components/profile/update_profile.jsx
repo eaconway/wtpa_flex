@@ -13,7 +13,7 @@ class UpdateProfile extends React.Component {
       thingsilove3: '',
       bio: ''
     };
-    this.deleteAccount = this.deleteAccount.bind(this);
+    // this.deleteAccount = this.deleteAccount.bind(this);
   }
 
   handleSubmit(e) {
