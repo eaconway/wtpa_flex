@@ -45,7 +45,8 @@ class ChatRoom extends React.Component {
             let messages = this.state.messages;
 
             if (curr.partyId === this.props.partyId){
-                messages.push(curr);
+                messages.unshift(curr);
+                console.log('curr is about to be added', curr)
                 this.setState({ messages });
             } 
         });
@@ -91,7 +92,7 @@ class ChatRoom extends React.Component {
     }
 
     render(){
-        let messages = this.state.messages.map(message => (
+        let messages = this.state.messages.slice().reverse().map(message => (
           <li className="chat-message">
             <span className='chat-name'>{message.name}</span>: {message.msg}
           </li>

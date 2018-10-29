@@ -45,7 +45,11 @@ const PartySchema = new Schema({
     orientation: {
         type: String
     },
-    date: {
+    dateCreated: {
+        type: Date,
+        default: Date.now
+    },
+    eventDate: {
         type: Date,
         default: Date.now
     }

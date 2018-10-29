@@ -6,6 +6,7 @@ import {
 import {requestParties, requestParty} from '../../actions/party_actions';
 
 import Map from "./map";
+import './map.css';
 
 const mapStateToProps = (state, ownProps) => ({
   parties: Object.values(state.parties)

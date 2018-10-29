@@ -5,7 +5,7 @@ import { createOpinion, fetchPartyOpinions } from "../../actions/opinion_actions
 import { getPartyOpinionForUser } from "../../reducers/selectors";
 
 const mapStateToProps = (state, ownProps) => {
-  const partyId = ownProps.match.params.partyId;
+  const partyId = ownProps.match.params.id;
   const userId = state.session.id
   return { 
     currentUser: state.session, 
@@ -13,6 +13,12 @@ const mapStateToProps = (state, ownProps) => {
     opinion: getPartyOpinionForUser(state, partyId, userId)
   }
 };
+
+// const mapStateToProps = (state, ownProps) => ({
+//   currentUser: state.session,
+//   party: state.parties[ownProps.match.params.id],
+//   opinion: state.opinions
+// });
 
 const mapDispatchToProps = dispatch => {
   return { 

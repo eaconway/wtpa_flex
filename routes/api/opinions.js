@@ -50,11 +50,16 @@ router.delete("/:id", (req, res) => {
 });
 
 router.get("/party/:partyId", (req, res) => {
+    console.log('inside opinion party route', req.params.partyId);
     Opinion.find({ party: req.params.partyId })
         .then(opinions => {
+            if (opinions.length === 0) {
+                return "nothing was found";
+            }
             let countFeels = {};
             let countRatings = [];
             let countMusic = {};
+            console.log('opinions' ,opinions);
             
             // console.log(countFeels['hype']);
             // let avg = 0;

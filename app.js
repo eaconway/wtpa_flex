@@ -73,34 +73,32 @@ io.on('connection', (socket) => {
 
     socket.on("seed chat", (partyId) => {
         Message.find({ party: partyId })
-            .populate('user')
-            .limit(20)
-            .then(messages => {
-                let results = [];
-                // console.log('these are the results');
+          .populate("user")
+          .sort({ date: -1 })
+          .limit(20)
+          .then(messages => {
+            let results = [];
+            // console.log('these are the results');
 
-                messages.forEach(message => {
-                    // console.log(`uploading message ${message.user}`);
-                    // console.log(results);
-                    if (message.user === undefined || message.user === null) {
-                        results.push({
-                          msg: message.body,
-                          name: "Anonymous"
-                        });
-                    } else {
-                        results.push({
-                            msg: message.body,
-                            name: message.user.name
-                        });
-                    }
+            messages.forEach(message => {
+              // console.log(`uploading message ${message.user}`);
+              // console.log(results);
+              if (message.user === undefined || message.user === null) {
+                results.push({ msg: message.body, name: "Anonymous" });
+              } else {
+                results.push({
+                  msg: message.body,
+                  name: message.user.name
                 });
-                
-                io.emit("seed chat", results);
-            })
-            .catch(err => {
-                // res.status(404).json({ nomessagefound: "No rating found with that ID" })
-                io.emit("seed chat", []);
+              }
             });
+
+            io.emit("seed chat", results);
+          })
+          .catch(err => {
+            // res.status(404).json({ nomessagefound: "No rating found with that ID" })
+            io.emit("seed chat", []);
+          });
 
         // io.emit("seed chat", messages);
     });
@@ -116,19 +114,27 @@ io.on('connection', (socket) => {
             const newMessage = new Message({
                 body: payload.body,
                 party: payload.partyId,
-                user: payload.userId
+                user: payload.userId,
+                dateCreated: Date.now()
             });
             
-            console.log('user id is ')
+            console.log("user id is ", newMessage.user);
             newMessage.save();
+            console.log('newMessage is ', newMessage)
             let name = '';
             if (newMessage.user === null) {
-                name = 'Anonymous'
+                name = 'Anonymous';
+                console.log("name is", name);
+                io.emit("chat message", { msg: newMessage.body, name: name, partyId: newMessage.party });
             } else {
-                name = User.find({ _id: newMessage.user }).name;
+                User.findById(newMessage.user)
+                .then(user => {
+                    console.log('inside found user' , user)
+                    name = user.name
+                    console.log("name is" ,name);
+                    io.emit("chat message", { msg: newMessage.body, name: name, partyId: newMessage.party});
+                });
             }
-
-            io.emit("chat message", { msg: newMessage.body, name: name, partyId: newMessage.party});
         }
     
     });

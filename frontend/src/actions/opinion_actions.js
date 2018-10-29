@@ -2,6 +2,12 @@ import * as OpinionAPIUtil from '../util/opinion_api_util';
 
 export const RECEIVE_OPINION = "RECEIVE_OPINION";
 export const RECEIVE_OPINIONS = "RECEIVE_OPINIONS";
+export const REMOVE_OPINION = "REMOVE_OPINION";
+
+// export const receiveOpinions = parties => ({
+//   type: RECEIVE_PARTIES,
+//   parties
+// });
 
 export const receiveOpinion = opinion => ({
   type: RECEIVE_OPINION,
@@ -22,3 +28,7 @@ export const fetchPartyOpinions = partyId => dispatch => {
       dispatch(receiveOpinions(res))
     );
 };
+export const removeOpinion = opinionId => ({
+  type: REMOVE_OPINION,
+  opinionId
+});
