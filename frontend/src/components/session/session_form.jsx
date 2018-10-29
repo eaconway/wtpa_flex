@@ -113,10 +113,12 @@ class SessionForm extends React.Component {
                                         <span>Email Address</span>
                                         <input onChange={this.update('email')} type='text' />
                                     </div>
+                                    {errors.email}
                                     <div className='login-password-input-field'>
                                         <span>Password</span>
                                         <input onChange={this.update('password')} type='password' />
                                     </div>
+                                    {errors.password}
                                     <div className='login-button'>
                                         <input type='submit' value='LOG IN' />
                                         <button onClick={(e) => this.demoSignIn(e)} className='demo-login'>DEMO LOGIN</button>

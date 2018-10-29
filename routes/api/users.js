@@ -17,7 +17,7 @@ router.post("/register", (req, res) => {
     if (!isValid) {
         return res.status(400).json(errors);
     }
-    debugger
+    // debugger
     User.findOne({ name: req.body.name }).then(user => {
         if (user) {
             errors.name = "User already exists";
