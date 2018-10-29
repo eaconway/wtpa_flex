@@ -1,5 +1,6 @@
 import React from "react";
 import Search from "../search/search_container";
+import "./nav.css";
 
 class HomePage extends React.Component {
   render() {

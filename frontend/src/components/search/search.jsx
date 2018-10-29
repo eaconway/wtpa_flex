@@ -71,7 +71,7 @@ export default class Search extends React.Component {
             onClick={this.handleFocus}
             value={this.props.text}
             type="text"
-            placeholder={`Search for ${this.state.stateType}`}
+            placeholder={`Search for Events`}
             className="search__input"
           />
           <button className="headerSearch__submit submit sc-ir" type="submit" />

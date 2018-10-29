@@ -15,11 +15,13 @@ export default class Map extends React.Component {
     this.loadPlaces = this.loadPlaces.bind(this);
     this.getRandomInt = this.getRandomInt.bind(this);
     this.parseTime = this.parseTime.bind(this);
+    // this.orderByDate = this.orderByDate.bind(this);
+    this.handleHover = this.handleHover.bind(this);
+    this.handleOut = this.handleOut.bind(this);
   }
 
   componentDidMount() {
-    this.props.requestParty("5bcf6482ffb3ee129aef1e23")
-    .then(() => {
+    this.props.requestParty("5bcf6482ffb3ee129aef1e23").then(() => {
       this.places = this.props.parties.map(party => ({
         type: "Feature",
         properties: {
@@ -29,8 +31,7 @@ export default class Map extends React.Component {
         geometry: {
           type: "Point",
           coordinates: [party.lat, party.lng]
-        },
-
+        }
       }));
 
       //create the map
@@ -41,9 +42,9 @@ export default class Map extends React.Component {
         // pitch: 60,
         zoom: 11
       });
-  
+
       this.map.addControl(new mapboxgl.FullscreenControl());
-  
+
       // On load, fill map with actions
       this.map.on("load", () => {
         // Add a layer showing the places.
@@ -79,11 +80,8 @@ export default class Map extends React.Component {
               // Ensure that if the map is zoomed out such that multiple
               // copies of the feature are visible, the popup appears
               // over the copy being pointed to.
-              while (
-                Math.abs(e.lngLat.lng - coordinates[0]) > 180
-              ) {
-                coordinates[0] +=
-                  e.lngLat.lng > coordinates[0] ? 360 : -360;
+              while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
               }
 
               new mapboxgl.Popup()
@@ -105,9 +103,8 @@ export default class Map extends React.Component {
             });
           }
         );
-
+      });
     });
-  })
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mozeiny/cjno0fjbi0tsq2rrq9g7vvs5c",
@@ -116,10 +113,7 @@ export default class Map extends React.Component {
       zoom: 13
     });
     this.map.addControl(new mapboxgl.FullscreenControl());
-    
   }
-
-  
 
   componentDidUpdate() {
     if (this.props.venues.length > 0) {
@@ -155,7 +149,7 @@ export default class Map extends React.Component {
   }
 
   render() {
-    console.log('attempting to render map');
+    console.log("attempting to render map");
     var windowHeight = window.innerHeight - 50;
     const style = {
       center: [-122.400523, 37.778266],
@@ -174,9 +168,7 @@ export default class Map extends React.Component {
     let coordinates = [];
     this.state.markers.forEach(m => m.remove());
     let that = this;
-    const ordered = this.props.artistSearch
-      ? this.orderByDate()
-      : this.props.venues;
+    let ordered = this.props.venues;
     ordered.forEach(place => {
       let venue = place._embedded.venues[0];
       let time = that.parseTime(
@@ -187,13 +179,13 @@ export default class Map extends React.Component {
       if (!venue.location) {
         return;
       }
-      const location = venue.location;
-      const image = venue.images
+      let location = venue.location;
+      let image = venue.images
         ? venue.images[that.getRandomInt(0, venue.images.length)].url
         : place.images[that.getRandomInt(0, place.images.length)].url;
-      place.venue = venue;
-      place.time = time;
-      place.location = location;
+      // place.venue = venue;
+      // place.time = time;
+      // place.location = location;
       const [longitude, latitude] = [
         parseFloat(location.longitude),
         parseFloat(location.latitude)
