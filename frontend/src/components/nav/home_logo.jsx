@@ -13,7 +13,8 @@ class HomePage extends React.Component {
         />
         <div className="nav-search">
           <i className="fas fa-search search-icon" />
-          <input type="text" className="search-input" placeholder="Search" />
+          {/* <input type="text" className="search-input" placeholder="Search" /> */}
+          <Search className="search-input" />
         </div>
       </div>
     );
