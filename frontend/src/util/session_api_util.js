@@ -58,6 +58,7 @@ export const loginUser = userData => dispatch => {
             dispatch(setCurrentUser(Object.assign({}, decoded, payload )));
         })
         .catch(err =>{
+            debugger
             return (
                 dispatch({
                     type: GET_ERRORS,

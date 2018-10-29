@@ -292,3 +292,8 @@
 .bold {
   font-weight: bold;
 }
+
+.left-sidebar-mf-ratio-slider {
+  width: 100%;
+  height: 80px;
+}
