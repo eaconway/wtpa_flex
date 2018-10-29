@@ -21,9 +21,9 @@ class UpdateProfile extends React.Component {
     this.props.updateUser({name: this.state.name, location: this.state.location, phone: this.state.phone, thingsilove: this.state.thingsilove1 + ', ' + this.state.thingsilove2 + ', ' + this.state.thingsilove3, bio: this.state.bio});
   }
 
-  deleteAccount() {
-    this.props.deleteUser(this.props.currentUser.id).then(() => this.props.history.push('/'));
-  }
+  // deleteAccount() {
+  //   this.props.deleteUser(this.props.currentUser.id).then(() => this.props.history.push('/'));
+  // }
 
   update(field) {
     return (e) => this.setState({[field]: e.target.value});

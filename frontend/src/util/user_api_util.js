@@ -16,7 +16,7 @@ export const fetchUsers = () => {
         .get('/api/users')
 };
 
-export const deleteUser = () => {
-    return axios
-        .delete('/api/users')
-};
+// export const deleteUser = () => {
+//     return axios
+//         .delete('/api/users')
+// };
