@@ -19,18 +19,19 @@
 .fa-plus {
   color: black;
   position: absolute;
-  z-index: 5;
-  right: 736px;
-  top: 256px;
+  right: 577px;
+  top: 153px;
 }
 
 .avatar-dropzone {
   width: 100%;
   height: 100%;
-  margin-top: -20px;
+    z-index: 5;
+  margin-top: -170px;
 }
 
 .avatar-section {
+  position: relative;
   width: 100%;
   height: 170px;
   float: left;

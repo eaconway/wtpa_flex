@@ -57,6 +57,11 @@
   color: #222;
 }
 
+input {
+  color: black;
+  margin-left: 10px;
+}
+
 .home-logo-comp img {
   height: 44px;
 }
@@ -71,7 +76,7 @@
   font-size: 16px;
 }
 
-.nav-bar-container{
+.nav-bar-container {
   padding-left: 14px;
   display: flex;
   justify-content: center;
@@ -91,8 +96,6 @@
 .header-avatar {
   height: 1210px;
 }
-
-
 
 /* HOME LOGO */
 
@@ -163,7 +166,6 @@
 }
 
 .login-link-header {
-  
   margin-right: 30px;
   cursor: pointer;
   color: #a1a3a2;

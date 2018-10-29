@@ -8,9 +8,14 @@ import {requestParties, requestParty} from '../../actions/party_actions';
 import Map from "./map";
 import './map.css';
 
-const mapStateToProps = (state, ownProps) => ({
-  parties: Object.values(state.parties)
-});
+const mapStateToProps = state => {
+  return {
+    venues: state.events.venue,
+    artistSearch: state.search_status,
+    parties: Object.values(state.parties)
+  };
+};
+
 
 const mapDispatchToProps = dispatch => ({
   highlightMarker: place => dispatch(highlightMarker(place)),
