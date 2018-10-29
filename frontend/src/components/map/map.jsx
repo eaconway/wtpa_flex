@@ -22,7 +22,7 @@ export default class Map extends React.Component {
       container: this.mapContainer,
       style: "mapbox://styles/mozeiny/cjno0fjbi0tsq2rrq9g7vvs5c",
       center: [-122.400523, 37.778266],
-      pitch: 60,
+      // pitch: 60,
       zoom: 13
     });
     this.map.addControl(new mapboxgl.FullscreenControl());
