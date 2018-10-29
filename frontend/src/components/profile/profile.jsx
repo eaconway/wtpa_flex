@@ -40,16 +40,16 @@ class Profile extends React.Component {
     let upload = request.post(CLOUDINARY_UPLOAD_URL)
       .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
       .field('file', file);
-    upload.end = (err, response) => {
-      debugger
 
+    upload.end((err, response) => {
       if (err) {
         console.error(err);
       }
 
       let height = response.body.height;
       let width = response.body.width;
-      if(height > width){height = width} else {width = height}
+      if (height > width) { height = width } else { width = height }
+
 
       if (response.body.secure_url !== '') {
         this.setState({
@@ -63,7 +63,7 @@ class Profile extends React.Component {
           profilePicture: this.state.uploadedFileCloudinaryUrl
         });
       }
-    }
+    });
   }
 
   update(field) {
