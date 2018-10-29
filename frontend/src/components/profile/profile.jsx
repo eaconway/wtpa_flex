@@ -1,7 +1,7 @@
 import React from 'react';
 import './profile.css';
-// import Dropzone from 'react-dropzone';
-// import request from 'superagent';
+import Dropzone from 'react-dropzone';
+import request from 'superagent';
 
 const CLOUDINARY_UPLOAD_PRESET = "d02vszw5";
 const CLOUDINARY_UPLOAD_URL = "https://api.cloudinary.com/v1_1/WTPA/upload";
@@ -22,7 +22,7 @@ class Profile extends React.Component {
     uploadedProfilePic: '', uploadedFileCloudinaryUrl: '' //facebook: //this.props.currentUser.social.facebook, twitter: this.props.currentUser.social.twitter, instagram: this.props.currentUser.social.instagram, linkedin: this.props.currentUser.social.linkedin, youtube: this.props.currentUser.social.youtube 
     };
     // this._handleProfilePicChange = this._handleProfilePicChange.bind(this);
-    this._handleSubmit = this._handleSubmit.bind(this);
+    // this._handleSubmit = this._handleSubmit.bind(this);
     // this.imageExists = this.imageExists.bind(this);
     this.updateProfileField = this.updateProfileField.bind(this);
     this.showInputField = this.showInputField.bind(this);
@@ -37,47 +37,50 @@ class Profile extends React.Component {
   }
 
   handleImageUpload(file) {
-    // let upload = request.post(CLOUDINARY_UPLOAD_URL)
-    //   .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-    //   .field('file', file);
+    let upload = request.post(CLOUDINARY_UPLOAD_URL)
+      .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+      .field('file', file);
+    upload.end = (err, response) => {
+      debugger
 
-    // upload.end = (err, response) => {
-    //   if (err) {
-    //     console.error(err);
-    //   }
+      if (err) {
+        console.error(err);
+      }
 
-    //   let height = response.body.height;
-    //   let width = response.body.width;
-    //   if(height > width){height = width} else {width = height}
-    // }
+      let height = response.body.height;
+      let width = response.body.width;
+      if(height > width){height = width} else {width = height}
+
+      if (response.body.secure_url !== '') {
+        this.setState({
+          uploadedFileCloudinaryUrl: response.body.secure_url.replace(
+            "v" + response.body.version.toString(),
+            `w_${width},h_${height},c_crop,g_face,r_max/w_170`
+          )
+        });
+        this.props.updateUser({
+          id: this.props.currentUserId,
+          profilePicture: this.state.uploadedFileCloudinaryUrl
+        });
+      }
+    }
   }
 
   update(field) {
     return (e) => this.setState({[field]: e.target.value});
   }
 
-  _handleSubmit(e) {
-    e.preventDefault();
-    // if (this.imageExists(this.state.online_url)) {
-    //   this.props.updateUser({ id: this.props.currentUser.id, image_url: this.state.online_url }).then(
-    //     this.eventFire(document.getElementById('cog'), 'click'));
-    // } else 
-    if (this.imageExists(this.state.imagePreviewUrl)) {
-      this.props.updateUser({ id: this.props.currentUser.id, profilePicture: this.state.imagePreviewUrl });
-    }
-    // if (response.body.secure_url !== '') {
-    //   this.setState({
-    //     uploadedFileCloudinaryUrl: response.body.secure_url.replace(
-    //       "v" + response.body.version.toString(),
-    //       `w_${width},h_${height},c_crop,g_face,r_max/w_170`
-    //     )
-    //   });
-    //   this.props.updateUser({
-    //     id: this.props.currentUserId,
-    //     profilePicture: this.state.uploadedFileCloudinaryUrl
-    //   });
-    // }
-  }
+  // _handleSubmit(e) {
+  //   e.preventDefault();
+  //   // if (this.imageExists(this.state.online_url)) {
+  //   //   this.props.updateUser({ id: this.props.currentUser.id, image_url: this.state.online_url }).then(
+  //   //     this.eventFire(document.getElementById('cog'), 'click'));
+  //   // } else 
+  //   if (this.imageExists(this.state.imagePreviewUrl)) {
+  //     this.props.updateUser({ id: this.props.currentUser.id, profilePicture: this.state.imagePreviewUrl });
+  //   }
+
+  // }
     
     
 
@@ -179,17 +182,15 @@ class Profile extends React.Component {
             <div className="avatar-section">
               <div className="avatar-position" >
                 {profilePicture}
-                <label for='file-input'>
-                  <i className="fas fa-plus"></i>
-                </label>
-                <input id='file-input' className="avatar-fileInput"
+                {/* <input id='file-input' className="avatar-fileInput"
                   type="file"
-                  onChange={this._handleProfilePicChange} />
-              {/*<Dropzone className='avatar-dropzone'
-                multiple={false}
-                accept="image/*"
-                onDrop={this.onImageDrop.bind(this)}>
-              </Dropzone>*/}
+                  onChange={this._handleProfilePicChange} /> */}
+                <Dropzone className='avatar-dropzone'
+                  multiple={false}
+                  accept="image/*"
+                  onDrop={this.onImageDrop.bind(this)}>
+                </Dropzone>
+                <i className="fas fa-plus"></i>
               </div>
             </div>
           <div className="users-location">San Francisco, CA</div>
